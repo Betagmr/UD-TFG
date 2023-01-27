@@ -1,0 +1,85 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Using Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{lipsum}
+\usepackage{mdframed}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{glossaries}
+\usepackage[spanish]{babel}
+\usepackage[sorting=none]{biblatex}
+\usepackage[hidelinks]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{csquotes}
+\usepackage{pdfpages}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{a4paper}
+\graphicspath{{img/}}
+\addbibresource{bibliography.bib}
+
+\fancyhf{}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+\lfoot{\thepage}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+\lhead{PROYECTO FIN DE GRADO}
+
+\titleformat{\section}
+{\rmfamily\Large\raggedleft\uppercase}{\thesection.}{0.1cm}{}[{\titlerule[0.5pt]}]
+\titleformat{\subsection}
+    {\rmfamily\large\uppercase}{\thesubsection.}{0.1cm}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Plotting Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{width=8cm,compat=1.9}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Redes Neuronales Convolucionales}
+\author{Asier Villar}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Components %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\listequationsname}{\Large{Índice de ecuaciones}}
+\newcommand{\myequations}[1]{
+    \addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}
+}
+
+\newcommand{\equationNote}[2]{
+    \begin{align} \label{#2} \ensuremath{\boxed{#1}} \end{align} 
+    \myequations{#2} \centering \small \textit{#2} \normalsize \justify 
+}
+
+\newlistof{myequations}{equ}{\listequationsname}
+\setlength{\cftmyequationsnumwidth}{2.3em}
+\setlength{\cftmyequationsindent}{1.5em}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \pagenumbering{roman}
+    \includepdf[pages={1}]{frontpage.pdf}
+    \includepdf[pages={1}]{frontpage.pdf}
+    \input{pages/summary.tex} 
+    \input{pages/index.tex} 
+    \pagenumbering{arabic}
+    \input{pages/introduction.tex}
+
+    \section{Redes Neuronales Convolucionales}
+        \lipsum[1]
+
+    \printbibliography[title=Bibliografía]
+
+\end{document}
