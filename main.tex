@@ -69,16 +69,18 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
     \pagenumbering{roman}
     \includepdf[pages={1}]{frontpage.pdf}
     \includepdf[pages={1}]{frontpage.pdf}
     \input{pages/summary.tex} 
     \input{pages/index.tex} 
+
     \pagenumbering{arabic}
     \input{pages/introduction.tex}
-
-    \section{Redes Neuronales Convolucionales}
-        \lipsum[1]
+    \input{pages/mlops.tex}
+    \input{pages/proyect_setup.tex}
+    \input{pages/evaluation.tex}
 
     \printbibliography[title=Bibliografía]
 
