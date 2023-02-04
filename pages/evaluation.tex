@@ -1,0 +1,35 @@
+\section{Sistema de evaluación del modelo}
+    Un buen sistema de evaluación es esencial para un proyecto de machine learning. 
+    No solo es útil por el hecho de medir la precisión y el rendimiento de los modelos, 
+    sino que además sirve como un identificador claro de nuestro progeso dentro del desarrollo. 
+    El seleccionar el modelo óptimo en fases tempranas del proceso no es tan importante 
+    como el saber que las iteraciones en las que gastamos tiempo y recursos estan teniendo un impacto 
+    positivo en su aprendizaje. Aunque físicamente es imposible conseguir una productividad 
+    perfecta, con ayuda de una metodología sólida es posible reducir al maximo esta problemática.
+    
+    \subsection{Selección de métrica}
+    El objetivo de una métrica es, mediante ponderacion numérica, identificar errores en el modelo y 
+    servir como ayuda para la toma de decisiones, cambios en el diseñe o la soluación de problemas. En el caso del 
+    FJSP, el objetivo es encontrar una acorde a la tarea que queramos abordar. En la literatura se atacan dos puntos
+    principalmente: \textit{minimizar el tiempo de finalización} y \textit{minimizar el tiempo de espera entre máquinas}. 
+
+    \begin{itemize}
+        \item \textbf{Minimizar el tiempo de espera entre máquinas:} mide el tiempo promedio que cada operación debe 
+        esperar antes de ser procesado en una máquina específica. Esta métrica es importante porque 
+        indica la eficiencia del sistema en términos de cómo se están utilizando los recursos disponibles 
+        y cómo se gestionan los trabajos en las colas.
+        \item \textbf{Minimizar el tiempo de finalización:} se basa en el tiempo total que se tarda en completar todos 
+        los trabajos del sistema. Es un buen indicador porque evalúa el rendimiento global del sistema 
+        y la eficacia para completar el proceso en el plazo establecido. 
+    \end{itemize}
+
+    Aunque ambas métricas son importantes, la segunda es la que se vamos a utilizar como referencia en cuanto al
+    desempeño del modelo, ya que uno de nuestros objetivos principales es reducir los tiempos de producción y no tanto
+    aprobechar las máquinas lo máximo posible. Es posible utilizar ambas para identificar puntos débiles tanto del modelo 
+    como del propio proceso que se quiere optimizar pero, por la propia idiosincrasia de las mismas, el mejorar la puntuación
+    en una de ellas inevitablemente afectara negativamente la puntuación de la otra en un amplio número de casuísticas.
+
+    \subsection{Implementación de la métrica} 
+
+
+\pagebreak
