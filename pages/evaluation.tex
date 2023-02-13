@@ -47,30 +47,35 @@
     modelo, sino que tambien añadiremos otras alternativas para la resolución del problemas como reglas de
     ordenación, algoritmos geneticos o metodos exactos. Para ello, contamos con un dataset de 10 instancias
     específicas que están siendo utilizadas en la literatura para la comparación de modelos. Estas instancias
-    son extraidas del siguiente repositorio \cite*{ptal} de GitHub.
+    son extraidas del siguiente repositorio \cite*{ptal} de GitHub.\medskip
+
+    No solo vamos a tener en cuenta el time spam, sino que también vamos a utilizar el tiempo de cálculo,
+    ya que es un factor primordial a la hora de comparar diferentes casos de uso y que puede afectar
+    directamente a la toma de decisiones. Por ello, vamos a utilizar la siguiente tabla para la comparación. 
+
 
     \begin{table}[ht]
         \centering
-        \begin{tabular}[t]{lcccc}
+        \begin{tabular}[t]{|lcccc|c|}
             \hline
-            & Model v0 & Model v1 & Treatment C & Treatment D \\
+            & Model v0 & Model v1 & Model v2 & Model v3 & FIFO \\
             \hline
-            MK01  & 2.850 & 0.923 & -- & -- \\
-            MK02  & 3.661 & 0.191 & -- & -- \\
-            MK03  & 3.583 & 0.850 & -- & -- \\
-            MK04  & 1.877 & 0.494 & -- & -- \\
-            MK05  & 8.578 & 1.122 & -- & -- \\
-            MK07  & 3.143 & 1.288 & -- & -- \\
-            MK08  & 2.809 & 0.246 & -- & -- \\
-            MK09  & 5.302 & 0.567 & -- & -- \\
-            MK10  & 6.898 & 0.786 & -- & -- \\
+            MK01  & 2.850 & 0.923 & -- & -- & -- \\
+            MK02  & 3.661 & 0.191 & -- & -- & -- \\
+            MK03  & 3.583 & 0.850 & -- & -- & -- \\
+            MK04  & 1.877 & 0.494 & -- & -- & -- \\
+            MK05  & 8.578 & 1.122 & -- & -- & -- \\
+            MK07  & 3.143 & 1.288 & -- & -- & -- \\
+            MK08  & 2.809 & 0.246 & -- & -- & -- \\
+            MK09  & 5.302 & 0.567 & -- & -- & -- \\
+            MK10  & 6.898 & 0.786 & -- & -- & -- \\
             \hline
-            Proc time & 03:00 & 01:03 & -- & --  \\
-            AVG   & 4.282 & 0.709 & -- & -- \\
+            Calc time & 03:00 & 01:03 & -- & -- & -- \\
+            AVG       & 4.282 & 0.709 & -- & -- & -- \\
             \hline
         \end{tabular}
         \caption{Tabla con los resultados del benchmarking}
-    \end{table}
+    \end{table} 
 
 
 \pagebreak
