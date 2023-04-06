@@ -1,0 +1,185 @@
+\section{Antecedentes y justificación}
+El objetivo de esta seccion es describir las condiciones del entorno en el que se lleva a cabo 
+el proyecto, se recopilarán datos e información sobre la situación actual en lo que respecta al FJSP, 
+incluyendo la utilización de diferentes tecnicas que han sido utilizadas historicamente para su resolución. 
+Para ello, se revisará el estado del arte y las últimas tendencias en este campo, con el fin de obtener una 
+mejor comprensión del problema y explicar la oportunidad de realizar nuevos aportes en esta área de investigación.
+
+
+\subsection{Estado del arte}
+\subsubsection{Metodos exactos}
+Los métodos exactos se basan en la resolución matemática del problema, y pueden garantizar la 
+obtención de soluciones óptimas en teoría. Sin embargo, estos métodos suelen ser computacionalmente 
+costosos y, por lo tanto, se aplican principalmente a problemas de tamaño reducido.\medskip
+
+En el caso del FJSP, algunos métodos exactos que se han utilizado incluyen la programación 
+lineal de enteros mixta (MILP)\cite{milp}, que modela el problema como un conjunto de restricciones lineales y 
+una función objetivo lineal, y la programación por restricciones (CP)\cite{wikiCP}, que reduce el problema a
+un conjunto de restricciones lógicas y utiliza técnicas de búsqueda para encontrar soluciones que satisfagan 
+todas las restricciones. Existen aplicaciones hechas por google como Ortools\cite{ortools}
+o por IBM como CPLEX\cite{cplex}, que son ejemplos de soluciones que utilizan estos métodos exactos para resolver
+problemas de optimización. Estas aplicaciones son muy útiles para resolver instancias de tamaño reducido,
+pero no son capaces de resolver instancias de tamaño grande, debido a la gigantesca dimensionalidad que
+implica el resolver este tipo de problemas por métodos exactos.
+
+
+\subsubsection{Metodos heurísticos}
+Un método heurístico es un algoritmo o técnica de búsqueda que está diseñado para encontrar 
+soluciones aproximadas a problemas de optimización, cuando las soluciones exactas son difíciles 
+de encontrar. Los métodos heurísticos son útiles cuando el tiempo y los recursos son limitados, 
+y cuando el problema a resolver es demasiado complejo para ser resuelto por medios exactos. 
+Estos métodos se basan en la experiencia y el conocimiento previo para generar soluciones que 
+son buenas pero no necesariamente óptimas. Los métodos heurísticos pueden ser aplicados a una 
+amplia variedad de problemas de optimización, incluyendo el FJSP.\medskip
+
+En el caso del FJSP, existen diferentes métodos heurísticos que se han utilizado con éxito 
+para encontrar soluciones aproximadas. Un ejemplo es el algoritmo de búsqueda tabú, 
+que se basa en la exploración de soluciones vecinas para encontrar soluciones cada vez mejores. 
+Otro ejemplo es el algoritmo de búsqueda local, que busca soluciones iterativamente en una 
+vecindad de soluciones. También se ha utilizado el enfoque basado en la construcción de 
+soluciones parciales, donde se construyen soluciones en etapas, utilizando información previa 
+y reglas heurísticas para guiar el proceso de construcción. Todos estos métodos heurísticos 
+han demostrado ser efectivos para resolver el problema de FJSP, y se pueden adaptar y mejorar 
+para abordar variantes más complejas del problema.
+
+\subsubsection{Algoritmos genéticos}
+Los algoritmos genéticos son una técnica de optimización inspirada en la evolución biológica.
+Estos algoritmos imitan el proceso de selección natural, reproducción y mutación en la búsqueda 
+de soluciones óptimas o cercanas a la óptima para problemas de optimización combinatoria. La 
+idea básica de los algoritmos genéticos es utilizar la selección natural para encontrar soluciones
+mejores a través de la generación de nuevas soluciones a partir de soluciones existentes y la 
+aplicación de operadores de cruce y mutación.\medskip
+
+En la literatura, estos algoritmos han sido ampliamente utilizados y han demostrado ser 
+efectivos para encontrar soluciones de alta calidad. La representación cromosómica utilizada 
+en los algoritmos genéticos se basa en la codificación de una solución del problema de FJSP 
+como una cadena de genes, y los operadores genéticos como el cruzo o la mutación, se aplican 
+para producir nuevas soluciones o realizar ligeros cambios en aquellas ya existentes. Una de 
+sus principales ventajas es que pueden manejar fácilmente múltiples objetivos y restricciones 
+adicionales, y son capaces de explorar ampliamente el espacio de soluciones.\medskip
+
+En cambio uno de sus problemas es que los algoritmos genéticos pueden requerir una gran cantidad 
+de tiempo y esfuerzo para encontrar soluciones aceptables, y no siempre garantizan encontrar la 
+mejor solución posible. Además, pueden requerir ajustes cuidadosos de los parámetros y una 
+cuidadosa selección de operadores para funcionar bien en diferentes instancias del problema y 
+tienen tendencia a sufrir de prematura convergencia lo que genera dificultades para escapar de 
+óptimos locales.
+
+\subsubsection{Algoritmos híbridos}
+Los algoritmos híbridos son aquellos que combinan dos o más algoritmos que resuelven el mismo problema. 
+En el caso del FJSP, los algoritmos híbridos combinan diferentes técnicas de optimización para encontrar 
+soluciones. Por ejemplo, un algoritmo híbrido podría combinar un algoritmo genético con un algoritmo de 
+búsqueda local para aprovechar las ventajas de ambos y mejorar la calidad de las soluciones encontradas.
+
+\subsubsection{Redes neuronales}
+Las redes neuronales son una clase de algoritmos de aprendizaje automático inspirados en la 
+estructura y el funcionamiento del cerebro humano. Estas redes están formadas por múltiples 
+capas de neuronas interconectadas que procesan información para resolver problemas de clasificación, 
+regresión, reconocimiento de patrones, entre otros.\medskip
+
+En el contexto del FJSP, las redes neuronales pueden ser utilizadas para aprender patrones en los datos
+de entrada del problema, como la secuencia de tareas y las restricciones de precedencia. Esto puede 
+ayudar a generar soluciones de alta calidad al FJSP, incluso para instancias de problemas grandes y 
+complejas. Además, las redes neuronales también pueden ser entrenadas para mejorar la calidad de las 
+soluciones generadas por otros algoritmos de optimización, como los algoritmos genéticos y los métodos 
+heurísticos.\medskip
+
+La principal ventaja de las redes neuronales es su capacidad para manejar datos no lineales y ruidosos, 
+y para detectar patrones complejos en los datos de entrada. Sin embargo, las redes neuronales también 
+pueden presentar desafíos en el entrenamiento y ajuste de los hiperparámetros, y pueden ser propensas 
+a sobreajuste si no se controlan adecuadamente, pero incluso con esos inconvenientes son una de las 
+técnicas más prometedoras para el FJSP y pueden ser utilizadas en combinación con otras técnicas de 
+optimización para mejorar la calidad de las soluciones.
+
+\subsubsection{Reinforcement learning}
+El aprendizaje por refuerzo es una técnica de aprendizaje que se basa en la idea de que un agente 
+interactúa con un entorno para aprender a tomar decisiones óptimas en función de las recompensa 
+recibida por sus acciones. En el aprendizaje por refuerzo, el agente aprende a través de la 
+experiencia, probando diferentes acciones y observando las recompensas asociadas con cada una 
+de ellas, con el objetivo de maximizar la recompensa total a largo plazo.\medskip
+
+En el contexto del FJSP, el aprendizaje por refuerzo puede ser utilizado para entrenar a un 
+agente que toma decisiones secuenciales sobre la asignación de tareas a máquinas y la 
+planificación de la secuencia de tareas, con el objetivo de minimizar el tiempo total de producción. 
+Una de las principales ventajas del aprendizaje por refuerzo es su capacidad para aprender directamente 
+de la experiencia, sin la necesidad de un modelo matemático explícito del problema, lo que lo hace 
+útil para resolver problemas complejos y mal definidos como el FJSP. Sin embargo, el aprendizaje 
+por refuerzo también presenta desafíos en la definición de la función de recompensa y en la 
+selección de la política óptima que maximiza la misma. Además, requiere de una gran cantidad de tiempo 
+y recursos computacionales para entrenar al agente en instancias del problema de FJSP grandes y complejas.
+
+\subsubsection{Imitation learning}
+El aprendizaje por imitación es una técnica de aprendizaje por refuerzo en la que un modelo aprende
+a partir de ejemplos proporcionados por un experto. En el aprendizaje por imitación, el modelo trata
+de imitar la forma en que el experto realiza una determinada tarea, utilizando los ejemplos como guía.
+Además, el experto no tiene por qué ser una persona física, también es posible utilizar algoritmos de
+optimización para generar soluciones de alta calidad, y luego utilizar estas soluciones como ejemplos
+de entrenamiento para el aprendizaje por imitación.\medskip
+
+Esta técnica puede ser utilizada para aprender a generar soluciones de alta calidad a partir de 
+configuraciones previamente resueltas por un experto, esto es gracias a que el modelo es capaz de 
+identificar patrones y características comunes en las soluciones óptimas del problema. Luego, el 
+modelo puede ser utilizado para generar nuevas soluciones que imiten el comportamiento del experto 
+humano. Una de las principales ventajas del aprendizaje por imitación es que los datos que se le 
+ofrece son soluciones de alta calidad, lo que agiliza el entrenamiento sin requerir la optimización 
+iterativa del problema. 
+
+\subsubsection{Ensenble learning}
+Un ensamblador en machine learning, también conocido como ensemble learning, es una técnica que 
+combina múltiples modelos de aprendizaje automático para mejorar la precisión y estabilidad de 
+las predicciones. Cada uno de estos algoritmos puede tener fortalezas y debilidades en términos 
+de su capacidad para encontrar soluciones óptimas en diferentes instancias del problema. Al 
+combinarlos en un ensamblador, se pueden aprovechar las fortalezas de cada uno de ellos y obtener
+soluciones más robustas y de mejor calidad.\medskip
+
+Cada modelo produce una predicción diferente y las predicciones de los distintos modelos se combinan 
+para obtener una única predicción. Existen diferentes tipos de ensemblers como 
+el ensamble por votación, el ensamble por bagging, el ensamble por boosting y el ensamble por stacking.
+Cada uno de estos ensemblers representa una estrategia diferente para combinar las predicciones de
+los distintos modelos, por ejemplo en el ensamble por votación, cada modelo vota por la accion a la que predice, 
+y la resultante con mayor número de votos es la predicción final.
+
+\subsection{Antecedentes}
+Una vez terminada la investigación sobre el estado actual del problema, se explorarán diversas ideas 
+y reflexiones que han supuesto un impacto previo para la motivación de este trabajo. A nivel de industria, se 
+presentan dos principales desafíos que enfrenta este problema de optimización combinatoria: la utilidad de los 
+algoritmos metaheurísticos en escenarios online, y la capacidad de los usuarios para expresar claramente las 
+funcionalidades y restricciones del problema. En ambos casos, se explicaran los antecedentes que han motivado
+el desarrollo de este trabajo y se presentarán las principales ideas que se han explorado en la literatura.\medskip
+
+De acuerdo a la investigacion realizada con anterioridad, si bien los metaheurísticos son ampliamente utilizados 
+en la solución de problemas de optimización, su velocidad y practicidad en situaciones reales pueden ser limitadas, 
+ya que a menudo requieren de una gran cantidad de iteraciones y evaluaciones para encontrar una solución óptima. 
+Esto puede resultar en un tiempo de ejecución prolongado, lo que no es adecuado para aplicaciones en tiempo real 
+o decisiones a corto plazo. El buscar un sistema que pueda resolver el problema en tiempo real es un desafío 
+importante para la industria, ya que la capacidad de tomar decisiones rápidas y eficientes es crucial.\medskip 
+
+Otro de los desafíos que enfrenta la industria es la capacidad de los usuarios para expresar claramente las
+funcionalidades y restricciones del problema. En la mayoría de las situaciones, los usuarios no tienen conocimientos
+suficientes o la capacidad de expresar las restricciones del problema de forma precisa, pero si son capaces de
+indentificar las soluciones óptimas. Por ejemplo, en el caso de la logística en el transporte, donde una empresa 
+de transporte de mercancías puede tener una idea clara de cómo quisiera asignar los vehículos a las rutas de 
+entrega para minimizar los tiempos de viaje y los costos de combustible. Sin embargo, expresar todas las 
+restricciones y consideraciones relacionadas con la capacidad de los vehículos, los horarios de los conductores, 
+las restricciones de tiempo y las regulaciones de tráfico en una formulación matemática puede resultar complicado 
+y requerir un conocimiento técnico multidisciplinario.\medskip
+
+En este escenario, los operadores con experiencia podrían proporcionar soluciones de alta calidad, que luego 
+podrían ser utilizados como datos de entrenamiento para un modelo de Imitation learning. El modelo aprendería 
+a imitar el comportamiento del experto a partir de estos ejemplos, capturando así la intuición y el conocimiento 
+tácito que tienen los usuarios, pero que pueden tener dificultades para expresar de manera formal. De esta manera, 
+se podra abordar la brecha entre el conocimiento tácito de los operadores y la representación formal de las 
+funcionalidades y restricciones del problema, permitiendo desarrollar soluciones más precisas y efectivas.\medskip
+
+En conclusión, la idea de aprovechar el conocimiento tácito de los expertos en la resolución de problemas de 
+optimización combinatoria a través de técnicas de inteligencia artificial ofrece un prometedor potencial. La 
+capacidad de capturar el conocimiento de los usuarios que enfrentan dificultades en la formulación
+del problema, puede ser clave para mejorar la efectividad en la toma de decisiones para procesos complejos. Además,
+si gracias a estas técnicas logramos inferir una estrategia para construir soluciones a partir de ese conocimiento,
+podríamos solucionar colateralmente el problema del tiempo de ejecución que habíamos identificado en los algoritmos 
+metaheurísticos, ya que no necesitaríamos explorar todo el espacio de soluiciones para encontrar una solución óptima,
+lo que nos permitiría reducir el tiempo de ejecución de los algoritmos drasticamente.
+
+
+
+\pagebreak
