@@ -1,0 +1,34 @@
+\section{Modelado del problema}
+El modelado del problema es una de los campos con mayor potencial dentro del FJSP, el tener una propuesta
+solida con la que trabajar repercutirá directamente en los resultados finales, por lo que es necesario
+contemplar diferentes propuestas y hacer una valoración objetiva.
+
+\subsection{Reinforcement Learning}
+Nuestra solucion se basa en la decisión de utilizar Reinforcement Learning (RL), ya que puede ser útil a la hora
+de resolver este tipo de problemas de optimización combinatoria. El RL es un tipo de aprendizaje automático que
+se basa en la interacción de un agente con un entorno. El agente toma decisiones en función de la información
+que recibe del entorno y obtiene una recompensa o penalización acorde a las decisiones que toma. El objetivo
+del agente es maximizar la recompensa total obtenida a lo largo del tiempo. Este tipo de técnicas se pueden
+utilizar para resolver problemas de optimización combinatoria en los que el espacio de estados es muy grande
+y no es posible explorar todas sus combinaciones. En este tipo de problemas, el RL puede ser útil para encontrar
+soluciones óptimas (o aproximaciones) sin necesidad de explorar todo el espacio de estados.
+
+Nuestro agente puede ser entrenado para tomar decisiones óptimas, estas acciones haran referencia a la
+asignación de tareas a máquinas y su objetivo será aprender a proveer de una solución al problema.
+Es especialmente interasante el uso de RL ya que solución del problema a cambios en el entorno, como cambios en la disponibilidad
+de máquinas o en la duración de las tareas. El agente puede aprender a reaccionar de manera óptima a estos
+cambios en tiempo real. En casos en los que el espacio de estado del problema es muy grande o cambia continuamente,
+el aprendizaje por refuerzo puede ser útil para encontrar soluciones óptimas sin necesidad de
+explorar todo el espacio de estado. Esto puede ser especialmente útil en problemas de programación de taller de trabajo
+flexible con un gran número de máquinas y tareas. Dentro de un entorno de reinforcement learning, es necesario definir
+una serie de elementos: el agente, encargado de interactuar con el entorno; el estado, representación del problema;
+las acciones, interacción del agente con el entorno y el reward, recompensa asociada a las decisiones del agente.
+
+
+\subsection{Estado del environment}
+La justificación de usar PyTorch Geometrics es que ofrece soporte para el procesamiento de grafos,
+lo que significa que se puede utilizar para trabajar con redes de datos en las que los nodos están
+conectados por enlaces. Esto puede ser útil porque mediante técnicas de Deep Learning se puede analizar
+la estructura y las relaciones que existen entre los nodos de un grafo. Además, la librería ofrece herramientas
+para trabajar con diferentes tipos de grafos, como grafos dirigidos y heterogéneos, que son los utilizados en
+nuestra representación, y proporciona una serie de funciones para realizar operaciones básicas con grafos.
