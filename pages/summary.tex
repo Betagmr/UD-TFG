@@ -1,5 +1,29 @@
 \section*{Resumen}
-    \lipsum[1-3]
+El propósito del siguiente proyecto es investigar y desarrollar una nueva solución para el 
+problema de optimización “flexible job shop scheduling problem” (FJSP), que se clasifica dentro 
+de la categoría de problemas NP-hard, que son aquellos que no pueden ser resultados de forma 
+exacta por un algoritmo en un tiempo de computación polinómica. El objetivo es asignar una 
+serie de operaciones a un conjunto de máquinas, teniendo en cuenta una lista de restricciones 
+y requisitos, como por ejemplo el tiempo de procesamiento. Por último, como resultado de lo 
+anterior, se proveerá de una configuración válida, que intente minimizar el tiempo máximo de 
+finalización (makespan) de todas las máquinas.\medskip 
+
+Se propone utilizar técnicas de Imitation Learning, una variante del Reinforcement learning 
+que permite al modelo aprender a partir de ejemplos proporcionados por un experto. En nuestro 
+caso, se estudiarán técnicas de generación de ejemplos válidos que permitan al modelo aprender 
+técnicas para resolver el FJSP. La idea, es extraer configuraciones óptimas de instancias 
+pequeñas generadas aleatoriamente y utilizarlas como datos de entrenamiento para un modelo, 
+que pueda desarrollar una estrategia propia en base a las decisiones del experto y posteriormente 
+generalizar a instancias mayores.\medskip 
+
+El objetivo es mejorar la velocidad en la que se ofrecen planificaciones cercanas al óptimo, 
+ya que con este planteamiento no será necesario explorar todo el espacio de soluciones. Otro 
+de los beneficios es la adaptabilidad a variaciones del problema dinámicamente, como cambios 
+en los tiempos de procesamiento o la incorporación de nuevas operaciones. Teniendo esto en 
+cuenta, se espera obtener una solución en tiempo lineal que no se desvíe excesivamente del 
+óptimo y que pueda aplicarse a diferentes escenarios industriales e incluso en consonancia 
+con otras técnicas.
+
 \section*{Descriptores}
-    \lipsum[1]
+Reinforcement Learning, Imitation Learning, FJSP, Redes Neuronales, MLOPS
 \pagebreak

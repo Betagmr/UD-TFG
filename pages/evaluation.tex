@@ -1,81 +1,82 @@
 \section{Sistema de evaluación del modelo}
-    Un buen sistema de evaluación es esencial para un proyecto de Machine Learning. 
-    No solo es útil por el hecho de medir el rendimiento de los modelos, 
-    sino que además sirve como un identificador claro del progeso dentro del desarrollo. 
-    El seleccionar el modelo óptimo en fases tempranas del proceso no es tan importante, 
-    como el hecho de saber que las iteraciones en las que gastamos tiempo y recursos estan teniendo un impacto 
-    positivo en el resultado final. Aunque físicamente es imposible conseguir una productividad 
-    perfecta, con ayuda de una metodología sólida es posible reducir al máximo esta problemática.
-    
-    \subsection{Selección de métrica}
-    El objetivo de una métrica es, mediante ponderacion numérica, identificar errores en el modelo y 
-    servir como ayuda para la toma de decisiones, cambios en el diseñe o la soluación de problemas. En el caso del 
-    FJSP, el objetivo es encontrar una acorde a la tarea que queramos abordar. En la literatura se atacan dos puntos
-    principalmente: \textit{minimizar el tiempo de finalización} y \textit{minimizar el tiempo de espera entre máquinas}. 
+Un buen sistema de evaluación es esencial para un proyecto de Machine Learning.
+No solo es útil por el hecho de medir el rendimiento de los modelos,
+sino que además sirve como un identificador claro del progeso dentro del desarrollo.
+El seleccionar el modelo óptimo en fases tempranas del proceso no es tan importante,
+como el hecho de saber que las iteraciones en las que gastamos tiempo y recursos estan teniendo un impacto
+positivo en el resultado final. Aunque físicamente es imposible conseguir una productividad
+perfecta, con ayuda de una metodología sólida es posible reducir al máximo esta problemática.
 
-    \begin{itemize}
-        \item \textbf{Minimizar el tiempo de espera entre máquinas:} mide el tiempo promedio que cada operación debe 
-        esperar antes de ser procesado en una máquina específica. Esta métrica es importante porque 
-        indica la eficiencia del sistema en términos de cómo se están utilizando los recursos disponibles 
-        y cómo se gestionan los trabajos en las colas.
-        \item \textbf{Minimizar el tiempo de finalización:} se basa en el tiempo total que se tarda en completar todos 
-        los trabajos del sistema. Es un buen indicador porque evalúa el rendimiento global del sistema 
-        y la eficacia para completar el proceso en el plazo establecido. 
-    \end{itemize}
+\subsection{Selección de métrica}
+El objetivo de una métrica es, mediante ponderacion numérica, identificar errores en el modelo y
+servir como ayuda para la toma de decisiones, cambios en el diseñe o la soluación de problemas. En el caso del
+FJSP, el objetivo es encontrar una acorde a la tarea que queramos abordar. En la literatura se atacan dos puntos
+principalmente: \textit{minimizar el tiempo de finalización} y \textit{minimizar el tiempo de espera entre máquinas}.
 
-    Aunque ambas métricas son importantes, la segunda es la que vamos a utilizar como referencia en cuanto al
-    desempeño del modelo se refiere, ya que uno de nuestros objetivos principales es reducir los tiempos de producción y no tanto
-    aprobechar las máquinas lo máximo posible. Es una opcion combinar ambas para identificar puntos débiles tanto del modelo 
-    como del propio proceso que se quiere optimizar pero, por la propia idiosincrasia de estas métricas, el mejorar la puntuación
-    en una inevitablemente afectara negativamente a la valoración de la otra en un amplio número de casuísticas.
+\begin{itemize}
+    \item \textbf{Minimizar el tiempo de espera entre máquinas:} mide el tiempo promedio que cada operación debe
+          esperar antes de ser procesado en una máquina específica. Esta métrica es importante porque
+          indica la eficiencia del sistema en términos de cómo se están utilizando los recursos disponibles
+          y cómo se gestionan los trabajos en las colas.
+    \item \textbf{Minimizar el tiempo de finalización:} se basa en el tiempo total que se tarda en completar todos
+          los trabajos del sistema. Es un buen indicador porque evalúa el rendimiento global del sistema
+          y la eficacia para completar el proceso en el plazo establecido.
+\end{itemize}
 
-    \subsection{Implementación de la métrica} 
-    Ya hemos decidido que métrica es la indicada para evaluar nuestro modelo, pero ahora debemos
-    implementarla de acorde al contexto de nuestro problema. El siguiente paper utiliza una formula para
-    calcular el time spam que nosotros también vamos a utilizar, donde Tmax es el tiempo que tarda en 
-    finalizar el sistema y Tmin el tiempo óptimo de finalización. Nuestro objetivo como hemos mencionado 
-    previamente es acercanos lo máximoposible a la combinación optima, que en este caso seria lo equivalente a 
-    aproximarnos lo más quepodamos al 0. Además, gracias a que nuestra implementación se basa en una función 
-    matemática, podremos extrapolarla en el apartado de \textit{Benchmarking} no solo a la evaluación de nuestro
-    modelo, sino también a cualquier otro sistema externo que resuelva el problema. 
-    
-    \equationNote{f(x) = \frac{Tmax - Tmin}{Tmin}}{Formula del time spam}
-    
-    \subsection{Benchmarking}
-    Por último, es hora de definir como vamos a realizar el proceso de benchmarking. Hemos comentado en
-    el apartado anterior, que no solo incluiremos el histórico de las diferentes versiones de nuestro
-    modelo, sino que tambien añadiremos otras alternativas para la resolución del problemas como reglas de
-    ordenación, algoritmos geneticos o metodos exactos. Para ello, contamos con un dataset de 10 instancias
-    específicas que están siendo utilizadas en la literatura para la comparación de modelos. Estas instancias
-    son extraidas del siguiente repositorio \cite*{ptal} de GitHub.\medskip
+Aunque ambas métricas son importantes, la segunda es la que vamos a utilizar como referencia en cuanto al
+desempeño del modelo se refiere, ya que uno de nuestros objetivos principales es reducir los tiempos de producción y no tanto
+aprobechar las máquinas lo máximo posible. Es una opcion combinar ambas para identificar puntos débiles tanto del modelo
+como del propio proceso que se quiere optimizar pero, por la propia idiosincrasia de estas métricas, el mejorar la puntuación
+en una inevitablemente afectara negativamente a la valoración de la otra en un amplio número de casuísticas.
 
-    No solo vamos a tener en cuenta el time spam, sino que también vamos a utilizar el tiempo de cálculo,
-    ya que es un factor primordial a la hora de comparar diferentes casos de uso y que puede afectar
-    directamente a la toma de decisiones. Por ello, vamos a utilizar la siguiente tabla para la comparación. 
+\subsection{Implementación de la métrica}
+Ya hemos decidido que métrica es la indicada para evaluar nuestro modelo, pero ahora debemos
+implementarla de acorde al contexto de nuestro problema. El siguiente paper utiliza una formula para
+calcular el time spam que nosotros también vamos a utilizar, donde Tmax es el tiempo que tarda en
+finalizar el sistema y Tmin el tiempo óptimo de finalización. Nuestro objetivo como hemos mencionado
+previamente es acercanos lo máximoposible a la combinación optima, que en este caso seria lo equivalente a
+aproximarnos lo más quepodamos al 0. Además, gracias a que nuestra implementación se basa en una función
+matemática, podremos extrapolarla en el apartado de \textit{Benchmarking} no solo a la evaluación de nuestro
+modelo, sino también a cualquier otro sistema externo que resuelva el problema.
+
+\equationNote{f(x) = \frac{Tmax - Tmin}{Tmin}}{Formula del time spam}
+
+\subsection{Benchmarking}
+Por último, es hora de definir como vamos a realizar el proceso de benchmarking. Hemos comentado en
+el apartado anterior, que no solo incluiremos el histórico de las diferentes versiones de nuestro
+modelo, sino que tambien añadiremos otras alternativas para la resolución del problemas como reglas de
+ordenación, algoritmos geneticos o metodos exactos. Para ello, contamos con un dataset de 10 instancias
+específicas que están siendo utilizadas en la literatura para la comparación de modelos. Estas instancias
+son extraidas del siguiente repositorio \cite*{ptal} de GitHub.\medskip
+
+No solo vamos a tener en cuenta el time spam, sino que también vamos a utilizar el tiempo de cálculo,
+ya que es un factor primordial a la hora de comparar diferentes casos de uso y que puede afectar
+directamente a la toma de decisiones. Por ello, vamos a utilizar la siguiente tabla para la comparación.
 
 
-    \begin{table}[ht]
-        \centering
-        \begin{tabular}[t]{|lcccc|c|}
-            \hline
-            & Model v0 & Model v1 & Model v2 & Model v3 & FIFO \\
-            \hline
-            MK01  & 2.850 & 0.923 & -- & -- & -- \\
-            MK02  & 3.661 & 0.191 & -- & -- & -- \\
-            MK03  & 3.583 & 0.850 & -- & -- & -- \\
-            MK04  & 1.877 & 0.494 & -- & -- & -- \\
-            MK05  & 8.578 & 1.122 & -- & -- & -- \\
-            MK07  & 3.143 & 1.288 & -- & -- & -- \\
-            MK08  & 2.809 & 0.246 & -- & -- & -- \\
-            MK09  & 5.302 & 0.567 & -- & -- & -- \\
-            MK10  & 6.898 & 0.786 & -- & -- & -- \\
-            \hline
-            Calc time & 03:00 & 01:03 & -- & -- & -- \\
-            AVG       & 4.282 & 0.709 & -- & -- & -- \\
-            \hline
-        \end{tabular}
-        \caption{Tabla con los resultados del benchmarking}
-    \end{table} 
+\begin{table}[ht]
+    \centering
+    \begin{tabular}[t]{|lcccc|c|}
+        \hline
+                  & Model v0 & Model v1 & Model v2 & Model v3 & FIFO \\
+        \hline
+        MK01      & 2.850    & 0.923    & 0.225    & --       & --   \\
+        MK02      & 3.661    & 0.191    & 0.423    & --       & --   \\
+        MK03      & 3.583    & 0.850    & 0.240    & --       & --   \\
+        MK04      & 1.877    & 0.494    & 0.450    & --       & --   \\
+        MK05      & 8.578    & 1.122    & 0.104    & --       & --   \\
+        MK06      & 8.578    & 1.122    & 0.754    & --       & --   \\
+        MK07      & 3.143    & 1.288    & 0.287    & --       & --   \\
+        MK08      & 2.809    & 0.246    & 0.130    & --       & --   \\
+        MK09      & 5.302    & 0.567    & 0.156    & --       & --   \\
+        MK10      & 6.898    & 0.786    & 0.704    & --       & --   \\
+        \hline
+        Calc time & 03:00    & 01:03    & 01:17    & --       & --   \\
+        AVG       & 4.282    & 0.709    & 0.347    & --       & --   \\
+        \hline
+    \end{tabular}
+    \caption{Tabla con los resultados del benchmarking}
+\end{table}
 
 
 \pagebreak
