@@ -1,20 +1,84 @@
 \section{Introducción}
-    \lipsum[1]
-    \cite{aorduna2016revolucion}.
+La planificación de la producción es una disciplina clave en la gestión de 
+activos y se utiliza para determinar la forma más eficiente de asignar 
+recursos, como maquinaria, mano de obra y tiempo, con el fin de alcanzar 
+los objetivos de producción. Es un proceso que implica la toma de decisiones 
+sobre qué recursos, cuánto, cuándo y cómo producirlos, con el objetivo de optimizar la 
+utilización de los elementos disponibles, maximizando la eficiencia y rentabilidad 
+del proceso de producción. La planificación de la producción se aplica en una 
+amplia gama de sectores y áreas de negocio, incluyendo la fabricación, la logística, 
+el transporte, la distribución y la gestión de la cadena de suministro, entre otros.\medskip
 
-    \subsection{Test Subsection}
-        \begin{figure}[ht]
-            \centering
-            \includegraphics[scale=0.3]{code.png}
-            \caption{Código de ejemplo}
-            \label{fig:code}
-        \end{figure}
-    
-    \subsection{Test Subsection 2}
-        \lipsum[1]
+La importancia de la planificación de la producción radica en su capacidad para mejorar 
+la eficiencia mediante una buena gestión de las operaciones, lo que puede tener un impacto 
+significativo en la rentabilidad y competitividad de las empresas. Una planificación de 
+producción efectiva debe optimizar la asignación de recursos, minimizar los tiempos de 
+inactividad, reducir los costos de producción y maximizar el cumplimiento de los plazos 
+de entrega en la medida de lo posible. Esto lo que resulta es en una mayor eficiencia operativa 
+y una mejor calidad del producto o servicio.\medskip
 
-    \lipsum[1-2]\cite{jacso2005google}
-    
-    \equationNote{a^2+b^2=c^2}{Teorema de Pitágoras}
-    
+Sin embargo, la planificación de la producción es un problema complejo debido a la gran 
+cantidad de variables y restricciones que deben tenerse en cuenta, como los tiempos de 
+procesamiento, las capacidades de los recursos, las restricciones de almacenamiento y 
+transporte y las demandas de los clientes, entre otros. Tradicionalmente, este problema 
+se ha abordado utilizando enfoques heurísticos y algoritmos de optimización, como el 
+Job Shop Scheduling Problem (JSP) y el Flexible Shop Scheduling Problem (FJSP), que son problemas 
+combinatorios y conocidos por ser NP-Hard, lo que implica que no existen algoritmos eficientes 
+para encontrar soluciones óptimas en un tiempo razonable.\medskip
+
+Un problema NP-Hard es un tipo de problema de optimización en el cual no se conocen algoritmos 
+eficientes que puedan encontrar una solución óptima en un tiempo polinómico. Esto implica que a 
+medida que el tamaño del problema aumenta, el tiempo de cómputo necesario para encontrar una 
+solución óptima también se vuelve prohibitivamente alto. Estos problemas son considerados de 
+gran complejidad y representan un desafío significativo para la investigación en ciencias de 
+la computación. La importancia de identificar un problema como NP-Hard radica en que a menudo 
+tecnicas utilizadas para un problema pueden ser aplicados a otros problemas NP-Hard. Esto se debe a que 
+muchos problemas NP-Hard comparten estructuras y patrones similares, lo que permite la 
+transferencia de conocimientos y técnicas de un problema a otro. Por lo tanto, encontrar 
+soluciones eficientes o aproximadas para un problema NP-Hard particular puede tener un impacto 
+significativo en la resolución de otros problemas que enfrentan desafíos similares\medskip
+
+En los últimos años, ha surgido el Imitation Learning como una prometedora técnica de aprendizaje 
+automático. El Imitation Learning se basa en el concepto de aprender de la experiencia de expertos 
+humanos o de sistemas de planificación previamente establecidos, y luego utilizar ese conocimiento para 
+guiar la toma de decisiones en situaciones similares. Esto se puede lograr a través de enfoques 
+supervisados, donde se entrena a un modelo para imitar las acciones de expertos humanos, o 
+a través de enfoques de Reinforcement Learning (RL), donde se permite que un modelo aprenda a 
+partir de la retroalimentación y la interacción con el entorno.\medskip
+
+En este contexto, el presente trabajo se enfoca en el desarrollo de un sistema de planificación 
+de la producción basado en Imitation Learning, utilizando técnicas de aprendizaje supervisado y RL. 
+Se busca explorar cómo estas técnicas pueden aplicarse a la planificación de la producción, teniendo 
+en cuenta los desafíos y la complejidad de este problema. A través del estudio y análisis de 
+diferentes enfoques y metodologías, se pretende contribuir al campo de la planificación de la 
+producción utilizando técnicas de inteligencia artificial y aprendizaje automático, con el objetivo 
+de mejorar la eficiencia y la toma de decisiones en procesos industriales.\medskip
+
+\subsection{Motivación}
+La planificación de la producción es un desafío constante en la industria, ya que puede tener 
+un impacto significativo en la eficiencia, la productividad y la rentabilidad de las operaciones 
+de fabricación. Sin embargo, muchos de los problemas de planificación de la producción en la 
+industria, como el Job Shop Scheduling Problem (JSP) y el Flexible Job Shop Scheduling Problem (FJSP), 
+son conocidos por su alta complejidad y la falta de soluciones eficientes. Esto puede resultar 
+en cuellos de botella, retrasos en la producción y costos innecesarios.\medskip
+
+Es crucial encontrar soluciones innovadoras y eficientes que puedan abordar 
+los desafíos complejos asociados con la planificación de la producción en entornos que enfrentan 
+problemas NP-Hard. Además, la aplicación de enfoques de inteligencia artificial y aprendizaje 
+automático en la planificación de la producción ha ganado cada vez más atención en la industria 
+debido a su potencial para encontrar soluciones aproximadas en tiempo real y adaptarse a 
+entornos dinámicos.\medskip
+
+La motivación de este proyecto radica en la necesidad de desarrollar enfoques de Imitation 
+Learning, una rama del aprendizaje automático que se basa en la imitación de comportamientos 
+de expertos, para abordar los desafíos de la planificación de la producción en la industria. 
+Estos enfoques tienen el potencial de mejorar la eficiencia y la productividad de las operaciones 
+de fabricación al encontrar soluciones eficientes y adaptativas en tiempo real. Además, las 
+soluciones desarrolladas en el contexto del JSP y el FJSP podrían tener aplicaciones amplias 
+en otros problemas NP-Hard que enfrenta la industria, como la logística, la programación de 
+tareas o la asignación de recursos, lo que podría tener un impacto significativo en la 
+optimización de procesos y la competitividad de las empresas en la industria.
+\subsection{Estructura del documento}
+
+
 \pagebreak
