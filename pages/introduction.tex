@@ -78,7 +78,88 @@ soluciones desarrolladas en el contexto del JSP y el FJSP podrían tener aplicac
 en otros problemas NP-Hard que enfrenta la industria, como la logística, la programación de 
 tareas o la asignación de recursos, lo que podría tener un impacto significativo en la 
 optimización de procesos y la competitividad de las empresas en la industria.
-\subsection{Estructura del documento}
+
+\subsection{Explicación del problema}
+El Flexible job shop scheduling problem (FJSP), es un desafío de optimización combinatoria 
+que se encuentra en el campo de la la gestión de la producción. En este problema, se busca determinar 
+la secuencia óptima de operaciones a realizar en una serie de máquinas, con el objetivo de minimizar el 
+tiempo total de producción o maximizar la eficiencia del sistema. A diferencia del Job shop scheduling 
+problem (JSP), en el que cada operación tiene una ruta de procesamiento fija, las operaciones pueden ser 
+procesadas en varias máquinas diferentes. Además, adicionalmente las operaciones estan agrupadas 
+dentro de un trabajo, que es un conjunto de operaciones que deben ser procesadas en una secuencia
+específica.\medskip
+
+Existen dos restricción temporales que especifican cuándo puede comenzar 
+cada operación: una operación no puede comenzar hasta que se hayan completado todas las operaciones
+anteriores de la misma tarea y no puede comenzar hasta que se hayan completado todas las operaciones
+anteriores de la misma máquina. El objetivo del problema es asignar las operaciones a las máquinas y determinar el orden de procesamiento 
+del sistema manera óptima, teniendo en cuenta las restricciones temporales y los recursos disponibles, 
+de manera que se minimice el tiempo total de producción. El tiempo total de producción se refiere al
+tiempo de finalización de la máquina más lenta, que se calcula sumando el tiempo de procesamiento 
+de todas las operaciones y el gap que estas generan.\medskip
+
+Para ilustrar el problema, supongamos que tenemos una fabrica que produce tres tipos de productos
+que se definen como los trabajos: A, B y C. Contamos con tres máquinas: M1, M2, M3 y M4 
+y cada producto requiere hacer ciertas operaciones de procesamiento en estas máquinas en 
+un orden específico. Las operaciones y los tiempos de procesamiento estimados para cada 
+producto en cada máquina son los siguientes: 
+
+\begin{table}[ht]
+    \caption{Tiempos de procesamiento estimados para cada producto} 
+    \centering 
+    \begin{tabular}{ccccccccc}  
+
+    \toprule
+    \multirow{2}{*}{\parbox[c]{.2\linewidth}{\centering Maquina ID}} & 
+    \multicolumn{2}{c}{Trabajo A} && 
+    \multicolumn{2}{c}{Trabajo B} && 
+    \multicolumn{2}{c}{Trabajo C} \\ 
+
+    \cmidrule{2-3} \cmidrule{5-6} \cmidrule{8-9}
+     & {\centering OP 1} & {OP 2} && {OP 3} & {OP 4} && {OP 5}\\
+
+    \midrule
+    Máquina 1 & 4 UT & --   && 3 UT & 7 UT && 1 UT & -- \\
+    Máquina 2 & 3 UT & 2 UT && 2 UT & 2 UT && 6 UT & -- \\
+    Máquina 3 & 2 UT & 1 UT && --   & 5 UT && 2 UT & -- \\  
+    Máquina 4 & --   & 3 UT && 4 UT & 8 UT && 4 UT & -- \\ 
+    \bottomrule
+    
+    \end{tabular}
+\end{table}
+
+\medskip
+
+Aquí, cada operación se identifica con un número y el tipo de procesamiento se mide en Unidades temporales
+(UD). Las operaciones que no se pueden realizar en una máquina se identifican con un guión (-), lo que 
+significa que en este ejemplo la máquina 1 podría procesar las operaciones 1, 3, 4 y 5 pero 
+no la operación 2. Una vez entendida la distribución de tiempos de procesamiento, podemos visualizar
+el resultado de la planificación en el siguiente diagrama, donde cada caja representa una operación 
+y cada línea representa una máquina.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.40]{ejemplo.png}
+    \caption{Ejemplo de planificación óptima}
+    \label{fig:example-solution}
+\end{figure}
+
+La distribución final de tiempos para cada máquina es la siguiente: 
+\begin{itemize}
+    \item \textbf{maquina 1}, OP 3 (3 UT) + 0 GAP = 3 UT 
+    \item \textbf{maquina 2}, OP 4 (2 UT) + 3 GAP = 5 UT 
+    \item \textbf{maquina 3}, OP 1 (2 UT) + OP 2 (1 UT) + 0 GAP = 3 UT 
+    \item \textbf{maquina 4}, OP 5 (4 UT) + 0 GAP = 4 UT. 
+\end{itemize}
+
+Ya que el tiempo total de producción es el tiempo de finalización de la máquina más lenta, 
+que es la máquina 2, son 5 UT. Notese que el gap de la máquina 2 es deribado de la dependencia
+existente entre la operación 4 y la operación 3 por petenercer ambos al trabajo B, 
+por lo tanto, antes de que dicha maquina empiece con la operacion 4 tiene que esperar 
+a que se procese la máquina 1.
+
+\subsection{Estructura de la memoria}
+
 
 
 \pagebreak
