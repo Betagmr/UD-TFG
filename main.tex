@@ -20,6 +20,8 @@
 \usepackage[all]{hypcap}
 \usepackage{csquotes}
 \usepackage{pdfpages}
+\usepackage{booktabs,multirow}
+\setlength{\belowcaptionskip}{5pt} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -67,6 +69,10 @@
 \setlength{\cftmyequationsnumwidth}{2.3em}
 \setlength{\cftmyequationsindent}{1.5em}
 
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -81,10 +87,10 @@
     \input{pages/introduction.tex}
     \input{pages/stateofart.tex}
     \input{pages/scope_objetives.tex}
+    \input{pages/methodology/index.tex} 
     \input{pages/mlops.tex}
     \input{pages/proyect_setup.tex}
     \input{pages/evaluation.tex}
-    \input{pages/environment.tex}
     \printbibliography[title=Bibliografía]
 
 \end{document}
