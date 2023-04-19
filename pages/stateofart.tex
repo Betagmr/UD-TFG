@@ -1,5 +1,5 @@
 \section{Antecedentes y justificación}
-El objetivo de esta seccion es describir las condiciones del entorno en el que se lleva a cabo 
+El objetivo de esta seccion es describir las condiciones del marco en el que se lleva a cabo 
 el proyecto, se recopilarán datos e información sobre la situación actual en lo que respecta al FJSP, 
 incluyendo la utilización de diferentes tecnicas que han sido utilizadas historicamente para su resolución. 
 Para ello, se revisará el estado del arte y las últimas tendencias en este campo, con el fin de obtener una 
@@ -16,11 +16,11 @@ En el caso del FJSP, algunos métodos exactos que se han utilizado incluyen la p
 lineal de enteros mixta (MILP)\cite{milp}, que modela el problema como un conjunto de restricciones lineales y 
 una función objetivo lineal, y la programación por restricciones (CP)\cite{wikiCP}, que reduce el problema a
 un conjunto de restricciones lógicas y utiliza técnicas de búsqueda para encontrar soluciones que satisfagan 
-todas las restricciones. Existen aplicaciones hechas por google como Ortools\cite{ortools}
-o por IBM como CPLEX\cite{cplex}, que son ejemplos de soluciones que utilizan estos métodos exactos para resolver
+todas las restricciones. Existen aplicaciones hechas por Google como Ortools\cite{ortools}
+o por IBM como CPLEX\cite{cplex}, que son ejemplos de software que utilizan estos métodos exactos para resolver
 problemas de optimización. Estas aplicaciones son muy útiles para resolver instancias de tamaño reducido,
-pero no son capaces de resolver instancias de tamaño grande, debido a la gigantesca dimensionalidad que
-implica el resolver este tipo de problemas por métodos exactos.
+pero no son capaces de resolver instancias de tamaño grande, debido a la gigantesca a la complejidad que 
+presentan los problemas NP-Hard.
 
 
 \subsubsection{Metodos heurísticos}
@@ -103,10 +103,12 @@ agente que toma decisiones secuenciales sobre la asignación de tareas a máquin
 planificación de la secuencia de tareas, con el objetivo de minimizar el tiempo total de producción. 
 Una de las principales ventajas del aprendizaje por refuerzo es su capacidad para aprender directamente 
 de la experiencia, sin la necesidad de un modelo matemático explícito del problema, lo que lo hace 
-útil para resolver problemas complejos y mal definidos como el FJSP. Sin embargo, el aprendizaje 
+útil para resolver problemas complejos como el FJSP. Sin embargo, el aprendizaje 
 por refuerzo también presenta desafíos en la definición de la función de recompensa y en la 
 selección de la política óptima que maximiza la misma. Además, requiere de una gran cantidad de tiempo 
 y recursos computacionales para entrenar al agente en instancias del problema de FJSP grandes y complejas.
+Existen pocos estudios que utilizan el aprendizaje por refuerzo para resolver el FJSP, pero los resultados
+obtenidos son prometedores.
 
 \subsubsection{Imitation learning}
 El aprendizaje por imitación es una técnica de aprendizaje por refuerzo en la que un modelo aprende
@@ -124,20 +126,19 @@ humano. Una de las principales ventajas del aprendizaje por imitación es que lo
 ofrece son soluciones de alta calidad, lo que agiliza el entrenamiento sin requerir la optimización 
 iterativa del problema. 
 
-\subsubsection{Ensenble learning}
-Un ensamblador en machine learning, también conocido como ensemble learning, es una técnica que 
+\subsubsection{Ensemble learning}
+Un Ensemble en machine learning, también conocido como ensemble learning, es una técnica que 
 combina múltiples modelos de aprendizaje automático para mejorar la precisión y estabilidad de 
 las predicciones. Cada uno de estos algoritmos puede tener fortalezas y debilidades en términos 
 de su capacidad para encontrar soluciones óptimas en diferentes instancias del problema. Al 
-combinarlos en un ensamblador, se pueden aprovechar las fortalezas de cada uno de ellos y obtener
+combinarlos en un Ensemble, se pueden aprovechar las fortalezas de cada uno de ellos y obtener
 soluciones más robustas y de mejor calidad.\medskip
 
 Cada modelo produce una predicción diferente y las predicciones de los distintos modelos se combinan 
-para obtener una única predicción. Existen diferentes tipos de ensemblers como 
-el ensamble por votación, el ensamble por bagging, el ensamble por boosting y el ensamble por stacking.
-Cada uno de estos ensemblers representa una estrategia diferente para combinar las predicciones de
-los distintos modelos, por ejemplo en el ensamble por votación, cada modelo vota por la accion a la que predice, 
-y la resultante con mayor número de votos es la predicción final.
+para obtener una única predicción. Existen diferentes tipos de Ensemble como el de por votación, bagging, 
+boosting y tacking. Cada uno de estos ensemblers representa una estrategia diferente para combinar las 
+predicciones de los distintos modelos, por ejemplo en el ensamble por votación, cada modelo vota por 
+la accion a la que predice, y la resultante con mayor número de votos es la predicción final.
 
 \subsection{Antecedentes}
 Una vez terminada la investigación sobre el estado actual del problema, se explorarán diversas ideas 
@@ -151,8 +152,10 @@ De acuerdo a la investigacion realizada con anterioridad, si bien los metaheurí
 en la solución de problemas de optimización, su velocidad y practicidad en situaciones reales pueden ser limitadas, 
 ya que a menudo requieren de una gran cantidad de iteraciones y evaluaciones para encontrar una solución óptima. 
 Esto puede resultar en un tiempo de ejecución prolongado, lo que no es adecuado para aplicaciones en tiempo real 
-o decisiones a corto plazo. El buscar un sistema que pueda resolver el problema en tiempo real es un desafío 
-importante para la industria, ya que la capacidad de tomar decisiones rápidas y eficientes es crucial.\medskip 
+o decisiones a corto plazo. Además, otro de los problemas que enfrentan los metaheurísticos es su nula 
+reusabilidad de información, ya que cada vez que se ejecuta el algoritmo, se debe reiniciar desde cero.
+El buscar un sistema que pueda resolver el problema en tiempo real es un desafío importante para la 
+industria, ya que la capacidad de tomar decisiones rápidas y eficientes es crucial.\medskip 
 
 Otro de los desafíos que enfrenta la industria es la capacidad de los usuarios para expresar claramente las
 funcionalidades y restricciones del problema. En la mayoría de las situaciones, los usuarios no tienen conocimientos
@@ -165,7 +168,7 @@ las restricciones de tiempo y las regulaciones de tráfico en una formulación m
 y requerir un conocimiento técnico multidisciplinario.\medskip
 
 En este escenario, los operadores con experiencia podrían proporcionar soluciones de alta calidad, que luego 
-podrían ser utilizados como datos de entrenamiento para un modelo de Imitation learning. El modelo aprendería 
+podrían ser utilizados como datos de entrenamiento para un modelo de Deep learning. El modelo aprendería 
 a imitar el comportamiento del experto a partir de estos ejemplos, capturando así la intuición y el conocimiento 
 tácito que tienen los usuarios, pero que pueden tener dificultades para expresar de manera formal. De esta manera, 
 se podra abordar la brecha entre el conocimiento tácito de los operadores y la representación formal de las 

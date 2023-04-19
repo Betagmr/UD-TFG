@@ -45,63 +45,88 @@ naturaleza del Imitation Learning no requiere de una función de recompensa. Est
 no toma decisiones por si mismo, sino que aprende a tomar decisiones a partir de un experto.
 
 \subsubsection{Representación del estado}
-\paragraph{Representación del estado mediante un grafo heterogéneo}
+\paragraph{Grafos heterogéneos}
 La propuesta del estado se basa en una representación mediante el uso de un grafo heterogéneo. Un grafo 
 heterogéneo es un tipo de grafo en el que los nodos y/o aristas pueden tener diferentes tipos, atributos 
-o propiedades. Esto significa que en un grafo heterogéneo se pueden representar diferentes entidades 
-o relaciones, y pueden tener diferentes características asociados a ellos. Por ejemplo, en un grafo 
-que representa una red social, los nodos pueden representar personas, páginas o grupos y 
-las aristas amistades, seguidores, miembros de un grupo, etc.\medskip 
+y propiedades. Esto significa que se pueden representar diferentes relaciones, y pueden tener distintas 
+características asociadas a ellas. Por ejemplo, en un caso donde se quiera modelar una red social, 
+los nodos podrian representar personas, contenidos o grupos y las aristas amistades, seguidores, 
+miembros de un grupo, etc.\medskip 
 
-Utilizando un grafo heterogéneo es posible representar tareas, máquinas y trabajos como nodos del grafo, 
-mientras que las aristas se utilizan para asignar las restricciones del problema, como los tiempos de 
-procesamiento, las dependencias entre tareas y la asignación de tareas. Esto permite una representación 
-compacta y eficaz de la información relevante del problema al tratarse de estructuras modulares que 
-representan entidades y relaciones en el problema. A medida que se aumenta el número de máquinas y 
-operaciones, simplemente se agregarán más nodos y aristas al grafo, lo que no implica un aumento exponencial 
-en la complejidad de la representación, permitiendo una escalabilidad natural en términos de la estructura 
-del problema. Otra de sus ventajas es que las operaciones sobre grafos, como la búsqueda o manipulación de 
-nodos y aristas, son operaciones computacionalmente eficientes. Esto permite realizar cálculos y 
-análisis en tiempo razonable, incluso cuando el tamaño del problema se incrementa. 
-
-\begin{table}[ht]
-    \caption{Características del nodo Máquina} 
-    \centering 
-    
-    \begin{tabular}{cccccc} 
-    \toprule
-
-    \multirow{2}{*}{
-    \parbox[c]{.2\linewidth}{\centering Min width}}
-      & \multicolumn{2}{c}{$fp_{c}$} &&
-    \multicolumn{2}{c}{$fp_{bf}$} \\ 
-    \cmidrule{2-3} \cmidrule{5-6}
-    
-     & {\centering theory} & {exp.} && {theory} & {exp.}  \\
-    \midrule
-    1 & 0.23  & 0.21  && 0.04               & 0.065 \\
-    2 & 0.085 & 0.087 && 0.0015             & 0.0020 \\
-    3 & 0.032 & 0.026 && $5.5\times10^{-4}$ & 0 \\
-    4 & 0.012 & 0.011 && $5.5\times10^{-4}$ & 0 \\
-    \bottomrule
-
-    \end{tabular}
-\end{table}
-
+En el caso del FJSP es posible representar las operaciones, máquinas y trabajos como nodos del grafo, 
+y a su vez las aristas se pueden utilizan para asignar las restricciones del problema, como los tiempos de 
+procesamiento, las dependencias entre tareas y la asignación de las mismas. Esto permite una representación 
+compacta de la información relevante del problema, siendo una de sus virtudes que, a medida que se aumenta 
+el número de máquinas y operaciones, simplemente se agregarán más nodos y aristas al grafo, lo que no 
+implicara un aumento exponencial en la complejidad de la representación, permitiendo asi una escalabilidad 
+natural en términos de la representacion del problema. Otra de sus ventajas es que las operaciones sobre 
+grafos, como la búsqueda o manipulación de nodos y aristas, son operaciones computacionalmente eficientes. 
+Esto permite realizar cálculos y análisis en tiempo razonable, incluso cuando el tamaño del problema incrementa. 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.3]{graphv1.png}
-    \caption{Diagrama de un environment de RL}
-    \label{fig:rl}
+    \includegraphics[scale=0.34]{graphv1.png}
+    \caption{Ejemplo simplificado de un grafo heterogéneo para el FJSP}
+    \label{fig:grafo-heterogeneo}
 \end{figure}
 
-La justificación de usar PyTorch Geometrics es que ofrece soporte para el procesamiento de grafos,
-lo que significa que se puede utilizar para trabajar con redes de datos en las que los nodos están
-conectados por enlaces. Esto puede ser útil porque mediante técnicas de Deep Learning se puede analizar
-la estructura y las relaciones que existen entre los nodos de un grafo. Además, la librería ofrece herramientas
-para trabajar con diferentes tipos de grafos, como grafos dirigidos y heterogéneos, que son los utilizados en
-nuestra representación, y proporciona una serie de funciones para realizar operaciones básicas con grafos.
+Como se puede ver en la Figura \ref{fig:grafo-heterogeneo}, hemos representado mediante un grafo
+heterogéneo una instancia del FJSP que cuenta con 3 máquinas, 1 trabajo y 3 operaciones. En este caso, 
+la operación 1 solo puede ser ejecutada en la máquina 1 y es por ello que no está conectada con 
+las otras máquinas mediante la relación `Operacion Ejecuta Maquina'. Aclarar que por motivos de 
+simplifición, no se han incluido todos los diferentes tipos de relaciones existentes entre 
+los nodos y solo están representadas las relaciones más importantes. Se debe tomar como una ayuda 
+visual para entender el potencial que tiene este tipo de representaciones, durante las siguientes 
+secciones detallaremos en profundidad todas las características de los nodos y de sus relaciones.
+
+\paragraph{Tipos de nodos y sus características}
+\begin{itemize}
+    \item \textbf{Operación (O):} La operación es la unidad fundamental de trabajo en el FJSP. Cada 
+    operación tiene un identificador único, un flag que indica si ha sido ejecutada,
+    un flag que indica si es posible ejecutar la operación y el número de máquinas en las que puede
+    ser ejecutada.
+    \item \textbf{Trabajo (J):} Representa un conjunto de operaciones que deben ser ejecutadas 
+    en una secuencia determinada. Cada trabajo tiene un identificador único, el tiempo de 
+    procesamiento de la ultima operación, el numero de operaciones restantes y el gap total
+    existente entre todas las operaciones del job.
+    \item \textbf{Máquina (M):} Representa una máquina dentro del problema del FJSP. Cada máquina 
+    cuenta con un identificador único, el tiempo de procesamiento acumulado de todas sus operaciones,
+    el gap total existente entre todas las operaciones de la máquina y la diferencia entre el tiempo
+    de procesamiento entre ella y la máquina con menor tiempo de procesamiento.  
+\end{itemize}
+
+\paragraph{Tipos de relaciones entre nodos}
+\begin{itemize}
+    \item \textbf{Operación - precede - Operación:} Esta relación indica que la operación 1 debe ser
+    ejecutada antes que la operación 2. Se utiliza para representar las dependencias entre operaciones
+    dentro de un mismo trabajo.
+    \item \textbf{Operación - pertenece - Trabajo:} Esta relación indica que la operación 1 pertenece
+    al trabajo 1. Se utiliza para representar las dependencias entre operaciones y trabajos.
+    \item \textbf{Trabajo - escucha - Trabajo:} Relación auxiliar que se utiliza para conectar los
+    nodos de trabajo y proveer de información a los nodos de la red.
+    \item \textbf{Trabajo - escucha - Máquina:} Relación auxiliar que se utiliza para conectar los
+    nodos de trabajo con los nodos y máquina para proveer de información a los nodos de la red.
+    \item \textbf{Máquina - escucha - Trabajo:} Similar a la relación anterior, pero en este caso
+    las relaciones se establecen en sentido opuesto.
+    \item \textbf{Operación - exec - Máquina:} Relación entre las operaciones y las máquinas que indica
+    que la operación 1 puede ser ejecutada en la máquina 1. Esta relación cuenta con un atributo que
+    indica el tiempo de procesamiento de la operación 1 en la máquina 1.
+    \item \textbf{Máquina - ejecuta - Trabajo}: Relación directa entre la máquina y el trabajo, esta
+    relación indica que la máquina 1 ejecuta el trabajo 1. Adicionalmente, esta relación cuenta con
+    un atributo que indica el tiempo de procesamiento de la operación que se está ejecutando en el
+    trabajo 1 para la máquina 1.
+    \item \textbf{Máquina - gap - Trabajo}: Misma relación que la anterior, pero esta intercambia el
+    atributo de tiempo de procesamiento por el gap que generaría la operación que se está ejecutando
+    en el trabajo 1 si se llegase a aplicar en la máquina 1.
+\end{itemize}
+
+
+% La justificación de usar PyTorch Geometrics es que ofrece soporte para el procesamiento de grafos,
+% lo que significa que se puede utilizar para trabajar con redes de datos en las que los nodos están
+% conectados por enlaces. Esto puede ser útil porque mediante técnicas de Deep Learning se puede analizar
+% la estructura y las relaciones que existen entre los nodos de un grafo. Además, la librería ofrece herramientas
+% para trabajar con diferentes tipos de grafos, como grafos dirigidos y heterogéneos, que son los utilizados en
+% nuestra representación, y proporciona una serie de funciones para realizar operaciones básicas con grafos.
 
 \subsubsection{Espacio de acciones}
 

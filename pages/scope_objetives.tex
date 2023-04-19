@@ -1,28 +1,27 @@
 \section{Objetivos y alcance}
 En esta sección se introducen los objetivos en los que va consistir el proyecto, habiendose
-realizado una division entre el principal y los secundarios. Ademas de ello se presentan los elementos
+realizado una division entre el principal y los secundarios. Ademas de ello, se presentan los elementos
 que forman el alcance, asi como se comentaran otros que no forman parte de este.  
 
 \subsection{Objetivos generales}
-El objetivo del proyecto es desarrollar un modelo de IA que optimice la asignación 
-de tareas a máquinas en una línea de producción, minimizando el tiempo total de 
-producción y maximizando la utilización de los recursos disponibles, todo ello 
-a partir de ejemplos de configuraciones proporcionados por un experto. El modelo 
-deberá desarrollar una estrategia propia a partir de los ejemplos de entrenamiento
-que le permita tomar decisiones en situaciones nuevas en un tiempo de ejecución
-reducido. Para ello, a countinuación se describen los objetivos específicos:
+El objetivo del proyecto es desarrollar un nuevo método para resolver el FJSP 
+a partir de ejemplos de soluciones proporcionadas por un experto. El método se basará en
+el uso de modelos de Deep Learning, los cuales serán entrenados para imitar el comportamiento
+de un experto y desarrollar una estrategia propia. Esto le permitira tomar decisiones 
+sobre instancias nunca antes vistas en un tiempo de ejecución reducido. 
+Para ello, a countinuación se describen los objetivos específicos:
 
 \begin{itemize}
 \item \textbf{Identificar al experto:} el primer objetivo consta de seleccionar un
 experto capaz de generar una muestra representativa de las configuraciones y decisiones 
 optimas a realizar en diferentes situaciones. Estos ejemplos servirán como datos 
-de entrenamiento para el modelo de inteligencia artificial.
+de entrenamiento para el modelo de Deep learning.
 \item \textbf{Modelar el problema:} buscar una representación adecuada que permita gestionar 
 las configuraciones y decisiones tomadas por el experto. Al tratarse de un modelo basado en 
 Imitation Learning, es necesario definir un envioronment que permita la interacción entre el 
 modelo y el estado del problema.
 \item \textbf{Entrenar el modelo:} utilizando los ejemplos recopilados, se debe entrenar 
-el modelo de inteligencia artificial para que pueda aprender a imitar el comportamiento 
+el modelo de Deep learning para que pueda aprender a imitar el comportamiento 
 del experto en la toma de decisiones. Esto implica ajustar los parámetros del modelo para 
 minimizar el error entre las salidas predichas por el modelo y las decisiones tomadas por 
 el experto en los ejemplos de entrenamiento.
@@ -62,7 +61,7 @@ y evitar posibles malentendidos o confusiones durante su ejecución.
     especificos para medir el rendimiento del modelo. Estos benchmarks son conjuntos de instancias
     especialmente dificiles, que reflejan de manera objetiva el desempeño del modelo.
     \item \textbf{Comparación contra tecnicas actuales:} durante las diferentes fases del desarrollo,
-    se monitorizara el rendimiento del modelo para compararlo posteriormente con las técnicas actuales 
+    se monitorizara el rendimiento del método para compararlo posteriormente con las técnicas actuales 
     que se emplean en el estado del arte para la resolución del problema. 
     \item \textbf{Desarrollo de una aplicacion web sencilla:} la aplicación final contará con una interfaz 
     web que permita visualizar los resultados obtenidos por el modelo. Esta aplicación
