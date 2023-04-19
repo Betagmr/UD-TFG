@@ -122,14 +122,16 @@ secciones detallaremos en profundidad todas las características de los nodos y 
 
 \paragraph{Representación final}
 Para finalizar, se muestra la representación que tendria un estado tomando en consideracion el ejemplo 
-de la Figura \ref{fig:example-solution} utilizada en la introducción. Al igual que en la Figura 
-\ref{fig:grafo-heterogeneo}, se ha obviado las relaciones auxiliares que se utilizan para
-conectar los diferentes nodos de la red y se han dejado los más importantes para la representación. 
+de la Figura \ref{fig:example-solution} utilizada en la introducción. En la siguiente figura ahora ya 
+se pueden apreciar todas las relaciones mencionadas con anterioridad, y para conocer en mayor profundidad
+como se ha implementado puede consultar la sección de desarrollo. Hemos querido continuar con el ejemplo
+que se ha utilizado en la introducción y en el resto de la seccion tambien se hará referencia a este
+para ilustrar las futuras explicaciones. 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.30]{final.png}
-    \caption{Modelado de planificación de ejemplo}
+    \includegraphics[scale=0.33]{final.png}
+    \caption{Estado inicial del la instancia presente en el Cuador 1}
     \label{fig:final-solution}
 \end{figure}
 
@@ -141,9 +143,15 @@ conectar los diferentes nodos de la red y se han dejado los más importantes par
 % nuestra representación, y proporciona una serie de funciones para realizar operaciones básicas con grafos.
 
 \subsubsection{Espacio de acciones}
+El espacio de acciones es el conjunto de acciones que puede realizar el agente en cada estado. 
+En nuestro caso, se pueden definir el conjunto de acciones como la lista de todas las tuplas 
+formadas por las operaciones que pueden ser ejecutadas en cada estado y las máquinas en las que
+pueden ser ejecutadas. Por ejemplo, en el estado de la Figura \ref{fig:final-solution} se pueden
+definir las siguientes acciones: (Maquina 1, Operacion 1), (Maquina 1, Operacion 3), 
+(Maquina 2, Operacion 1), (Maquina 2, Operacion 3), (Maquina 2, Operacion 3), (Maquina 3, Operacion 1), 
+(Maquina 4, Operacion 5). En este caso, todas aquellas operaciones que no se encuentren en la lista 
+de acciones disponibles no pueden ser ejecutadas en el estado actual.
 
 \subsubsection{Función de transición}
-
-\subsubsection{Función de recompensa}
 
 \pagebreak
