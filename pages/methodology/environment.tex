@@ -3,7 +3,7 @@ El modelado del problema es una de los campos con mayor potencial dentro del FJS
 propuesta solida puede repercutirá directamente en el resultado final, por lo que es necesario
 contemplar diferentes alternativas. En este apartado se desarrollará la propuesta final exclusivamente,
 pero se hará referencia a otras alternativas que se han descartado dentro de la sección de "Posibles
-representaciones del problema". 
+representaciones del problema".
 
 \subsubsection{Procedimiento para definir un environment de RL}
 El RL es un tipo de aprendizaje automático que se basa en la interacción de un agente con el environment. 
@@ -38,7 +38,6 @@ explorar todo el espacio de estado. Podemos definir un environment de RL formalm
     s' es el siguiente estado alcanzado después de tomar la acción a en el estado s, y R(s, a, s') es 
     la recompensa asociada a esa transición. Formalmente, la función de recompensa se puede escribir 
     como: R: S x A x S -> R, donde R es un valor numérico que representa la recompensa. 
-
 \end{itemize}
 
 \textbf{Nota: } En nuestro caso, no será necesario definir una función de recompensa, ya que debido a la 
@@ -46,6 +45,7 @@ naturaleza del Imitation Learning no requiere de una función de recompensa. Est
 no toma decisiones por si mismo, sino que aprende a tomar decisiones a partir de un experto.
 
 \subsubsection{Representación del estado}
+\paragraph{Representación del estado mediante un grafo heterogéneo}
 La propuesta del estado se basa en una representación mediante el uso de un grafo heterogéneo. Un grafo 
 heterogéneo es un tipo de grafo en el que los nodos y/o aristas pueden tener diferentes tipos, atributos 
 o propiedades. Esto significa que en un grafo heterogéneo se pueden representar diferentes entidades 
@@ -68,7 +68,7 @@ análisis en tiempo razonable, incluso cuando el tamaño del problema se increme
     \caption{Características del nodo Máquina} 
     \centering 
     
-    \begin{tabular}{cccccc} %  
+    \begin{tabular}{cccccc} 
     \toprule
 
     \multirow{2}{*}{
@@ -84,7 +84,7 @@ análisis en tiempo razonable, incluso cuando el tamaño del problema se increme
     3 & 0.032 & 0.026 && $5.5\times10^{-4}$ & 0 \\
     4 & 0.012 & 0.011 && $5.5\times10^{-4}$ & 0 \\
     \bottomrule
-    
+
     \end{tabular}
 \end{table}
 

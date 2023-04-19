@@ -21,13 +21,13 @@ Sin embargo, la planificación de la producción es un problema complejo debido 
 cantidad de variables y restricciones que deben tenerse en cuenta, como los tiempos de 
 procesamiento, las capacidades de los recursos, las restricciones de almacenamiento y 
 transporte y las demandas de los clientes, entre otros. Tradicionalmente, este problema 
-se ha abordado utilizando enfoques heurísticos y algoritmos de optimización, como el 
+se ha abordado utilizando enfoques heurísticos y meta-heurísticos como el 
 Job Shop Scheduling Problem (JSP) y el Flexible Shop Scheduling Problem (FJSP), que son problemas 
 combinatorios y conocidos por ser NP-Hard, lo que implica que no existen algoritmos eficientes 
 para encontrar soluciones óptimas en un tiempo razonable.\medskip
 
 Un problema NP-Hard es un tipo de problema de optimización en el cual no se conocen algoritmos 
-eficientes que puedan encontrar una solución óptima en un tiempo polinómico. Esto implica que a 
+exactos que puedan encontrar una solución óptima en un tiempo polinómico. Esto implica que a 
 medida que el tamaño del problema aumenta, el tiempo de cómputo necesario para encontrar una 
 solución óptima también se vuelve prohibitivamente alto. Estos problemas son considerados de 
 gran complejidad y representan un desafío significativo para la investigación en ciencias de 
@@ -36,18 +36,18 @@ tecnicas utilizadas para un problema pueden ser aplicados a otros problemas NP-H
 muchos problemas NP-Hard comparten estructuras y patrones similares, lo que permite la 
 transferencia de conocimientos y técnicas de un problema a otro. Por lo tanto, encontrar 
 soluciones eficientes o aproximadas para un problema NP-Hard particular puede tener un impacto 
-significativo en la resolución de otros problemas que enfrentan desafíos similares\medskip
+significativo en la resolución de otros problemas que enfrentan desafíos similares.\medskip
 
 En los últimos años, ha surgido el Imitation Learning como una prometedora técnica de aprendizaje 
 automático. El Imitation Learning se basa en el concepto de aprender de la experiencia de expertos 
-humanos o de sistemas de planificación previamente establecidos, y luego utilizar ese conocimiento para 
+humanos o de sistemas previamente establecidos, y luego utilizar ese conocimiento para 
 guiar la toma de decisiones en situaciones similares. Esto se puede lograr a través de enfoques 
 supervisados, donde se entrena a un modelo para imitar las acciones de expertos humanos, o 
 a través de enfoques de Reinforcement Learning (RL), donde se permite que un modelo aprenda a 
 partir de la retroalimentación y la interacción con el entorno.\medskip
 
 En este contexto, el presente trabajo se enfoca en el desarrollo de un sistema de planificación 
-de la producción basado en Imitation Learning, utilizando técnicas de aprendizaje supervisado y RL. 
+basado en Imitation Learning, utilizando técnicas de aprendizaje supervisado y RL para resolver el FJSP. 
 Se busca explorar cómo estas técnicas pueden aplicarse a la planificación de la producción, teniendo 
 en cuenta los desafíos y la complejidad de este problema. A través del estudio y análisis de 
 diferentes enfoques y metodologías, se pretende contribuir al campo de la planificación de la 
@@ -80,11 +80,11 @@ tareas o la asignación de recursos, lo que podría tener un impacto significati
 optimización de procesos y la competitividad de las empresas en la industria.
 
 \subsection{Explicación del problema}
-El Flexible job shop scheduling problem (FJSP), es un desafío de optimización combinatoria 
+El Flexible job shop scheduling problem , es un desafío de optimización combinatoria 
 que se encuentra en el campo de la la gestión de la producción. En este problema, se busca determinar 
 la secuencia óptima de operaciones a realizar en una serie de máquinas, con el objetivo de minimizar el 
 tiempo total de producción o maximizar la eficiencia del sistema. A diferencia del Job shop scheduling 
-problem (JSP), en el que cada operación tiene una ruta de procesamiento fija, las operaciones pueden ser 
+problem, en el que cada operación tiene una ruta de procesamiento fija, las operaciones pueden ser 
 procesadas en varias máquinas diferentes. Además, adicionalmente las operaciones estan agrupadas 
 dentro de un trabajo, que es un conjunto de operaciones que deben ser procesadas en una secuencia
 específica.\medskip
@@ -122,7 +122,7 @@ producto en cada máquina son los siguientes:
     Máquina 1 & 4 UT & --   && 3 UT & 7 UT && 1 UT & -- \\
     Máquina 2 & 3 UT & 2 UT && 2 UT & 2 UT && 6 UT & -- \\
     Máquina 3 & 2 UT & 1 UT && --   & 5 UT && 2 UT & -- \\  
-    Máquina 4 & --   & 3 UT && 4 UT & 8 UT && 4 UT & -- \\ 
+    Máquina 4 & --   & 3 UT && 4 UT & 8 UT && 3 UT & -- \\ 
     \bottomrule
     
     \end{tabular}
@@ -158,7 +158,7 @@ existente entre la operación 4 y la operación 3 por petenercer ambos al trabaj
 por lo tanto, antes de que dicha maquina empiece con la operacion 4 tiene que esperar 
 a que se procese la máquina 1.
 
-\subsection{Estructura de la memoria}
+\subsection{Estructura del documento}
 
 
 
