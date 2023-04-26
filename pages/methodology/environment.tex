@@ -17,13 +17,13 @@ explorar todo el espacio de estado. Podemos definir un environment de RL formalm
 
 \begin{itemize}
     \item \textbf{Espacio de estados (S):} Es el conjunto de todos los posibles estados del environment. 
-    Puede ser finito o infinito, y se denota como S = \{s1, s2, ..., sn\}, donde si S es finito, n representa 
+    Puede ser finito o infinito, y se denota como $S = \{s1, s2, ..., sn\}$, donde si S es finito, n representa 
     el número de estados posibles. Por ejemplo, si estuviéramos modelando un juego de ajedrez, el espacio 
     de estados incluiria todas las posibles configuraciones del tablero.
 
     \item \textbf{Espacio de acciones (A):} Es el conjunto de todas las posibles acciones que un agente 
     puede tomar en el environment. Al igual que el espacio de estados, el espacio de acciones puede ser finito 
-    o infinito, y se denota como A = \{a1, a2, ..., am\}, donde si es finito, m representa el número de 
+    o infinito, y se denota como $A = \{a1, a2, ..., am\}$, donde si es finito, m representa el número de 
     acciones posibles. Siguiendo con el ejemplo del juego de ajedrez, el espacio de acciones podría incluir 
     todos los posibles movimientos que un jugador puede hacer en su turno.
 
@@ -34,10 +34,10 @@ explorar todo el espacio de estado. Podemos definir un environment de RL formalm
     [0, 1] representa el rango de probabilidades.
 
     \item \textbf{Función de recompensa (R):} Es una función que asigna una recompensa numérica a una transición 
-    de estado y acción específica. Se denota como R(s, a, s'), donde s es el estado actual, a es la acción tomada, 
-    s' es el siguiente estado alcanzado después de tomar la acción a en el estado s, y R(s, a, s') es 
+    de estado y acción específica. Se denota como $R(s, a, s')$, donde s es el estado actual, a es la acción tomada, 
+    s' es el siguiente estado alcanzado después de tomar la acción a en el estado s, y $R(s, a, s')$ es 
     la recompensa asociada a esa transición. Formalmente, la función de recompensa se puede escribir 
-    como: R: S x A x S -> R, donde R es un valor numérico que representa la recompensa. 
+    como: $R: S x A x S -> R$, donde R es un valor numérico que representa la recompensa. 
 \end{itemize}
 
 \textbf{Nota: } En nuestro caso, no será necesario definir una función de recompensa, ya que debido a la 
@@ -152,6 +152,6 @@ definir las siguientes acciones: (Maquina 1, Operacion 1), (Maquina 1, Operacion
 (Maquina 4, Operacion 5). En este caso, todas aquellas operaciones que no se encuentren en la lista 
 de acciones disponibles no pueden ser ejecutadas en el estado actual.
 
-\subsubsection{Función de transición}
+\subsubsection{Transición de estados}
 
 \pagebreak
