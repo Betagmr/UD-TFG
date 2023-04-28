@@ -158,12 +158,25 @@ def train(model, optimizer, train_loader, batch_size):
     return total_loss / total_examples 
 \end{lstlisting}\medskip
 
-Esta funcion es la responasable de efectuar el Imitation Learning, para ello se carga del
+Esta funcion es la responasable de efectuar el Imitation Learning, para ello carga en el
 trainloader los grafos que habiamos generado previamente y se le pasa al modelo para que
 realice la predicción. Una vez que se tiene la predicción, se calcula el loss y se compara
-con la solución que ha tomado el experto para ese grafo. Una de las particularidades que
-tiene relevancia es que la predicción que devuelve el modelo se realiza sobre el tensor
-que represnta la relacion entre las operaciones y las maquinas, por lo que aunque
-aumente o disminuya el numero de operaciones o maquinas no sera necesario modificar
-el modelo, ya que este se adapta a la dimensionalidad.
+con la solución que ha tomado el experto para ese estado. Una de las particularidades que
+tiene el modelo es que la predicción que devuelve se realiza sobre el tensor que represnta 
+la relacion entre las operaciones y las maquinas, por lo que aunque aumente o disminuya 
+el numero de operaciones o maquinas no sera necesario modificar el modelo, ya que este 
+se adapta a diferentes dimensionalidades.
+
+\subsubsection{Arquitectura del ensemble}
+Una vez que se ha entrenado el modelo basico, se puede proceder a montar el ensemble.
+Como se ha comentado anteriormente, el ensemble se va a componer de 3 modelos, cada uno
+de ellos se va a ejecutar de forma independiente y se va a recuperar la solución que 
+mejor desempeño haya tenido. A continuación se muestra la arquitectura del ensemble.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.38]{ensemblearc.png}
+    \caption{Arquitectura del ensemble}
+    \label{fig:ensemblearc}
+\end{figure} 
 

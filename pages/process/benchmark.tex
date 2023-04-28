@@ -1,4 +1,4 @@
-\section{Sistema de evaluación del modelo}
+\subsection{Sistema de evaluación del modelo}
 Un buen sistema de evaluación es esencial para un proyecto de Machine Learning.
 No solo es útil por el hecho de medir el rendimiento de los modelos,
 sino que además sirve como un identificador claro del progeso dentro del desarrollo.
@@ -7,7 +7,7 @@ como el hecho de saber que las iteraciones en las que gastamos tiempo y recursos
 positivo en el resultado final. Aunque físicamente es imposible conseguir una productividad
 perfecta, con ayuda de una metodología sólida es posible reducir al máximo esta problemática.
 
-\subsection{Selección de métrica}
+\subsubsection{Selección de métrica}
 El objetivo de una métrica es, mediante ponderacion numérica, identificar errores en el modelo y
 servir como ayuda para la toma de decisiones, cambios en el diseñe o la soluación de problemas. En el caso del
 FJSP, el objetivo es encontrar una acorde a la tarea que queramos abordar. En la literatura se atacan dos puntos
@@ -29,7 +29,7 @@ aprobechar las máquinas lo máximo posible. Es una opcion combinar ambas para i
 como del propio proceso que se quiere optimizar pero, por la propia idiosincrasia de estas métricas, el mejorar la puntuación
 en una inevitablemente afectara negativamente a la valoración de la otra en un amplio número de casuísticas.
 
-\subsection{Implementación de la métrica}
+\subsubsection{Implementación de la métrica}
 Ya hemos decidido que métrica es la indicada para evaluar nuestro modelo, pero ahora debemos
 implementarla de acorde al contexto de nuestro problema. El siguiente paper utiliza una formula para
 calcular el time spam que nosotros también vamos a utilizar, donde Tmax es el tiempo que tarda en
@@ -41,7 +41,7 @@ modelo, sino también a cualquier otro sistema externo que resuelva el problema.
 
 \equationNote{f(x) = \frac{Tmax - Tmin}{Tmin}}{Formula del time spam}
 
-\subsection{Benchmarking}
+\subsubsection{Benchmarking}
 Por último, es hora de definir como vamos a realizar el proceso de benchmarking. Hemos comentado en
 el apartado anterior, que no solo incluiremos el histórico de las diferentes versiones de nuestro
 modelo, sino que tambien añadiremos otras alternativas para la resolución del problemas como reglas de
@@ -52,11 +52,12 @@ son extraidas del siguiente repositorio \cite*{ptal} de GitHub.\medskip
 No solo vamos a tener en cuenta el time spam, sino que también vamos a utilizar el tiempo de cálculo,
 ya que es un factor primordial a la hora de comparar diferentes casos de uso y que puede afectar
 directamente a la toma de decisiones. Por ello, vamos a utilizar la siguiente tabla para la comparación.
+\medskip
 
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}[t]{|lcccc|c|}
+    \begin{tabular}[ht]{|lcccc|c|}
         \hline
                   & Model v0 & Model v1 & Model v2 & Model v3 & FIFO \\
         \hline
@@ -79,4 +80,4 @@ directamente a la toma de decisiones. Por ello, vamos a utilizar la siguiente ta
 \end{table}
 
 
-\pagebreak
+\lipsum[1]
