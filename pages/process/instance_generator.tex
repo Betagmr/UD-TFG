@@ -126,6 +126,7 @@ Se va a definir una funcion train que recibe como parametros el modelo, el optim
 que hemos generado previamente y el tamaño del batch. Esta funcion se encarga de entrenar el modelo
 y devolver el calculo del loss que se ha obtenido durante el entrenamiento.\medskip
 
+\begin{figure}[ht]
 \begin{lstlisting}
 def train(model, optimizer, train_loader, batch_size):
     model.train()
@@ -157,6 +158,9 @@ def train(model, optimizer, train_loader, batch_size):
 
     return total_loss / total_examples 
 \end{lstlisting}\medskip
+    \caption{Train code example}
+    \label{fig:traincode}
+\end{figure}
 
 Esta funcion es la responasable de efectuar el Imitation Learning, para ello carga en el
 trainloader los grafos que habiamos generado previamente y se le pasa al modelo para que

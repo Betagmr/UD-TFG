@@ -1,0 +1,118 @@
+\subsection{Consideraciones sobre la Implementación}
+\subsubsection{Estructura de la aplicación}
+
+\begin{figure}
+\dirtree{%
+    .1 /.
+    .2 Makefile.
+    .2 README.md.
+    .2 pyproject.toml.
+    .2 .pre-commit-config.yaml.
+    .2 requirements.txt.
+    .2 src.
+    .3 \_\_init\_\_.py.
+    .3 app.py.
+    .3 main.py.
+    .3 config.
+    .4 hyperparams.py.
+    .4 settings.py.
+    .3 environment.
+    .4 fjspenv.py.
+    .4 generator.py.
+    .4 graph.py.
+    .4 solver.py.
+    .3 model.
+    .4 actor.py.
+    .4 eval\_model.py.
+    .4 train\_model.py.
+    .3 pipes.
+    .4 generate\_data.py.
+    .4 generate\_optimun.py.
+    .4 generate\_training.py.
+    .4 generate\_validation.py.
+    .3 scripts.
+    .4 parsedata.py.
+    .2 test.
+    .3 fjspenv\_test.py.
+    .3 graph\_test.py.
+    .3 pipeline\_test.py.
+}
+\caption{Estructura de ficheros del proyecto}
+\label{fig:estrcutra-ficheros}
+\end{figure}
+
+\subsubsection{Entorno de desarrollo}
+
+\subsubsection{Gestión de dependencias y reproducibilidad}
+La gestión de dependencias y la reproducibilidad es uno de los temas de mayor importancia en el 
+desarrollo de un proyecto de software. En el caso de este proyecto, se ha optado por utilizar 
+un kit de herramientas para garantizar que el proyecto se pueda ejecutar siempre en las mismas 
+condiciones. Para ello, se va ha fijar la versión de Python a la 3.10.6 y el resto de dependencias. 
+
+\begin{itemize}
+    \item \textbf{Pyenv: } Pyenv es un administrador 
+    de versiones de Python que permite tener múltiples versiones de Python instaladas en un mismo sistema 
+    y cambiar fácilmente entre ellas. Con Pyenv, es posible instalar distintas versiones de 
+    Python y asegurarse de que el código se está ejecutando en la versión correcta. 
+    
+    
+    \item \textbf{Virtualenv: } Virtualenv es una herramienta que permite crear entornos virtuales de Python para trabajar 
+    en proyectos específicos. Cada entorno virtual puede tener su propia versión de Python y bibliotecas instaladas, 
+    lo que permite aislar proyectos y evitar conflictos entre versiones y dependencias. Con Virtualenv, 
+    es posible instalar y gestionar paquetes de Python específicos para cada proyecto, sin afectar 
+    al sistema operativo global.
+
+    \item \textbf{Pip-Tools: } Pip-Tools es una herramienta de línea de comandos para la gestión de 
+    dependencias de Python. Permite especificar las dependencias de un proyecto en un archivo 
+    "pyproject.toml" y asegurarse de que se instalen y se mantengan actualizadas todas las dependencias 
+    de manera controlada. También permite generar archivos "requirements.txt" en el que se especifican las 
+    versiones exactas de todas las dependencias, lo que ayuda a garantizar que la reproducibilidad del 
+    proyecto se mantenga consistentes y se instalen correctamente.
+
+\end{itemize}
+
+
+\subsubsection{Gestión de la calidad del codigo}
+Al igual que la gestión de dependencias, la gestión de la calidad del código es un tema de gran importancia
+ya que permite mantener un código limpio, legible y fácil de mantener. Para ello, se ha optado por utilizar
+una serie de medidas y herramientas que permiten mantener la calidad del código a lo largo del desarrollo del proyecto.
+Entre estas medidas se incluyen liteners de código, formateadores de código, analizadores estáticos de código y
+herramientas de pruebas unitarias. A continuación se detallan la lista de herramientas:
+
+\begin{itemize}
+    \item \textbf{Git: } Git es un sistema de control de versiones distribuido que se utiliza para el 
+    seguimiento y gestión del código fuente. Permite a los desarrolladores trabajar en el mismo código fuente 
+    sin necesidad de coordinar su trabajo constantemente. Ofrece la posibilidad de volver a versiones anteriores en 
+    caso de errores o cambios no deseados, paralelismo de trabajo mediante el uso de diferentes ramas y cuenta 
+    con multitud de plataformas web como Github o Gitlab para el almacenamiento de repositorios en remoto.
+
+    \item \textbf{Pre-commit: } Pre-Commit es una herramienta que se utiliza para garantizar que el código 
+    fuente de un proyecto cumpla con un conjunto de reglas y estándares de calidad antes de que se realice 
+    un commit. Pre-Commit se integra con Git y se ejecuta automáticamente antes de cada commit, lo que ayuda 
+    a garantizar que el código se mantenga limpio y organizado. Se configura mediante un archivo llamado 
+    ".pre-commit-config.yaml", que especifica las herramientas que se utilizarán para verificar el código 
+    y viene con una gran cantidad de herramientas integradas, incluyendo linters de Python, comprobadores 
+    de estilo de código, herramientas de seguridad, etc. También es posible agregar herramientas 
+    personalizadas si es necesario.
+
+    \item \textbf{Ruff:} Ruff es un linter de Python escrito en Rust, es decir una herramienta de 
+    análisis estático de código que ayuda a identificar errores de sintaxis, errores de estilo y posibles 
+    problemas de rendimiento en el código fuente de un programa. Además, el hecho de que RUFF esté escrito 
+    en Rust le da una ventaja en cuanto a velocidad y eficiencia, el uso de Rust significa que RUFF se 
+    ejecutará rápidamente y consumirá pocos recursos del sistema, lo que puede ser especialmente beneficioso 
+    para proyectos de gran tamaño.
+
+    \item \textbf{Black: } Black es un formateador de código para Python que se utiliza para garantizar
+    que el código cumpla con las directrices de estilo de Python PEP 8, lo que mejora la legibilidad 
+    del código y ahorra tiempo de desarrollo. Se integra fácilmente en flujos de trabajo existentes 
+    y es altamente configurable para adaptarse a diferentes estilos de formato. Black es compatible 
+    con diferentes versiones de Python y es una herramienta valiosa para cualquier equipo de desarrollo 
+    de Python que busque mejorar la calidad y consistencia del código.
+
+    \item \textbf{Mypy: } Mypy es una herramienta de análisis estático para Python que permite a los 
+    desarrolladores verificar el tipado estático de su código. Al analizar el código para detectar 
+    problemas de tipado, Mypy ayuda a prevenir errores comunes, mejorar la comprensión del código 
+    y ofrece una mayor capacidad de mantenimiento a largo plazo.
+    
+\end{itemize}
+
