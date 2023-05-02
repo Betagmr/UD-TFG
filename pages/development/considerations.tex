@@ -1,7 +1,11 @@
 \subsection{Consideraciones sobre la Implementación}
-\subsubsection{Estructura de la aplicación}
+\subsubsection{Estructura del codigo}
+La estructura del codigo se ha diseñado para que sea lo más modular posible,
+de forma que cada modulo tenga una única responsabilidad y sea fácilmente
+intercambiable. La distribucion de ficheros y carpetas se puede ver en la 
+\textbf{Figura \ref{fig:estrcutra-ficheros}}.
 
-\begin{figure}
+\begin{figure}[ht]
 \dirtree{%
     .1 /.
     .2 Makefile.
@@ -30,7 +34,7 @@
     .4 generate\_optimun.py.
     .4 generate\_training.py.
     .4 generate\_validation.py.
-    .3 scripts.
+    .3 utils.
     .4 parsedata.py.
     .2 test.
     .3 fjspenv\_test.py.
@@ -41,7 +45,37 @@
 \label{fig:estrcutra-ficheros}
 \end{figure}
 
+A continuación se detallan las carpetas y ficheros más importantes del proyecto:
+\begin{itemize}
+    \item \textbf{src: } Contiene todo el código ejecutable del proyecto, siendo \textit{main.py} el archivo 
+    principal que se ejecuta para lanzar el proyecto. Este archivo se encarga de cargar los
+    diferentes módulos y realizar las llamadas a las pipelines para generar los datos de entrenamiento,
+    validación, así como ejecutar el entrenamiento y la evaluación del modelo. También existe un archivo
+    \textit{app.py} que se encarga de cargar la demo del proyecto mediante una pagina web y ejecutar el 
+    algoritmo de resolución.
+    \item \textbf{config: } Contiene el archivo de configuración de los hiperparámetros para el entrenamiento 
+    y las diferentes variables de configuración del proyecto.
+    \item \textbf{environment: } Contiene los archivos relacionados con el environment del problema, como la
+    clase que representa el grafo heterogeneo, el environment de OpenAI Gym, el generador de instancias y 
+    el resolutor de las mismas.
+    \item \textbf{model: } Contiene los archivos relacionados con el modelo de aprendizaje profundo, como la
+    clase que representa la red neuronal, el entrenador y el evaluador del modelo.
+    \item \textbf{pipes: } Contiene los archivos relacionados con las pipelines de generación de datos,
+    validación y entrenamiento. 
+    \item \textbf{utils: } Contiene los archivos de utilidades, como el parser de los datos de entrada.
+    \item \textbf{test: } Contiene los archivos de testeo de los módulos.
+\end{itemize}
+
 \subsubsection{Entorno de desarrollo}
+El desarrollo del proyecto se ha realizado en un entorno Linux, concretamente en un sistema operativo
+Arch Linux. El editor de código utilizado ha sido Visual Studio Code, que es un editor de código
+de código abierto desarrollado por Microsoft. Este editor de código es uno de los más utilizados
+en la actualidad y cuenta con una gran comunidad de desarrolladores que desarrollan extensiones
+para el mismo. En este proyecto se ha utilizado la extensión de Python para Visual Studio Code,
+que permite ejecutar código Python directamente desde el editor de código, así como depurar el
+código y ejecutar tests. También se ha utilizado otras extensiones como GitHub Copilot, que es
+una extensión que utiliza inteligencia artificial para sugerir código al desarrollador y amVim
+que es una extensión que permite utilizar el editor de código como si fuera el editor Vim.
 
 \subsubsection{Gestión de dependencias y reproducibilidad}
 La gestión de dependencias y la reproducibilidad es uno de los temas de mayor importancia en el 
@@ -54,7 +88,6 @@ condiciones. Para ello, se va ha fijar la versión de Python a la 3.10.6 y el re
     de versiones de Python que permite tener múltiples versiones de Python instaladas en un mismo sistema 
     y cambiar fácilmente entre ellas. Con Pyenv, es posible instalar distintas versiones de 
     Python y asegurarse de que el código se está ejecutando en la versión correcta. 
-    
     
     \item \textbf{Virtualenv: } Virtualenv es una herramienta que permite crear entornos virtuales de Python para trabajar 
     en proyectos específicos. Cada entorno virtual puede tener su propia versión de Python y bibliotecas instaladas, 
