@@ -1,0 +1,43 @@
+\subsection{Optimización de Hiperparámetros}
+La optimización de hiperparámetros se refiere al proceso de ajustar los parámetros 
+de entrenamento y configuracion de un modelo de Machine Learning con el objetivo de 
+mejorar su desempeño. Los hiperparámetros son variables que no se aprenden automáticamente 
+a partir de los datos, sino que deben ser configurados por el investigador.\medskip
+
+En un modelo de Machine Learning, los hiperparámetros pueden incluir variables como 
+la tasa de aprendizaje, la profundidad de la red neuronal, la cantidad de neuronas en 
+cada capa, el tamaño del Batch, entre otros. El proceso de optimización implica la 
+selección cuidadosa de los valores de los hiperparámetros que maximicen el rendimiento 
+del modelo en un conjunto de datos de prueba. Esto generalmente se realiza mediante 
+la búsqueda de un rango de valores posibles para los hiperparámetros y evaluando el 
+rendimiento del modelo en cada combinación posible.\medskip
+
+La optimización de hiperparámetros es un aspecto importante del desarrollo de modelos 
+, ya que una mala selección de hiperparámetros puede llevar a un modelo con un rendimiento 
+deficiente. Un modelo que esté bien optimizado puede mejorar significativamente su 
+capacidad para hacer predicciones precisas y generalizar a datos nuevos y desconocidos.
+
+\subsubsection{Optimización de Hiperparámetros con Optimización Bayesiana}
+La optimización bayesiana es un método de optimización de hiperparámetros para modelos 
+de Machine Learniing que utiliza un enfoque probabilístico para buscar el conjunto 
+óptimo de hiperparámetros. En lugar de evaluar todas las combinaciones posibles de 
+hiperparámetros, la optimización bayesiana utiliza una estrategia de búsqueda más 
+inteligente que utiliza la información de iteraciones anteriores para buscar en el 
+espacio de búsqueda de manera más eficiente.\medskip
+
+La optimización bayesiana comienza con una función subrogacion que mide la calidad del modelo 
+en un conjunto de datos de prueba. La estrategia de optimización bayesiana consiste en construir 
+un modelo probabilístico de la función objetivo y utilizarlo para decidir qué hiperparámetros 
+probar a continuación. En cada iteración, el modelo actualizado sugiere un conjunto de 
+hiperparámetros que se espera que tengan una buena probabilidad de mejorar el rendimiento 
+del modelo. El modelo se entrena con los nuevos hiperparámetros y se evalúa 
+su rendimiento en el conjunto de prueba. Esta evaluación se utiliza para actualizar el 
+modelo probabilístico, y se repite el proceso de búsqueda de hiperparámetros hasta 
+que se encuentra una combinación que satisfaga el criterio de parada.
+
+\subsubsection{Aplicación de Optimización Bayesiana con Optuna}
+Optuna utiliza el método de optimización bayesiana para buscar el conjunto óptimo de
+hiperparámetros. Además, mediante Optuna-Dashboard se puede visualizar el proceso de
+optimización, la importancia de cada hiperparámetro, la relación entre los hiperparámetros
+y llevar un registro de las mejores combinaciones de hiperparámetros encontradas.\medskip
+
