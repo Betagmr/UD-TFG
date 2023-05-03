@@ -41,3 +41,37 @@ hiperparámetros. Además, mediante Optuna-Dashboard se puede visualizar el proc
 optimización, la importancia de cada hiperparámetro, la relación entre los hiperparámetros
 y llevar un registro de las mejores combinaciones de hiperparámetros encontradas.\medskip
 
+A continuación se muestra el listado de hiperparámetros:
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}[ht]{l|c|c} 
+        \textbf{Lista de Hyperparametros} & \textbf{Rango de valores} & \textbf{Valor Optimo}\\
+        \hline
+        \textbf{Número de instacias pequeñas} & 0 -- 20k & 20k\\
+        \textbf{Número de instacias medianas} & 0 -- 20k & 10k\\
+        \textbf{Número de instacias grandes}  & 0 -- 20k & 10k \\
+        \textbf{Tasa de aprendizaje} & 0.00001 -- 0.001 & 15 \\
+        \textbf{Número de épocas} & 5 -- 35 & 30 \\ 
+        \textbf{Número de episodios} & 1 -- 3 & 2 \\
+        \textbf{Tamaño del Batch} & 64, 128, 256 & 64\\
+        \textbf{Canales ocultos} & 100 -- 300 & 200 \\
+        \textbf{Número de capas ocultas} & 1 -- 6 & 1 \\
+    \end{tabular}
+    \caption{Your first table.}
+    \label{tab:hyperparams}
+\end{table}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.31]{experiments.png}
+    \caption{Visualizacion de la experimentacion de hiperparámetros}
+    \label{fig:experiments}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.31]{importance.png}
+    \caption{awdwaedwadwa}
+    \label{fig:importance}
+\end{figure}
