@@ -1,0 +1,84 @@
+\subsection{Especificación del Diseño}
+\subsubsection{Arquitectura y entorno tecologico del proyecto}
+\paragraph{Arquitectura del software}
+La arquitectura del software del modelo está compuesta por cuatro capas principales: 
+la capa del modelo, la capa del estado compuesto por un grafo, la capa del 
+environment y la capa de ejecución. Se puede ver un diagrama de la arquitectura en la
+figura \ref{fig:layers}. \medskip
+
+\begin{itemize}
+    \item \textbf{Capa de ejecución:} Esta capa se encarga de ejecutar todo el ecosistema
+    del modelo. En nuestro caso es ejecutada por Python 3.10.6 y ofrece la versatilidad de
+    poder ejecutar el modelo ya sea en un entorno local o en la nube. 
+    \item \textbf{Capa del environment:} Esta capa se encarga de generar el entorno en el que se
+    ejecutará el modelo. Cuando se va a resolver un problema de scheduling, el entorno
+    prepara todo lo necesario para que el modelo pueda interactuar con el problema y le
+    proporciona toda la información necesaria para que pueda tomar decisiones.
+    \item \textbf{Capa del estado:} Esta capa se encarga de representar el estado del problema
+    mediante un grafo. El grafo representa todas las operaciones que se deben ejecutar y
+    las restricciones que existen entre ellas.
+    \item \textbf{Capa del modelo:} Esta capa se encarga de resolver el problema de scheduling
+    mediante un modelo de Deep Learning. El modelo recibe como entrada el grafo del
+    estado y genera como salida una asignación de las operaciones a los recursos. 
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.27]{layers.png}
+    \caption{Capas de la arquitectura}
+    \label{fig:layers}
+\end{figure}
+
+
+\paragraph{Despliegue fisico}
+La visualización de los resultados es una parte crítica e importante del proceso. Permite 
+a los usuarios finales entender y analizar los datos de una manera más efectiva.  
+Sin embargo, es importante destacar que esta parte del proyecto es 
+estrictamente opcional y dependerá de las necesidades concretas del caso de uso. 
+Si bien la visualización del problema puede ser extremadamente útil algunos casos, puede que no sea 
+relevante o necesaria en otros. Por lo tanto, se debe evaluar cuidadosamente la necesidad de 
+esta visualización antes de implementarla, ya que puede ser un proceso costoso y 
+requerir mucho tiempo.\medskip
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.25]{deploy.png}
+    \caption{Arquitectura fisica}
+    \label{fig:despliegue}
+\end{figure}
+
+En este proyecto en particular, se ha optado por se crear una aplicacion web en Streamit 
+desde la cual mediante una llamada al modelo generar un gráfico Gantt en el que se podra
+visualizar todas las operaciones y sus respectivas asigncaciones y tiempos de ejecucion.
+En la figura \ref{fig:despliegue} se puede ver un diagrama del despliegue fisico del modelo.
+La aplicacion sirve como intermediario entre el usuario y el modelo, para ello extrae las
+diferentes configuraciones de problemas desde una carpeta en la que se encuentran los 
+archivos. Lo importante de esta distribucion es que permite una gran versatilidad a la hora
+de ejecutar el modelo, ya que se podría mover la ejecución del modelo a un microservicio
+externo que se encargue de ejecutar el modelo y devolver los resultados a la aplicacion web.
+Para ver más información sobre la aplicación web, se puede consultar el apartado de manual
+de usuario donde se explica con más detalle. 
+
+\subsubsection{Descripcion del diseño}
+Uno de los diseños más comunmente utilizados para resolver problemas de machine learning
+es el uso de sistemas de pipelines. Estos sistemas escapan del paradigma tradicional de
+programación secuencial y se basan en la idea de que el problema se puede resolver
+mediante la composición de una serie de pasos o etapas. Cada etapa se encarga de realizar
+una tarea específica y se comunica con las demás mediante un sistema de colas. De esta
+manera, se puede lograr un sistema altamente escalable y flexible. Además, se puede
+reutilizar cada etapa para diferentes pipelines o enlazar diferentes pipelines para
+conseguir uno más complejo. Otra de las ventajas de este diseño es que permite
+abstraer la implementación de cada etapa, lo que permite que cada una de ellas se pueda
+mejorar o cambiar sin afectar al resto de ellas, siempre y cuando se mantenga la
+interfaz de comunicación.
+
+\subsubsection{Modelo de diseño}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{disenio.png}
+    \caption{Diseño del sistema}
+    \label{fig:desing}
+\end{figure}
+
+En la figura \ref{fig:desing} se puede ver al completo las diferentes etapas que componen
+el sistema. 
