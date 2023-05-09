@@ -81,4 +81,23 @@ interfaz de comunicación.
 \end{figure}
 
 En la figura \ref{fig:desing} se puede ver al completo las diferentes etapas que componen
-el sistema. 
+el sistema. Podemos indeficar las siguientes etapas:
+\begin{itemize}
+    \item \textbf{Generador de datasets: } Este pipeline se encarga de generar los datasets
+    que se utilizarán para entrenar el modelo y para su validación. Estos sond dos .csv que
+    contienen las diferentes configuraciones de problemas que se van a utilizar. Y que se
+    utilizan para el resto de pipelines.
+    \item \textbf{Optimizador de hiperparametros: } Este pipeline se encarga de optimizar
+    los hiperparametros del modelo. Para ello utiliza el dataset de validación como una
+    forma de medir el rendimiento del modelo. El objetivo de este pipeline es encontrar
+    la configuración de hiperparametros que mejor se adapte al problema. Estos resultados
+    se guardan en una base de datos sqlite3.
+    \item \textbf{Entrenamiento del modelo: } Este pipeline se encarga de entrenar el modelo
+    con la configuración de hiperparametros que ha sido almacenada en la base de datos por el
+    anterior pipeline. El modelo se entrena con el dataset de entrenamiento pero antes de
+    guardar el modelo se evalua con el benchmark para comprobar el rendimento real del modelo.
+\end{itemize} 
+
+Todas estas etapas son gestionandas por el orquestador de pipelines. Este se encarga de
+gestionar el flujo de datos entre las diferentes etapas y de asegurar que se ejecutan en
+el orden correcto y que se cumplen las dependencias entre ellas.

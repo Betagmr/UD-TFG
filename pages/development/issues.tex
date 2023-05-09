@@ -1,0 +1,53 @@
+\subsection{Incidencias del Proyecto}
+En esta sección del TFG, se aborda uno de los aspectos más importantes del desarrollo 
+de un proyecto de Machine Learning: los problemas y desafíos que pueden surgir durante 
+el proceso. Es común que se presenten dificultades que pueden afectar tanto la precisión 
+como la eficiencia del modelo. Estos problemas pueden ser causados por una variedad 
+de factores a continuación se describen algunos de los inconvenientes que se presentaron
+durante el desarrollo del proyecto.
+
+\subsubsection{Problemas con la normalización de los datos}
+La normalización de los datos de entrada es un paso crítico para garantizar que el 
+modelo pueda aprender de manera efectiva y generar predicciones precisas. En el caso 
+específico de los grafos, el estado de un nodo puede almacenar diferentes tipos de datos, 
+como números, referencias a otros nodos, etc, lo que puede generar problemas a la hora 
+de la normalización. Otro lugar done también surgen problemas de normalización es en los 
+datos de las aristas, que representan las conexiones entre nodos. Al respresentar un 
+nodo como una lista de características, estas diferentes caracteristicas de pueden 
+requerir de diferentes técnicas de normalización.\medskip
+
+La soluación que se ha adoptado en este proyecto es la de normalizar los datos de
+cada entrada de manera independiente. De esta manera, se evitan problemas de colision 
+entre los diferentes nodos y aristas de un mismo grafo. Esta solución, sin embargo,
+trae problemas de escalabilidad ya que cada vez que se implementa y/o añade una nueva
+característica al modelo, es necesario modificar el código de normalización de los datos.\medskip
+
+En un futuro, se podría implementar una solución más escalable, que permita definir
+un conjunto de tipos de características con sus respectivas técnicas de normalización.
+De este modo, se podría añadir nuevas características al modelo sin necesidad de
+modificar el código de normalización. Además, tambien daria la posibilidad de
+poder en una fase de testeo, probar diferentes técnicas de normalización para
+cada tipo de característica y elegir la que mejor se adapte al modelo.
+
+\subsubsection{Problemas con el hardware de entrenamiento}
+La falta de hardware adecuado para el entrenamiento y testeo es un problema común 
+que puede afectar la eficiencia y la precisión del modelo. El entrenamiento de modelos 
+de Machine Learning a menudo requiere una gran cantidad de recursos computacionales, 
+como procesadores, memoria RAM y capacidad de almacenamiento. Además, los modelos 
+pueden requerir GPUs (unidades de procesamiento gráfico) especializadas para acelerar 
+el proceso de entrenamiento.\medskip
+
+La falta de hardware adecuado puede limitar la cantidad de datos que se pueden usar 
+para entrenar el modelo, la complejidad del modelo que se puede entrenar y la 
+velocidad a la que se puede realizar el entrenamiento. Esto puede resultar en 
+modelos que no sean lo suficientemente precisos o que no se puedan entrenar en 
+un tiempo razonable. En el caso de este proyecto, se ha contado con un pequeño
+servidor que disponia de una CPU y 4GB de RAM, lo que ha limitado el tamaño de los
+grafos que se han podido usar para el entrenamiento. Además, el entrenamiento de
+los modelos y la búsqueda de hiperparámetros ha sido un proceso lento, ya que
+no se ha contado con una GPU para acelerar el proceso.\medskip
+
+En un futuro, se podría implementar una solución que permita entrenar los modelos
+utilizando una o varias GPUs. Esto permitiría entrenar modelos más complejos y
+con un mayor número de datos y daría la posibilidad de aumentar el número de
+caracteristicas de los nodos y aristas de los grafos.
