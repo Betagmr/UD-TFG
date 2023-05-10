@@ -48,6 +48,50 @@ los modelos y la búsqueda de hiperparámetros ha sido un proceso lento, ya que
 no se ha contado con una GPU para acelerar el proceso.\medskip
 
 En un futuro, se podría implementar una solución que permita entrenar los modelos
-utilizando una o varias GPUs. Esto permitiría entrenar modelos más complejos y
-con un mayor número de datos y daría la posibilidad de aumentar el número de
-caracteristicas de los nodos y aristas de los grafos.
+utilizando una o varias GPUs. Esto permitiría entrenar modelos más complejos
+con un mayor número de parámetros y con un mayor número de datos de entrenamiento.
+
+\subsubsection{Problemas de rendimiento}
+Python es un lenguaje de programación interpretado, lo que significa que el código
+se ejecuta línea por línea, en lugar de compilarlo en un programa ejecutable. Esto
+hace que sea extremadamente lento en comparación con otros lenguajes de programación
+como es el caso de C o C++. Es por ello que durante el desarrollo del proyecto, se
+ha tenido que realizar varias tareas de profiling para identificar las partes del
+código que más tiempo de ejecución consumían y optimizarlas.\medskip
+
+Para ello se ha utilizado la librería \textit{cProfile} de Python, que permite
+realizar un análisis de rendimiento del código. Esta librería genera un informe
+con el número de llamadas y el tiempo de ejecución de cada función del código.
+De este modo, se puede identificar las funciones que más tiempo de ejecución
+consumen y optimizarlas.\medskip
+
+\begin{figure}
+    \centering
+    \begin{minipage}{0.47\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{before-fix.png} 
+        \caption{Environment no optimizado}
+    \end{minipage}\hfill
+    \begin{minipage}{0.47\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{after-fix.png}
+        \caption{Environment optimizado}
+        \label{fig:after-fix}
+    \end{minipage}
+\end{figure}
+
+En este caso en concreto en el que se puede ver la diferencia de rendimiento
+entre el código no optimizado y el código optimizado, debido a que la función
+\textit{job\_to\_op} del environmente que se encarga de transformar un trabajo
+en una operación para poder actulizar el estado del grafo, se ejecuta un gran
+número de veces durante el entrenamiento. Por ello, se ha optimizado el código
+de esta función para que sea más eficiente utilizando una utlidad de Python
+llamada \textit{functools.lru\_cache}, que permite cachear los resultados de
+una función para evitar tener que ejecutarla varias veces con los mismos
+parámetros.\medskip
+
+Como se puede ver en la figure \ref{fig:after-fix}, el tiempo de ejecución
+se ha reducido un 24\% del tiempo total de ejecución del código. Si quisieramos
+optimizar aún más el código, se podría implementar algunas de las funciones
+del environment en C++ y luego importar el módulo en Python, aunque esto
+requeriria un mayor esfuerzo de desarrollo. 
