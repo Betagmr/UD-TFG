@@ -45,36 +45,43 @@ modelo, sino también a cualquier otro sistema externo que resuelva el problema.
 Por último, es hora de definir como vamos a realizar el proceso de benchmarking. Hemos comentado en
 el apartado anterior, que no solo incluiremos el histórico de las diferentes versiones de nuestro
 modelo, sino que tambien añadiremos otras alternativas para la resolución del problemas como reglas de
-ordenación, algoritmos geneticos o metodos exactos. Para ello, contamos con un dataset de 10 instancias
-específicas que están siendo utilizadas en la literatura para la comparación de modelos. Estas instancias
-son extraidas del siguiente repositorio \cite*{ptal} de GitHub.\medskip
-
-No solo vamos a tener en cuenta el time spam, sino que también vamos a utilizar el tiempo de cálculo,
-ya que es un factor primordial a la hora de comparar diferentes casos de uso y que puede afectar
-directamente a la toma de decisiones. Por ello, vamos a utilizar la siguiente tabla para la comparación.
-\medskip
-
+ordenación, algoritmos geneticos o metodos exactos. Para ello, contamos con un benchmark de 10 instancias
+llamada Brandimarte \cite*{pbrandimarte}, que son las populares dentro de la literatura para la comparación de modelos.
+Estas se pueden econtrar en el siguiente repositorio \cite*{ptal} de GitHub.\medskip
 
 \begin{table}[ht]
     \centering
-    \begin{tabular}[ht]{|lcccc|c|}
-        \hline
-                  & Model v0 & Model v1 & Model v2 & Model v3 & FIFO \\
-        \hline
-        MK01      & 2.850    & 0.923    & 0.225    & 0.074    & --   \\
-        MK02      & 3.661    & 0.191    & 0.423    & 0.346    & --   \\
-        MK03      & 3.583    & 0.850    & 0.240    & 0.073    & --   \\
-        MK04      & 1.877    & 0.494    & 0.450    & 0.283    & --   \\
-        MK05      & 8.578    & 1.122    & 0.104    & 0.133    & --   \\
-        MK06      & 8.578    & 1.122    & 0.754    & 0.747    & --   \\
-        MK07      & 3.143    & 1.288    & 0.287    & 0.273    & --   \\
-        MK08      & 2.809    & 0.246    & 0.130    & 0.032    & --   \\
-        MK09      & 5.302    & 0.567    & 0.156    & 0.198    & --   \\
-        MK10      & 6.898    & 0.786    & 0.704    & 0.535    & --   \\
-        \hline
-        Calc time & 03:00    & 01:03    & 01:17    & 01:37    & --   \\
-        AVG       & 4.282    & 0.709    & 0.347    & 0.269    & --   \\
-        \hline
+    \begin{tabular}[ht]{c|ccccc|c} 
+                  & njob & nmac & nop & meq & proc & optim \\
+        \hline 
+        MK01      & 10  & 06    & 05 -- 07  & 3  & 01 -- 07  & 40\\
+        MK02      & 10  & 06    & 05 -- 07  & 6  & 01 -- 07  & 26\\
+        MK03      & 15  & 08    & 10 -- 10  & 5  & 01 -- 20  & 204\\
+        MK04      & 15  & 08    & 03 -- 10  & 3  & 01 -- 10  & 60\\
+        MK05      & 15  & 04    & 05 -- 10  & 2  & 05 -- 10  & 172\\
+        MK06      & 10  & 15    & 15 -- 15  & 5  & 01 -- 10  & 57\\
+        MK07      & 20  & 05    & 05 -- 05  & 5  & 01 -- 20  & 139\\
+        MK08      & 20  & 10    & 10 -- 05  & 2  & 05 -- 20  & 523\\
+        MK09      & 20  & 10    & 10 -- 15  & 5  & 05 -- 20  & 307\\
+        MK10      & 20  & 15    & 10 -- 15  & 5  & 05 -- 20  & 196\\
     \end{tabular}
-    \caption{Tabla con los resultados del benchmarking}
+    \caption{Informacion del benchmark}
 \end{table}
+
+En la tabla anterior, podemos observar las diferentes características de cada instancia. A continuación,
+vamos a explicar cada una de ellas:
+\begin{itemize}
+    \item \textbf{njob:} Número de trabajos.
+    \item \textbf{nmac:} Número de máquinas.
+    \item \textbf{nop:} Número minimio y maximo de operaciones por trajo.
+    \item \textbf{meq:} Número maximo de máquinas equivalentes por operación.
+    \item \textbf{proc:} Número minimo y maximo de tiempo de procesamiento por operacion.
+    \item \textbf{optim:} Valor óptimo para la resolución.
+\end{itemize} 
+
+Además, el paper \cite*{pbrandimarte} también incluye una tabla con los resultados de diferentes
+reglas de ordenación y otra clase de algoritmos como la búsqueda tabú. Esto nos sera de gran ayuda
+para comparar nuestro modelo con otros y ver si realmente estamos mejorando los tiempos en
+comparación con otras alternativas, no solo en el caso de que nuestro modelo sea mejor, sino también
+en el caso de que no lo sea. En este último caso, podremos analizar los resultados y ver si es posible
+realizar cambios en el enfoque del problema para mejorar los resultados.
