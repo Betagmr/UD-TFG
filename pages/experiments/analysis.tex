@@ -1,0 +1,86 @@
+\subsection{Análisis de los resultados}
+En esta sección se analizarán los resultados obtenidos durante las diferentes
+fases del proceso de desarrollo del proyecto. Se compararán los resultados
+obtenidos con los resultados de la literatura existente, y se establecerán
+conclusiones y posibles implicaciones para futuras investigaciones.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}[ht]{|l|cccc|}
+        \hline
+                  & Modelo v0 & Modelo v1 & Modelo v2 & Modelo v3 \\
+        \hline
+        MK01      & 2.850    & 0.923    & 0.225    & 0.075    \\
+        MK02      & 3.661    & 0.191    & 0.423    & 0.346    \\
+        MK03      & 3.583    & 0.850    & 0.240    & 0.073    \\
+        MK04      & 1.877    & 0.494    & 0.450    & 0.283    \\
+        MK05      & 8.578    & 1.122    & 0.104    & 0.133    \\
+        MK06      & 8.578    & 1.122    & 0.754    & 0.747    \\
+        MK07      & 3.143    & 1.288    & 0.287    & 0.273    \\
+        MK08      & 2.809    & 0.246    & 0.130    & 0.032    \\
+        MK09      & 5.302    & 0.567    & 0.156    & 0.198    \\
+        MK10      & 6.898    & 0.786    & 0.704    & 0.535    \\
+        \hline
+        Calc time & 03:00    & 01:03    & 01:17    & 01:37    \\
+        AVG       & 4.282    & 0.709    & 0.347    & 0.269    \\
+        \hline
+    \end{tabular}
+    \caption{Tabla con los resultados del modelo}
+\end{table}
+
+En la siguiente tabla se muestran los resultados obtenidos por las
+diferentes versiones del modelo, y el tiempo total de procesamiento
+para completar todo el proceso de bentchmark. A continuación vamos a
+explicar el desempeño de cada una de las versiones del modelo.
+\begin{itemize}
+    \item \textbf{Modelo v0:} Esta versión del modelo es la primera que se
+        desarrolló, y la que se utilizó para realizar las pruebas de
+        concepto. Como se puede observar, los resultados obtenidos son
+        muy malos, y el tiempo de procesamiento es muy elevado. Esto
+        se debe a que el modelo no está bien formulado, y es una base
+        para el desarrollo e iteracion de las siguientes versiones.
+    \item \textbf{Modelo v1:} Esta versión del modelo es la primera que
+        se desarrolló con el objetivo de obtener resultados. Como se
+        puede observar, los resultados obtenidos son muy buenos, y el
+        tiempo de procesamiento es muy bajo. Esto se debe a que se han
+        realizado mejoras internas en el modelo y se ha aplicado una
+        normalizacion más sofisticada a los datos de entrada, lo que
+        ha permitido obtener mejores resultados.
+    \item \textbf{Modelo v2:} Para esta version hubo un cambio en el
+        environment, se cambio el paradigma de prediccion y en vez
+        de predecir a nivel de operaciones, se predice a nivel de
+        la relación entre maquinas y operaciones. Esto ha permitido
+        reducir la complejidad del espacio de decisiones y obtener
+        mejores resultados.
+    \item \textbf{Modelo v3:}
+\end{itemize}
+
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}[ht]{|l|cccc|}
+        \hline
+                  & spt & lwkr & mwkr & tabl \\
+        \hline
+        MK01      & 65      & 76    & 54    & 49    \\
+        MK02      & 44      & 48    & 41    & 41    \\
+        MK03      & 397     & 506   & 296   & 263   \\
+        MK04      & 109     & 121   & 89    & 89    \\
+        MK05      & 231     & 291   & 188   & 188   \\
+        MK06      & 128     & 143   & 139   & 128   \\
+        MK07      & 188     & 238   & 262   & 188   \\
+        MK08      & 670     & 1042  & 558   & 523   \\
+        MK09      & 573     & 723   & 536   & 444   \\
+        MK10      & 536     & 627   & 524   & 363   \\
+        \hline
+    \end{tabular}
+    \caption{Resultados de las reglas de ordenación}
+\end{table}
+
+\begin{itemize}
+    \item \textbf{spt:} Shortest Processing Time
+    \item \textbf{lwkr:} Longest Work Remaining
+    \item \textbf{mwkr:} Most Work Remaining
+    \item \textbf{tabl:} Tabu Search
+\end{itemize}
+
