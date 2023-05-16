@@ -1,0 +1,108 @@
+\section{Anexo 2, Cosideraciones éticas}
+El FJSP es un problema de optimización combinatoria en el que se deben ordenar un 
+conjunto de trabajos que se distribuyen a través de un grupo de máquinas. La 
+complejidad del problema radica en la variabilidad del mismo, ya que cada trabajo 
+puede ser procesado en diferentes máquinas. El objetivo es minimizar el tiempo 
+total de producción utilizando inteligencia artificial, de tal manera que se 
+aprovechen al máximos los recursos acortando a su vez los tiempos de entrega. A 
+continuación, se van a identificar diferentes cuestiones éticas de esta línea de 
+investigación y las consecuencias que pueden acarrear.
+
+\subsection{Impacto medioambiental}
+Uno de los principales perjudicados de la implementación de sistemas de cálculo 
+para resolver problemas de combinatoria es sin duda nuestro planeta. Generalmente 
+se requieren grandes cantidades de energía y equipamiento para funcionar, 
+especialmente si se están ejecutando en servidores a gran escala. El objetivo de 
+mi PFG es utilizar redes neuronales de grafos, las cuales únicamente requieren de 
+un desembolso energético inicial, ya que una vez terminado su entrenamiento se 
+vuelven mucho menos costosas energéticamente hablando que los sistemas más populares 
+instalados en las empresas. Gracias a esto, estaríamos reduciendo significativamente 
+la huella de carbono que generan estos sistemas, dado que pasaríamos de consumir 
+grandes cantidades de energía, debido al masivo tiempo de cómputo, a una cantidad 
+prácticamente despreciable.
+
+\subsection{Implicaciones en el empleo}
+Un proyecto de este tipo podría tener fuertes implicaciones en el empleo, especialmente 
+si se automatizan tareas que antes eran realizadas por trabajadores humanos. Es 
+importante tener en cuenta cómo se verán afectados los trabajadores y si se tomarán 
+medidas para garantizar la protección de sus derechos laborales.\medskip
+
+Por una parte tenemos el caso principal que se da cuando una empresa destina a un 
+trabajador a realizar la asignación de tareas de una forma manual, este procedimiento 
+puede ser extremadamente largo llegando a registrarse tiempos de hasta 3 jornadas 
+laborales para diseñar una planificación óptima. Gracias a esta tecnología podremos 
+proporcionar una planificación óptima en cuestión de segundos y liberar de toda esa 
+carga de trabajo que suponen este tipo de tareas.\medskip
+
+Otro caso directamente relacionado con los trabajadores, es si una empresa intentase 
+asignar estas planificaciones a personas físicas en lugar de máquinas industriales. 
+Aunque es posible realizar dicha asignación, no es algo que se debiese permitir ya 
+que este tipo de algoritmos están construidos desde el punto de vista de que las 
+tareas las realizan máquinas, y no tienen en consideración aspectos como el estado 
+mental de los trabajadores, el estrés que supone realizar una tarea, tiempos de 
+descansos, etc. Es por ello que es nuestra obligación conocer de primera mano las 
+condiciones en las que se piensa implementar para evitar casos de explotación laboral.
+
+
+\subsection{Efecto en la calidad del producto}
+La optimización de la producción puede ser beneficiosa para la empresa, pero es 
+importante considerar cómo afectará a la calidad del mismo. Por mucho que se 
+agilicen los tiempos de producción, si se descuida el producto final por el mero 
+hecho de disminuir los tiempos de entrega nos veríamos ante la situación en la 
+que los clientes resignasen de seguir consumiendo nuestro producto y, en última 
+instancia, perjudicando la reputación de la empresa. Además, es importante encontrar 
+un equilibrio que nos permita ofrecer productos de alta calidad de manera eficiente. 
+Esto se vuelve especialmente importante si consideramos las posibles consecuencias 
+que puede acarrear una mala calidad en productos relacionados directamente con la 
+salud, seguridad, transporte o alimentación.
+
+\subsection{Privacidad y seguridad de los datos}
+La recopilación, almacenamiento y uso de datos personales para el entrenamiento de 
+modelos de IA pueden representar un riesgo para la privacidad de los individuos y 
+empresas. Por lo tanto, es necesario establecer medidas de seguridad para garantizar 
+que los datos sean utilizados de manera responsable y buscar alternativas que minimicen 
+la cantidad de información que se necesite extraer.\medskip
+
+Una de las soluciones que propongo es la creación de un programa que genere de forma 
+aleatoria instancias que no tengan ninguna correlación directa con los datos de las 
+empresas. Generar instancias aleatorias del problema implica la creación de conjuntos 
+de entrenamiento que se asemeje al problema original, pero que no contengan datos 
+específicos de un individuo o empresa. Esto puede minimizar completamente su uso, ya 
+que se utilizan datos generados aleatoriamente en lugar de datos reales.\medskip
+
+Por otro lado, para los datos que se extraigan de las empresas se deben establecer 
+políticas claras de privacidad y utilizar medidas de seguridad adecuadas, como 
+la encriptación de datos, el acceso restringido y la gestión adecuada de las 
+credenciales de acceso. Además, es importante que se cumplan las leyes y 
+regulaciones aplicables en materia de privacidad y seguridad de los datos, como 
+el reglamento general de protección de datos de la Unión Europea.\medskip
+
+\subsection{Responsabilidad corporativa}
+La responsabilidad corporativa en el uso de sistemas de inteligencia artificial 
+es un tema cada vez más relevante en el ámbito empresarial. Si una empresa utiliza 
+IA para gestionar el orden de fabricación y surge algún problema, la responsabilidad 
+de ese problema dependerá de varios factores, quién diseñó el modelo, sí se toman 
+decisiones autónomas o se proporcionan recomendaciones y si existen medidas adecuadas 
+para mitigar el riesgo de problemas.\medskip
+
+En nuestro caso, se muestran configuraciones a modo de recomendación y es responsabilidad 
+del operario tomar la decisión final. Aun así, aunque la configuración final es validada 
+por el usuario,  tenemos la responsabilidad ética de programar correctamente su funcionalidad 
+para evitar que genere combinaciones incorrectas que puedan poner en riesgo a terceros. 
+No solo eso, también es indispensable diseñar medidas en el caso de que se intente cambiar 
+la configuración por alguna no válida, reduciendo así el posible error humano. Esto implica 
+realizar pruebas exhaustivas, implementar salvaguardas adecuadas y tomar acciones para 
+mitigar el riesgo de problemas. 
+
+\subsection{Innovación científica}
+Los problemas como el FJSP pertenecen a una familia de problemas matemáticos llamados NP-hard, 
+estos son considerados los más difíciles de resolver en términos de tiempo y no se conoce un 
+algoritmo eficiente que de un resultado exacto en tiempo polinómico. El proporcionar una nueva 
+solución a un problema NP-hard es esencial para resolver otros problemas de la misma familia, 
+ya que comparten estructura y propiedades similares.\medskip
+
+Estos avances ayudan significativamente a los investigadores y a la propia comunidad científica 
+que identifica este tipo de problemas dentro de la categoría de “Problemas del milenio”, los 
+cuales son premiados con 1 millón de dólares. El progreso dentro de este campo es esencial para 
+el avance de la ciencia y la ingeniería, ya que repercute directamente en multitud de campos tan 
+variados como el transporte, la salud, la física, etc.
