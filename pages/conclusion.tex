@@ -1,0 +1,46 @@
+\section{Conclusiones y trabajo a futuro}
+\subsection{Conclusiones}
+El desarrollo completo de este proyecto me ha brindado un gran conocimiento 
+y experiencia, representando una oportunidad invaluable para aprender y mejorar 
+mis habilidades dentro del sector de la IA. Es el proyecto más grande en el que 
+he trabajado hasta la fecha, lo que ha supuesto un gran desafío para llevarlo a cabo. 
+
+\subsection{Trabajo a futuro}
+A pesar de los avances significativos logrados mediante el enfoque de 
+IL en combinación con redes neuronales de grafos para resolver el FJSP, 
+existen varias oportunidades de mejora y direcciones prometedoras para 
+investigaciones futuras. A continuación, se exploran algunas de estas 
+áreas y se proponen posibles extensiones del trabajo realizado hasta ahora.
+
+\begin{itemize}
+    \item \textbf{Mezcla de Imitation Learning y Offline Learning:} En 
+    el contexto del FJSP, el Imitation Learning ha demostrado ser una 
+    técnica efectiva para aprender políticas de programación de trabajos 
+    flexibles a partir de ejemplos expertos. Sin embargo, una posible mejora 
+    sería combinar el Imitation Learning con técnicas de Offline Learning, 
+    donde se podría utilizar información adicional para mejorar aún más la 
+    calidad del entrenamiento. Gracias al offline learning sería posible no 
+    solo aprender cual es la acción óptima a tomar, sino también aprender 
+    de las acciones que no son tan buenas durante el periodo de entrenamiento, 
+    lo permitiría capturar patrones más complejos y adaptarse mejor a las 
+    diferentes configuraciones del problema.
+   \item \textbf{Exploración mediante RL:} Otra dirección interesante sería explorar 
+   la posibilidad de aplicar RL al modelo pre-entrenado obtenido mediante 
+   el IL. Después de entrenar el modelo inicial con ejemplos expertos, 
+   se podría realizar un proceso de fine-tuning utilizando RL para refinar 
+   y ajustar la política de asignación de trabajos. Esto permitiría adaptar 
+   el modelo a diferentes contextos y considerar aspectos dinámicos del 
+   FJSP en tiempo real. Para ello, se podría utilizar un algoritmo de
+   RL como PPO.
+   \item \textbf{Extensión del enfoque a otras variantes del FJSP:} El 
+   enfoque propuesto se ha centrado específicamente en el FJSP estándar. 
+   Sin embargo, existen otras variantes del problema, como el Green Flexible 
+   Job Shop, que incorporan restricciones adicionales relacionadas con la 
+   eficiencia energética y la sostenibilidad. Sería interesante investigar 
+   cómo se puede adaptar el enfoque basado en redes neuronales de grafos e 
+   Imitation Learning para abordar estas variantes más complejas del FJSP y 
+   considerar múltiples objetivos simultáneamente, como la minimización del 
+   makespan y el consumo energético.
+
+
+\end{itemize}
