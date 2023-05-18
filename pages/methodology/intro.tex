@@ -2,15 +2,15 @@
 En esta sección, se describirá la metodología desarrollada para abordar problemas 
 dentro del marco de trabajo de los problema NP-HARD. La metodología propuesta se 
 basa en el uso de técnicas de Imitation Learning para abordar problemas computacionalmente
-complejos, dando resultados cercanos al optimo en un tiempo de ejecucion muy reducido. 
+complejos, dando resultados cercanos al optimo en un tiempo de ejecución muy reducido. 
 Se explicará cómo esta metodología se ha diseñado y aplicado para resolver el caso concreto 
 del FJSP, pero como se ha mencionado anteriormente, esta metodología es aplicable a cualquier
 problema NP-HARD.\medskip
 
 Una vez que sea descrita la metodología para abordar el problema utilizando 
-técnicas de Imitation Learning, se procedera con el caso especifico de cómo esta metodología 
+técnicas de Imitation Learning, se procederá con el caso especifico de cómo esta metodología 
 ha sido aplicada para diseñar un modelo del FJSP. Se explicará cómo se ha procedido en cada uno 
-de los pasos propuestos a nivel de razonamiento y ejecución. A continuacion se van a listar una 
+de los pasos propuestos a nivel de razonamiento y ejecución. A continuación se van a listar una 
 serie de puntos que se deben seguir para poder aplicar la metodología propuesta:
 
 \begin{enumerate}
@@ -19,7 +19,7 @@ serie de puntos que se deben seguir para poder aplicar la metodología propuesta
     y el espacio de acciones disponibles para el agente. A diferencia de un enfoque típico de RL, 
     no es necesario definir una función de reward ya que el modelo se entrenará mediante aprendizaje 
     supervisado y no por refuerzo. Es importante destacar que el espacio de estados y el espacio de
-    acciones esten enfocados en construir gradualmente la solución del problema y ser capaces
+    acciones estén enfocados en construir gradualmente la solución del problema y ser capaces
     de representar una solución valida.
     \item \textbf{Generación de instancias aleatorias para el entrenamiento del modelo.} 
     Se generan instancias aleatorias del problema con el fin de crear un conjuntos de datos 

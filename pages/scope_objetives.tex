@@ -1,15 +1,15 @@
 \section{Objetivos y alcance}
-En esta sección se introducen los objetivos en los que va consistir el proyecto, habiendose
-realizado una division entre el principal y los secundarios. Ademas de ello, se presentan los elementos
-que forman el alcance, asi como se comentaran otros que no forman parte de este.  
+En esta sección se introducen los objetivos en los que va consistir el proyecto, habiéndose
+realizado una division entre el principal y los secundarios. Ademas de ello, se presentan 
+los elementos que forman el alcance, asi como se comentaran otros que no forman parte de este.  
 
 \subsection{Objetivos generales}
 El objetivo del proyecto es desarrollar un nuevo método para resolver el FJSP 
 a partir de ejemplos de soluciones proporcionadas por un experto. El método se basará en
 el uso de modelos de Deep Learning, los cuales serán entrenados para imitar el comportamiento
-de un experto y desarrollar una estrategia propia. Esto le permitira tomar decisiones 
+de un experto y desarrollar una estrategia propia. Esto le permitirá tomar decisiones 
 sobre instancias nunca antes vistas en un tiempo de ejecución reducido. 
-Para ello, a countinuación se describen los objetivos específicos:
+Para ello, a continuación se describen los objetivos específicos:
 
 \begin{itemize}
 \item \textbf{Identificar al experto:} el primer objetivo consta de seleccionar un
@@ -18,7 +18,7 @@ optimas a realizar en diferentes situaciones. Estos ejemplos servirán como dato
 de entrenamiento para el modelo de Deep learning.
 \item \textbf{Modelar el problema:} buscar una representación adecuada que permita gestionar 
 las configuraciones y decisiones tomadas por el experto. Al tratarse de un modelo basado en 
-Imitation Learning, es necesario definir un envioronment que permita la interacción entre el 
+Imitation Learning, es necesario definir un environment que permita la interacción entre el 
 modelo y el estado del problema.
 \item \textbf{Entrenar el modelo:} utilizando los ejemplos recopilados, se debe entrenar 
 el modelo de Deep learning para que pueda aprender a imitar el comportamiento 
@@ -29,22 +29,22 @@ el experto en los ejemplos de entrenamiento.
 los patrones de comportamiento del experto, se debe evaluar su rendimiento en situaciones
 nuevas. Para ello, se utilizarán instancias de prueba que no han sido utilizadas en el
 entrenamiento del modelo. Además, se estudiarán diferentes métricas que permitan evaluar 
-correctamente el desempeño del modelo. Por último, se tendran en cuenta aspectos adicionales 
+correctamente el desempeño del modelo. Por último, se tendrán en cuenta aspectos adicionales 
 como el tiempo de ejecución del modelo.
 \item \textbf{Optimizar el modelo:} cuando el desempeño del modelo no es satisfactorio o 
 se intuyen posibles mejoras, se deben identificar que áreas el modelo muestra dificultades y realizar ajustes 
 en su arquitectura, parámetros o datos de entrenamiento para mejorar su rendimiento. Esto 
-se puede lograr mediante el aumento del volumen del entrenamieto, monitorizando el desempeño
+se puede lograr mediante el aumento del volumen del entrenamiento, monitorizando el desempeño
 del mismo o mediante la optimización de los hiperparámetros de entrenamiento.
 \item \textbf{Implementar el modelo:} por último, se debe implementar el modelo dentro de
 una aplicación que permita su uso por parte de los usuarios. Esta aplicación debe ser capaz
-de cargar iferentes configuraciones del problema, ejecutar el modelo y graficar los resultados
+de cargar diferentes configuraciones del problema, ejecutar el modelo y graficar los resultados
 obtenidos.
 \end{itemize}
 
 \subsection{Alcance}
 En esta sección se definen los límites del proyecto, estableciendo lo que está incluido 
-y excluido dentro mismo. Se describira de manera detallada las actividades que forman 
+y excluido dentro mismo. Se describirá de manera detallada las actividades que forman 
 parte del desarrollo final, así como aquellos elementos que no están incluidos en el 
 alcance del proyecto. Esta sección es fundamental para tener una comprensión clara 
 y evitar posibles malentendidos o confusiones durante su ejecución.
@@ -58,15 +58,15 @@ y evitar posibles malentendidos o confusiones durante su ejecución.
     por instancias generadas de forma aleatoria, estas instancias serán generadas sintéticamente 
     utilizando un algoritmo que crea instancias de problemas FJSP con tiempos de preparación. 
     \item \textbf{Análisis de resultados mediante benchmarks:} se utilizarán benchmarks
-    especificos para medir el rendimiento del modelo. Estos benchmarks son conjuntos de instancias
-    especialmente dificiles, que reflejan de manera objetiva el desempeño del modelo.
-    \item \textbf{Comparación contra tecnicas actuales:} durante las diferentes fases del desarrollo,
+    específicos para medir el rendimiento del modelo. Estos benchmarks son conjuntos de instancias
+    especialmente difíciles, que reflejan de manera objetiva el desempeño del modelo.
+    \item \textbf{Comparación contra técnicas actuales:} durante las diferentes fases del desarrollo,
     se monitorizara el rendimiento del método para compararlo posteriormente con las técnicas actuales 
     que se emplean en el estado del arte para la resolución del problema. 
-    \item \textbf{Desarrollo de una aplicacion web sencilla:} la aplicación final contará con una interfaz 
+    \item \textbf{Desarrollo de una aplicación web sencilla:} la aplicación final contará con una interfaz 
     web que permita visualizar los resultados obtenidos por el modelo. Esta aplicación
     permitirá cargar diferentes configuraciones del problema, ejecutar el modelo y visualizar
-    un orgnaigrama con las tareas asignadas a cada máquina.
+    un organigrama con las tareas asignadas a cada máquina.
 \end{itemize}
 
 \subsubsection{Fuera del alcance}
@@ -77,7 +77,7 @@ y evitar posibles malentendidos o confusiones durante su ejecución.
     en tiempo real durante la implementación del modelo.
     \item \textbf{Cambio de configuración durante la ejecución:} no se contempla la posibilidad de cambiar
     la configuración del problema durante la ejecución del modelo. Aunque se podría implementar debido
-    a que el modelo sera capaz de adaptarse a cambios en la configuración, se deberia realizar un 
+    a que el modelo sera capaz de adaptarse a cambios en la configuración, se debería realizar un 
     trabajo extra dentro de la aplicación web para que el usuario pueda cambiar la configuración.
 \end{itemize}
 

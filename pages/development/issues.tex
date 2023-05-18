@@ -25,12 +25,12 @@ característica al modelo, es necesario modificar el código de normalización d
 En un futuro, se podría implementar una solución más escalable, que permita definir
 un conjunto de tipos de características con sus respectivas técnicas de normalización.
 De este modo, se podría añadir nuevas características al modelo sin necesidad de
-modificar el código de normalización. Además, tambien daria la posibilidad de
-poder en una fase de testeo, probar diferentes técnicas de normalización para
+modificar el código de normalización. Además, también daría la posibilidad de
+poder en una fase de test, probar diferentes técnicas de normalización para
 cada tipo de característica y elegir la que mejor se adapte al modelo.
 
 \subsubsection{Problemas con el hardware de entrenamiento}
-La falta de hardware adecuado para el entrenamiento y testeo es un problema común 
+La falta de hardware adecuado para el entrenamiento y test es un problema común 
 que puede afectar la eficiencia y la precisión del modelo. El entrenamiento de modelos 
 de Machine Learning a menudo requiere una gran cantidad de recursos computacionales, 
 como procesadores, memoria RAM y capacidad de almacenamiento. Además, los modelos 
@@ -42,7 +42,7 @@ para entrenar el modelo, la complejidad del modelo que se puede entrenar y la
 velocidad a la que se puede realizar el entrenamiento. Esto puede resultar en 
 modelos que no sean lo suficientemente precisos o que no se puedan entrenar en 
 un tiempo razonable. En el caso de este proyecto, se ha contado con un pequeño
-servidor que disponia de una CPU y 4GB de RAM, lo que ha limitado el tamaño de los
+servidor que disponía de una CPU y 4GB de RAM, lo que ha limitado el tamaño de los
 grafos que se han podido usar para el entrenamiento. Además, el entrenamiento de
 los modelos y la búsqueda de hiperparámetros ha sido un proceso lento, ya que
 no se ha contado con una GPU para acelerar el proceso.\medskip
@@ -82,16 +82,16 @@ consumen y optimizarlas.\medskip
 
 En este caso en concreto en el que se puede ver la diferencia de rendimiento
 entre el código no optimizado y el código optimizado, debido a que la función
-\textit{job\_to\_op} del environmente que se encarga de transformar un trabajo
-en una operación para poder actulizar el estado del grafo, se ejecuta un gran
+\textit{job\_to\_op} del environments que se encarga de transformar un trabajo
+en una operación para poder actualizar el estado del grafo, se ejecuta un gran
 número de veces durante el entrenamiento. Por ello, se ha optimizado el código
-de esta función para que sea más eficiente utilizando una utlidad de Python
+de esta función para que sea más eficiente utilizando una utilidad de Python
 llamada \textit{functools.lru\_cache}, que permite cachear los resultados de
 una función para evitar tener que ejecutarla varias veces con los mismos
 parámetros.\medskip
 
 Como se puede ver en la figure \ref{fig:after-fix}, el tiempo de ejecución
-se ha reducido un 24\% del tiempo total de ejecución del código. Si quisieramos
+se ha reducido un 24\% del tiempo total de ejecución del código. Si quisiéramos
 optimizar aún más el código, se podría implementar algunas de las funciones
 del environment en C++ y luego importar el módulo en Python, aunque esto
-requeriria un mayor esfuerzo de desarrollo. 
+requeriría un mayor esfuerzo de desarrollo. 

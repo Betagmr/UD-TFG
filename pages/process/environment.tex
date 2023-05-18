@@ -19,7 +19,7 @@ explorar todo el espacio de estado. Podemos definir un environment de RL formalm
     \item \textbf{Espacio de estados (S):} Es el conjunto de todos los posibles estados del environment. 
     Puede ser finito o infinito, y se denota como $S = \{s1, s2, ..., sn\}$, donde si S es finito, n representa 
     el número de estados posibles. Por ejemplo, si estuviéramos modelando un juego de ajedrez, el espacio 
-    de estados incluiria todas las posibles configuraciones del tablero.
+    de estados incluiría todas las posibles configuraciones del tablero.
 
     \item \textbf{Espacio de acciones (A):} Es el conjunto de todas las posibles acciones que un agente 
     puede tomar en el environment. Al igual que el espacio de estados, el espacio de acciones puede ser finito 
@@ -50,7 +50,7 @@ La propuesta del estado se basa en una representación mediante el uso de un gra
 heterogéneo es un tipo de grafo en el que los nodos y/o aristas pueden tener diferentes tipos, atributos 
 y propiedades. Esto significa que se pueden representar diferentes relaciones, y pueden tener distintas 
 características asociadas a ellas. Por ejemplo, en un caso donde se quiera modelar una red social, 
-los nodos podrian representar personas, contenidos o grupos y las aristas amistades, seguidores, 
+los nodos podrían representar personas, contenidos o grupos y las aristas amistades, seguidores, 
 miembros de un grupo, etc.\medskip 
 
 En el caso del FJSP es posible representar las operaciones, máquinas y trabajos como nodos del grafo, 
@@ -59,7 +59,7 @@ procesamiento, las dependencias entre tareas y la asignación de las mismas. Est
 compacta de la información relevante del problema, siendo una de sus virtudes que, a medida que se aumenta 
 el número de máquinas y operaciones, simplemente se agregarán más nodos y aristas al grafo, lo que no 
 implicara un aumento exponencial en la complejidad de la representación, permitiendo asi una escalabilidad 
-natural en términos de la representacion del problema. Otra de sus ventajas es que las operaciones sobre 
+natural en términos de la representación del problema. Otra de sus ventajas es que las operaciones sobre 
 grafos, como la búsqueda o manipulación de nodos y aristas, son operaciones computacionalmente eficientes. 
 Esto permite realizar cálculos y análisis en tiempo razonable, incluso cuando el tamaño del problema incrementa. 
 
@@ -73,7 +73,7 @@ Esto permite realizar cálculos y análisis en tiempo razonable, incluso cuando 
 Como se puede ver en la Figura \ref{fig:grafo-heterogeneo}, hemos representado mediante un grafo
 heterogéneo una instancia del FJSP que cuenta con 3 máquinas, 1 trabajo y 3 operaciones. En este caso, 
 la operación 1 solo puede ser ejecutada en la máquina 1 y es por ello que no está conectada con 
-las otras máquinas mediante la relación `Operacion Ejecuta Maquina'. Aclarar que por motivos de 
+las otras máquinas mediante la relación `Operación Ejecuta Maquina'. Aclarar que por motivos de 
 simplifición, no se han incluido todos los diferentes tipos de relaciones existentes entre 
 los nodos y solo están representadas las relaciones más importantes. Se debe tomar como una ayuda 
 visual para entender el potencial que tiene este tipo de representaciones, durante las siguientes 
@@ -121,17 +121,17 @@ secciones detallaremos en profundidad todas las características de los nodos y 
 \end{itemize}
 
 \paragraph{Representación final}
-Para finalizar, se muestra la representación que tendria un estado tomando en consideracion el ejemplo 
+Para finalizar, se muestra la representación que tendría un estado tomando en consideración el ejemplo 
 de la Figura \ref{fig:example-solution} utilizada en la introducción. En la siguiente figura ahora ya 
 se pueden apreciar todas las relaciones mencionadas con anterioridad, y para conocer en mayor profundidad
 como se ha implementado puede consultar la sección de desarrollo. Hemos querido continuar con el ejemplo
-que se ha utilizado en la introducción y en el resto de la seccion tambien se hará referencia a este
+que se ha utilizado en la introducción y en el resto de la sección también se hará referencia a este
 para ilustrar las futuras explicaciones. 
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.33]{final.png}
-    \caption{Estado inicial del la instancia presente en el Cuador 1}
+    \caption{Estado inicial del la instancia presente en el cuadro 1}
     \label{fig:final-solution}
 \end{figure}
 
@@ -142,9 +142,9 @@ El espacio de acciones es el conjunto de acciones que puede realizar el agente e
 En nuestro caso, se pueden definir el conjunto de acciones como la lista de todas las tuplas 
 formadas por las operaciones que pueden ser ejecutadas en cada estado y las máquinas en las que
 pueden ser ejecutadas. Por ejemplo, en el estado de la Figura \ref{fig:final-solution} se pueden
-definir las siguientes acciones: (Maquina 1, Operacion 1), (Maquina 1, Operacion 3), 
-(Maquina 2, Operacion 1), (Maquina 2, Operacion 3), (Maquina 2, Operacion 3), (Maquina 3, Operacion 1), 
-(Maquina 4, Operacion 5). En este caso, todas aquellas operaciones que no se encuentren en la lista 
+definir las siguientes acciones: (Maquina 1, Operación 1), (Maquina 1, Operación 3), 
+(Maquina 2, Operación 1), (Maquina 2, Operación 3), (Maquina 2, Operación 3), (Maquina 3, Operación 1), 
+(Maquina 4, Operación 5). En este caso, todas aquellas operaciones que no se encuentren en la lista 
 de acciones disponibles no pueden ser ejecutadas en el estado actual.
 
 \subsubsection{Transición de estados}

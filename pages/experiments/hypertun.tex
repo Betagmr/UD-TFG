@@ -1,6 +1,6 @@
 \subsection{Optimización de Hiperparámetros}
 La optimización de hiperparámetros se refiere al proceso de ajustar los parámetros 
-de entrenamento y configuracion de un modelo de Machine Learning con el objetivo de 
+de entrenamiento y configuración de un modelo de Machine Learning con el objetivo de 
 mejorar su desempeño. Los hiperparámetros son variables que no se aprenden automáticamente 
 a partir de los datos, sino que deben ser configurados por el investigador.\medskip
 
@@ -19,7 +19,7 @@ capacidad para hacer predicciones precisas y generalizar a datos nuevos y descon
 
 \subsubsection{Optimización de Hiperparámetros con Optimización Bayesiana}
 La optimización bayesiana es un método de optimización de hiperparámetros para modelos 
-de Machine Learniing que utiliza un enfoque probabilístico para buscar el conjunto 
+de Machine Learning que utiliza un enfoque probabilístico para buscar el conjunto 
 óptimo de hiperparámetros. En lugar de evaluar todas las combinaciones posibles de 
 hiperparámetros, la optimización bayesiana utiliza una estrategia de búsqueda más 
 inteligente que utiliza la información de iteraciones anteriores para buscar en el 
@@ -46,11 +46,11 @@ A continuación se muestra el listado de hiperparámetros:
 \begin{table}[ht]
     \centering
     \begin{tabular}[ht]{l|c|c} 
-        \textbf{Lista de Hyperparametros} & \textbf{Rango de valores} & \textbf{Valor Optimo}\\
+        \textbf{Lista de Hiperparametros} & \textbf{Rango de valores} & \textbf{Valor Optimo}\\
         \hline
-        \textbf{Número de instacias pequeñas} & 0 -- 20k & 20k\\
-        \textbf{Número de instacias medianas} & 0 -- 20k & 10k\\
-        \textbf{Número de instacias grandes}  & 0 -- 20k & 10k \\
+        \textbf{Número de instancias pequeñas} & 0 -- 20k & 20k\\
+        \textbf{Número de instancias medianas} & 0 -- 20k & 10k\\
+        \textbf{Número de instancias grandes}  & 0 -- 20k & 10k \\
         \textbf{Tasa de aprendizaje} & 0.00001 -- 0.001 & 15 \\
         \textbf{Número de épocas} & 5 -- 35 & 30 \\ 
         \textbf{Número de episodios} & 1 -- 3 & 2 \\
@@ -65,24 +65,24 @@ A continuación se muestra el listado de hiperparámetros:
 Esta lista de hiperparámetros se obtuvo a partir de múltiples experimentos. En cada 
 experimento se realizaban tres entrenamientos con los mismos hiperparámetros y luego
 se promediaba el resultado de cada métrica, para así obtener un resultado más estable.
-El objetivo de estos experimentos era minimizar la función opbjectivo y se realizaron
+El objetivo de estos experimentos era minimizar la función objetivo y se realizaron
 un total de 300 pruebas con diferentes combinaciones. En la figura \ref{fig:experiments}
 se puede observar la visualización de los experimentos realizados y como progresa la
-configuracion de los hiperparámetros, aqui los puntos azules representan los experimentos
+configuración de los hiperparámetros, aquí los puntos azules representan los experimentos
 realizados y la linea roja representa la mejor combinación de hiperparámetros encontrada
 hasta el momento.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.31]{experiments.png}
-    \caption{Visualizacion de la experimentacion de hiperparámetros}
+    \caption{Visualización de la experimentación de hiperparámetros}
     \label{fig:experiments}
 \end{figure}
 
 Una de las ventajas de utilizar Optuna es que se puede visualizar la importancia de cada
 hiperparámetro, en la figura \ref{fig:importance} se puede observar que los hiperparámetros
 que mayor impacto tienen en el rendimiento del modelo son la tasa de aprendizaje, el número
-de instacias pequeñas y el número de capas ocultas. Este conocimento ha traido consigo
+de instancias pequeñas y el número de capas ocultas. Este conocimiento ha traído consigo
 una mejora en el rendimiento del modelo, en este caso debido a que se ha visto que el
 número optimo de capas ocultas es 1, ha supuesto una mejora en la velocidad del modelo
 ya que no solo se reduce el tiempo de entrenamiento sino que también se reduce el tiempo

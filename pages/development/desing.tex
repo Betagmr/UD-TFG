@@ -47,20 +47,20 @@ requerir mucho tiempo.\medskip
     \label{fig:despliegue}
 \end{figure}
 
-En este proyecto en particular, se ha optado por se crear una aplicacion web en Streamit 
-desde la cual mediante una llamada al modelo generar un gráfico Gantt en el que se podra
-visualizar todas las operaciones y sus respectivas asigncaciones y tiempos de ejecucion.
-En la figura \ref{fig:despliegue} se puede ver un diagrama del despliegue fisico del modelo.
-La aplicacion sirve como intermediario entre el usuario y el modelo, para ello extrae las
+En este proyecto en particular, se ha optado por se crear una aplicación web en Streamit 
+desde la cual mediante una llamada al modelo generar un gráfico Gantt en el que se podrá
+visualizar todas las operaciones y sus respectivas asignaciones y tiempos de ejecución.
+En la figura \ref{fig:despliegue} se puede ver un diagrama del despliegue físico del modelo.
+La aplicación sirve como intermediario entre el usuario y el modelo, para ello extrae las
 diferentes configuraciones de problemas desde una carpeta en la que se encuentran los 
-archivos. Lo importante de esta distribucion es que permite una gran versatilidad a la hora
+archivos. Lo importante de esta distribución es que permite una gran versatilidad a la hora
 de ejecutar el modelo, ya que se podría mover la ejecución del modelo a un microservicio
-externo que se encargue de ejecutar el modelo y devolver los resultados a la aplicacion web.
+externo que se encargue de ejecutar el modelo y devolver los resultados a la aplicación web.
 Para ver más información sobre la aplicación web, se puede consultar el apartado de manual
 de usuario donde se explica con más detalle. 
 
 \subsubsection{Descripcion del diseño}
-Uno de los diseños más comunmente utilizados para resolver problemas de machine learning
+Uno de los diseños más comúnmente utilizados para resolver problemas de machine learning
 es el uso de sistemas de pipelines. Estos sistemas escapan del paradigma tradicional de
 programación secuencial y se basan en la idea de que el problema se puede resolver
 mediante la composición de una serie de pasos o etapas. Cada etapa se encarga de realizar
@@ -81,7 +81,7 @@ interfaz de comunicación.
 \end{figure}
 
 En la figura \ref{fig:desing} se puede ver al completo las diferentes etapas que componen
-el sistema. Podemos indeficar las siguientes etapas:
+el sistema. Podemos identificar las siguientes etapas:
 \begin{itemize}
     \item \textbf{Generador de datasets: } Este pipeline se encarga de generar los datasets
     que se utilizarán para entrenar el modelo y para su validación. Estos sond dos .csv que
@@ -95,9 +95,9 @@ el sistema. Podemos indeficar las siguientes etapas:
     \item \textbf{Entrenamiento del modelo: } Este pipeline se encarga de entrenar el modelo
     con la configuración de hiperparametros que ha sido almacenada en la base de datos por el
     anterior pipeline. El modelo se entrena con el dataset de entrenamiento pero antes de
-    guardar el modelo se evalua con el benchmark para comprobar el rendimento real del modelo.
+    guardar el modelo se evalúa con el benchmark para comprobar el rendimiento real del modelo.
 \end{itemize} 
 
-Todas estas etapas son gestionandas por el orquestador de pipelines. Este se encarga de
+Todas estas etapas son gestionadas por el orquestador de pipelines. Este se encarga de
 gestionar el flujo de datos entre las diferentes etapas y de asegurar que se ejecutan en
 el orden correcto y que se cumplen las dependencias entre ellas.

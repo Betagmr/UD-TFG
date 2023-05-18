@@ -21,8 +21,8 @@ cumplir con ellos en la medida de lo posible, ya que pueden darse situaciones en
 satisfacerlos al completo.
 
 \begin{itemize}
-    \item \textbf{Automatización}: la automatización es la clave para la eficiencia y la escalabilidad.
-          Aqui incluimos tareas como la generación de datos, el despliegue del modelo, la evaluación y
+    \item \textbf{Automatización}: la automatización es la clave para la eficiencia y el escalado.
+          Aquí incluimos tareas como la generación de datos, el despliegue del modelo, la evaluación y
           la puesta en producción.
     \item \textbf{Testeo}: garantiza que tanto la funcionalidad como el desempeño del modelo están evaluados correctamente.
           Esencial en Machine Learning para identificar problemas y mejorar la confianza en los resultados.
@@ -33,14 +33,15 @@ satisfacerlos al completo.
           complicado en Machine Learning debido a la naturaleza aleatoria de los algoritmos. Igualmente aquí se trataran
           las herramientas y medidas necesarias para lograrlo.
     \item \textbf{Monitorización}: es importante tener un control de los modelos en proceso de entrenamiento o de producción.
-          Por ello, recolectar estadisiticas en tiempo de procesamiento nos ayudará a generar nuevas hipotesis para las proximas interaciones.
+          Por ello, recolectar estadísticas en tiempo de procesamiento nos ayudará a generar nuevas hipótesis para las próximas 
+          iteraciones.
 \end{itemize}
 
 \subsubsection{Flujo de trabajo}
 Una de las características de los proyectos de Machine Learning es que son tecnologías en constante evolución, el
 desarrollo no es un proceso sencillo y requiere de un enfoque coordinado por parte de los diferentes
-equipos que lo conforman para asegurar su sostenibilidad a largo plazo. Es fundamental poder adapatarse a los cambios
-de forma agil, sin que esto suponga un deterioro del nivel de productividad o que ralentice el avance de nuevas
+equipos que lo conforman para asegurar su sostenibilidad a largo plazo. Es fundamental poder adaptarse a los cambios
+de forma ágil, sin que esto suponga un deterioro del nivel de productividad o que ralentice el avance de nuevas
 funcionalidades.\medskip
 
 Podemos identificar tres fases principales: diseño, desarrollo del modelo y operaciones. Cada fase tiene un enfoque
@@ -48,9 +49,10 @@ específico y requiere una serie de tareas para garantizar el éxito del proyect
 se definen los objetivos y requisitos del proyecto, se identifican los datos necesarios para el entrenamiento y
 se establecen los criterios de éxito. La fase de desarrollo del modelo, se preparan los datos, se entrena el modelo
 y se evalúa su rendimiento. También se realiza la validación y se toman las decisiones sobre el modelo final a utilizar.
-Finalmente, en la fase de operaciones, se integra el modelo en la infraestructura existente, se monitorea su rendimiento
-y se extraen conclusiones para futuras iteraciones. Al repartir las responsabilidades en diferentes fases, aislamos los erroes junto con la carga de trabajo y podemos avanzar
-sin la preocuapacion de que un bug o un cambio requisitos afecte al resto del equipo.
+Finalmente, en la fase de operaciones, se integra el modelo en la infraestructura existente, se monitoriza su rendimiento
+y se extraen conclusiones para futuras iteraciones. Al repartir las responsabilidades en diferentes fases, aislamos los 
+errores junto con la carga de trabajo y podemos avanzar sin la preocupación de que un bug o un cambio requisitos 
+afecte al resto del equipo.
 
 \begin{figure}[ht]
     \centering
@@ -60,13 +62,13 @@ sin la preocuapacion de que un bug o un cambio requisitos afecte al resto del eq
 \end{figure}
 
 Para visualizar de forma más clara la ventaja que supone este enfoque frente a uno tradicional, a continuación
-se mencionara un ejemplos de una posible situacion real. \textbf{Ejemplo:} Tenemos un modelo que actualmente está alojado en AWS y queremos migrarlo a Azure, debido a que
+se mencionara un ejemplos de una posible situación real. \textbf{Ejemplo:} Tenemos un modelo que actualmente está alojado en AWS y queremos migrarlo a Azure, debido a que
 utilizamos MLOps existe configurada una action que en el momento que el equipo publica una nueva release
 automáticamente despliega el modelo en el servidor cloud. La parte del equipo encargada de las operaciones procede
 a configurar el nuevo servicio y modificar la action para redirigir el despliegue al nuevo servidor. Durante este
 tiempo, el equipo de desarrollo a podido avanzar en nuevas mejoras para el modelo y ahora se disponen a volver
 a publicar los cambios. Ellos no han notado ningún cambio, pero a nivel de infraestructura se ha realizado una
-completa migracion sin afectar en ningún momento en el desarrollo.
+completa migración sin afectar en ningún momento en el desarrollo.
 
 
 \pagebreak
