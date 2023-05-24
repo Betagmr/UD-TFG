@@ -1,9 +1,9 @@
 \subsection{Generación de instancias aleatorias}
-El método de generación de instancias aleatorias se basa en un sistema de instancias sinteticas
+El método de generación de instancias aleatorias se basa en un sistema de instancias sintéticas
 que se generan a partir de un conjunto de parámetros de entrada. En el siguiente paper \cite{pbrandimarte}
 se define una tabla con diferentes rangos de valores para cada parámetro en cada conjunto de
 tamaños de instancias. En nuestro caso, se va a utilizar tres conjuntos de tamaños de instancias
-represantados en la siguiente tabla.
+representados en la siguiente tabla.
 
 \begin{table}[ht]
     \centering
@@ -11,12 +11,12 @@ represantados en la siguiente tabla.
         \hline
                   & Ins. Pequeña & Ins. Medianas & Ins. Grandes \\
         \hline
-        Min. num Trabajos    & 3    & 1.122    & 0.754 \\
-        Max. num Trabajos    & 5    & 1.122    & 0.754 \\
-        Min. num Operaciones & 2    & 1.122    & 0.754 \\
-        Max. num Operaciones & 5    & 1.122    & 0.754 \\
-        Min. num Maquinas    & 2    & 1.122    & 0.754 \\
-        Max. num Maquinas    & 4    & 1.122    & 0.754 \\
+        Min. num Trabajos    & 3    & 5     & 10    \\
+        Max. num Trabajos    & 5    & 10    & 20    \\
+        Min. num Operaciones & 2    & 5     & 5     \\
+        Max. num Operaciones & 5    & 10    & 10    \\
+        Min. num Maquinas    & 2    & 4     & 8     \\
+        Max. num Maquinas    & 4    & 8     & 16    \\
         \hline
     \end{tabular}
     \caption{Conjuntos de tamaños de instancias}
@@ -51,7 +51,7 @@ una lista de máquinas que pueden realizar la operación junto con el tiempo de 
         [(1, 4), (2, 3)]            # Job2
     ]
    
-    proccess_jobs(jobs_data)
+    process_jobs(jobs_data)
 
     Output:
     Machine 0: [0,3] [3,5]
@@ -163,7 +163,7 @@ def train(model, optimizer, train_loader, batch_size):
 \end{figure}
 
 Esta función es la responsable de efectuar el Imitation Learning, para ello carga en el
-trainloader los grafos que habíamos generado previamente y se le pasa al modelo para que
+batch de entrenamiento los grafos que habíamos generado previamente y se le pasa al modelo para que
 realice la predicción. Una vez que se tiene la predicción, se calcula el loss y se compara
 con la solución que ha tomado el experto para ese estado. Una de las particularidades que
 tiene el modelo es que la predicción que devuelve se realiza sobre el tensor que representa
