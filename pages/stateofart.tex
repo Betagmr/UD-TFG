@@ -1,7 +1,7 @@
 \section{Antecedentes y justificación}
-El objetivo de esta seccion es describir las condiciones del marco en el que se lleva a cabo 
+El objetivo de esta sección es describir las condiciones del marco en el que se lleva a cabo 
 el proyecto, se recopilarán datos e información sobre la situación actual en lo que respecta al FJSP, 
-incluyendo la utilización de diferentes tecnicas que han sido utilizadas historicamente para su resolución. 
+incluyendo la utilización de diferentes técnicas que han sido utilizadas históricamente para su resolución. 
 Para ello, se revisará el estado del arte y las últimas tendencias en este campo, con el fin de obtener una 
 mejor comprensión del problema y explicar la oportunidad de realizar nuevos aportes en esta área de investigación.
 
@@ -24,31 +24,47 @@ presentan los problemas NP-Hard.
 
 
 \subsubsection{Metodos heurísticos}
-Un método heurístico es un algoritmo o técnica de búsqueda que está diseñado para encontrar 
+Un método heurístico\cite{Novoseltseva_2021} es un algoritmo o técnica de búsqueda que está diseñado para encontrar 
 soluciones aproximadas a problemas de optimización, cuando las soluciones exactas son difíciles 
 de encontrar. Los métodos heurísticos son útiles cuando el tiempo y los recursos son limitados, 
 y cuando el problema a resolver es demasiado complejo para ser resuelto por medios exactos. 
-Estos métodos se basan en la experiencia y el conocimiento previo para generar soluciones que 
-son buenas pero no necesariamente óptimas. Los métodos heurísticos pueden ser aplicados a una 
-amplia variedad de problemas de optimización, incluyendo el FJSP.\medskip
+Los métodos heurísticos pueden ser aplicados a una amplia variedad de problemas de optimización, 
+incluyendo el FJSP.\medskip
 
 En el caso del FJSP, existen diferentes métodos heurísticos que se han utilizado con éxito 
-para encontrar soluciones aproximadas. Un ejemplo es el algoritmo de búsqueda tabú, 
+para encontrar soluciones aproximadas. Un ejemplo es el algoritmo de búsqueda tabú\cite{Howell_2023}, 
 que se basa en la exploración de soluciones vecinas para encontrar soluciones cada vez mejores. 
 Otro ejemplo es el algoritmo de búsqueda local, que busca soluciones iterativamente en una 
-vecindad de soluciones. También se ha utilizado el enfoque basado en la construcción de 
-soluciones parciales, donde se construyen soluciones en etapas, utilizando información previa 
+vecindad de soluciones. También se han utilizado enfoques basados en la construcción de 
+soluciones parciales donde se construyen soluciones en etapas, utilizando información previa 
 y reglas heurísticas para guiar el proceso de construcción. Todos estos métodos heurísticos 
 han demostrado ser efectivos para resolver el problema de FJSP, y se pueden adaptar y mejorar 
 para abordar variantes más complejas del problema.
 
+\subsubsection{Metodos metaheurísticos}
+Una metaheurística\cite{Metaheuristic_2023} es una estrategia general para resolver problemas 
+de optimización. A diferencia de las heurísticas, las metaheurísticas no están diseñadas para resolver 
+problemas específicos, sino que proporcionan un marco flexible y genérico para abordar 
+una amplia gama de problemas de optimización. Las metaheurísticas son algoritmos de búsqueda 
+inteligentes que se inspiran en procesos naturales o en conceptos matemáticos abstractos, 
+y son capaces de explorar y explotar el espacio de soluciones en busca de soluciones óptimas 
+o de alta calidad.\medskip
+
+Algunos de los enfoques más conocidos son el algoritmo genético, que se inspira en la evolución 
+biológica, y el enjambre de partículas, que se basa en el comportamiento de las colonias de 
+organismos sociales. Estos algoritmos utilizan técnicas como la generación aleatoria de 
+soluciones iniciales y la exploración sistemática del espacio de búsqueda para encontrar 
+soluciones óptimas o de alta calidad. La exploración implica buscar soluciones en diferentes 
+regiones del espacio de soluciones, mientras que la explotación se refiere a mejorar las 
+soluciones encontradas para acercarse a la solución óptima.
+
 \subsubsection{Algoritmos genéticos}
-Los algoritmos genéticos son una técnica de optimización inspirada en la evolución biológica.
+Los algoritmos genéticos\cite{GeneticAlgorithm_2023} son una técnica de optimización inspirada en la evolución biológica.
 Estos algoritmos imitan el proceso de selección natural, reproducción y mutación en la búsqueda 
-de soluciones óptimas o cercanas a la óptima para problemas de optimización combinatoria. La 
-idea básica de los algoritmos genéticos es utilizar la selección natural para encontrar soluciones
-mejores a través de la generación de nuevas soluciones a partir de soluciones existentes y la 
-aplicación de operadores de cruce y mutación.\medskip
+de soluciones para problemas de optimización combinatoria. La idea básica de los algoritmos 
+genéticos es utilizar la selección natural para encontrar soluciones mejores a través de la 
+generación de nuevas soluciones a partir de las ya existentes junto a la aplicación de operadores 
+de cruce y mutación.\medskip
 
 En la literatura, estos algoritmos han sido ampliamente utilizados y han demostrado ser 
 efectivos para encontrar soluciones de alta calidad. La representación cromosómica utilizada 
@@ -65,14 +81,8 @@ cuidadosa selección de operadores para funcionar bien en diferentes instancias 
 tienen tendencia a sufrir de prematura convergencia lo que genera dificultades para escapar de 
 óptimos locales.
 
-\subsubsection{Algoritmos híbridos}
-Los algoritmos híbridos son aquellos que combinan dos o más algoritmos que resuelven el mismo problema. 
-En el caso del FJSP, los algoritmos híbridos combinan diferentes técnicas de optimización para encontrar 
-soluciones. Por ejemplo, un algoritmo híbrido podría combinar un algoritmo genético con un algoritmo de 
-búsqueda local para aprovechar las ventajas de ambos y mejorar la calidad de las soluciones encontradas.
-
 \subsubsection{Redes neuronales}
-Las redes neuronales son una clase de algoritmos de aprendizaje automático inspirados en la 
+Las redes neuronales\cite{McNelis_2005} son una clase de algoritmos de aprendizaje automático inspirados en la 
 estructura y el funcionamiento del cerebro humano. Estas redes están formadas por múltiples 
 capas de neuronas interconectadas que procesan información para resolver problemas de clasificación, 
 regresión, reconocimiento de patrones, entre otros.\medskip
@@ -91,8 +101,48 @@ a sobreajuste si no se controlan adecuadamente, pero incluso con esos inconvenie
 técnicas más prometedoras para el FJSP y pueden ser utilizadas en combinación con otras técnicas de 
 optimización para mejorar la calidad de las soluciones.
 
+\subsubsection{Redes neuronales de grafos}
+Una GNN (Graph Neural Network)\cite{pytorch-geometric} es un tipo de red neuronal que 
+se utiliza para analizar y procesar datos estructurados en forma de grafos. A diferencia de los modelos 
+tradicionales que trabajan principalmente con datos tabulares, las GNN están diseñadas específicamente para trabajar 
+con datos en los que las relaciones entre los elementos son fundamentales, como redes sociales, redes 
+de transporte, moléculas, etc. Aunque no son tan populares como las redes neuronales tradicionales y no
+hay tantos estudios sobre su aplicación al FJSP, las GNN son un área de investigación muy prometedora en
+este tipo de problemas ya que ofrecen una forma natural de representar las restricciones y relaciones
+entre las tareas y las máquinas.\medskip
+
+El funcionamiento de una GNN se basa en la propagación de la información\cite{Message_parrs} a través de los nodos de un grafo. 
+Cada nodo en el grafo representa un elemento de datos y está asociado con un vector de características. 
+La idea principal de una GNN es que cada nodo actualiza su vector de características en función de su propio 
+estado actual y la información de los nodos vecinos. El proceso de propagación de la información en una GNN 
+generalmente sigue los siguientes pasos:
+
+\begin{itemize}
+    \item \textbf{Inicialización:} cada nodo en el grafo se inicializa con un vector de características,
+    que puede ser un vector de valores aleatorios o puede estar basado en atributos conocidos del nodo.
+    \item \textbf{Agregación:} cada nodo actualiza su vector de características en función de su estado
+    actual y la información de los nodos vecinos. La información de los nodos vecinos se agrega utilizando
+    una función de agregación, como la suma o el promedio.
+    \item \textbf{Actualización:} cada nodo actualiza su vector de características utilizando una función
+    de actualización. Esta función de actualización toma como entrada el estado actual del nodo y la 
+    información agregada de los vecinos, se realiza un procesamiento sobre la red neuronal y se obtiene
+    un nuevo vector de características para el nodo.
+    \item \textbf{Iteración:} los pasos de agregación y actualización se repiten varias veces hasta que
+    se alcanza un estado estable.
+    \item \textbf{Salida:} Una vez que se han realizado varias iteraciones, se puede utilizar la información
+    actualizada de los nodos para realizar tareas específicas, como clasificación, regresión o predicción de 
+    enlaces en el grafo.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.30]{gnnedge.png}
+    \caption{Proceso general de propagación de información en una GNN \cite{DeepFindr_2021}.}
+    \label{fig:gnn-edge}
+\end{figure}
+ 
 \subsubsection{Reinforcement learning}
-El aprendizaje por refuerzo es una técnica de aprendizaje que se basa en la idea de que un agente 
+El Reinforcement learning\cite{Bhatt_2018}\cite{Huggingface_DeepRL} es una técnica de aprendizaje que se basa en la idea de que un agente 
 interactúa con un entorno para aprender a tomar decisiones óptimas en función de las recompensa 
 recibida por sus acciones. En el aprendizaje por refuerzo, el agente aprende a través de la 
 experiencia, probando diferentes acciones y observando las recompensas asociadas con cada una 
