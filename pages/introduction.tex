@@ -21,9 +21,9 @@ Sin embargo, la planificación de la producción es un problema complejo debido 
 cantidad de variables y restricciones que deben tenerse en cuenta, como los tiempos de 
 procesamiento, las capacidades de los recursos, las restricciones de almacenamiento y 
 transporte y las demandas de los clientes, entre otros. Tradicionalmente, este problema 
-se ha abordado utilizando enfoques heurísticos y meta-heurísticos como el 
-Job Shop Scheduling Problem (JSP) y el Flexible Shop Scheduling Problem (FJSP), que son problemas 
-combinatorios y conocidos por ser NP-Hard, lo que implica que no existen algoritmos eficientes 
+se ha abordado utilizando enfoques heurísticos y metaheurísticos como el Job Shop Scheduling 
+Problem (JSP) y el Flexible Shop Scheduling Problem (FJSP) \cite{FJSP-article}, que son problemas 
+combinatorios y conocidos por ser NP-Hard \cite{Derivando_2017}, lo que implica que no existen algoritmos eficientes 
 para encontrar soluciones óptimas en un tiempo razonable.\medskip
 
 Un problema NP-Hard es un tipo de problema de optimización en el cual no se conocen algoritmos 
@@ -38,49 +38,47 @@ transferencia de conocimientos y técnicas de un problema a otro. Por lo tanto, 
 soluciones eficientes o aproximadas para un problema NP-Hard particular puede tener un impacto 
 significativo en la resolución de otros problemas que enfrentan desafíos similares.\medskip
 
-En los últimos años, ha surgido el Imitation Learning como una prometedora técnica de aprendizaje 
-automático. El Imitation Learning se basa en el concepto de aprender de la experiencia de expertos 
-humanos o de sistemas previamente establecidos, y luego utilizar ese conocimiento para 
-guiar la toma de decisiones en situaciones similares. Esto se puede lograr a través de enfoques 
-supervisados, donde se entrena a un modelo para imitar las acciones de expertos humanos, o 
-a través de enfoques de Reinforcement Learning (RL), donde se permite que un modelo aprenda a 
-partir de la retroalimentación y la interacción con el entorno.\medskip
+En los últimos años, ha surgido el Imitation Learning (IL) \cite{SmartLab_2019} como una 
+prometedora técnica de aprendizaje automático. El IL se basa en el concepto de aprender 
+de la experiencia de expertos humanos o de sistemas previamente establecidos, y luego utilizar 
+ese conocimiento para guiar la toma de decisiones en situaciones similares. Esto se puede lograr 
+a través de enfoques supervisados, donde se entrena a un modelo para imitar las acciones de 
+expertos humanos, o a través de enfoques de Reinforcement Learning (RL)\cite{Bhatt_2018}, 
+donde se permite que un modelo aprenda a partir de la retroalimentación y la interacción 
+con el entorno.\medskip
 
 En este contexto, el presente trabajo se enfoca en el desarrollo de un sistema de planificación 
-basado en Imitation Learning, utilizando técnicas de aprendizaje supervisado y RL para resolver el FJSP. 
+basado en IL, utilizando técnicas de aprendizaje supervisado y RL para resolver el FJSP. 
 Se busca explorar cómo estas técnicas pueden aplicarse a la planificación de la producción, teniendo 
 en cuenta los desafíos y la complejidad de este problema. A través del estudio y análisis de 
 diferentes enfoques y metodologías, se pretende contribuir al campo de la planificación de la 
 producción utilizando técnicas de inteligencia artificial y aprendizaje automático, con el objetivo 
-de mejorar la eficiencia y la toma de decisiones en procesos industriales.\medskip
+de mejorar la eficiencia y la toma de decisiones en procesos industriales.
 
 \subsection{Motivación}
-La planificación de la producción es un desafío constante en la industria, ya que puede tener 
-un impacto significativo en la eficiencia, la productividad y la rentabilidad de las operaciones 
-de fabricación. Sin embargo, muchos de los problemas de planificación de la producción en la 
-industria, como el Job Shop Scheduling Problem (JSP) y el Flexible Job Shop Scheduling Problem (FJSP), 
-son conocidos por su alta complejidad y la falta de soluciones eficientes. Esto puede resultar 
-en cuellos de botella, retrasos en la producción y costos innecesarios.\medskip
+Como una persona apasionada por los retos, encuentro que la planificación de la producción es un desafío 
+muy estimulante dentro del marco de la industria. Me fascina la idea de que mis decisiones puedan tener un 
+impacto significativo en la eficiencia, productividad y rentabilidad de los procesos de fabricación. Sin embargo, 
+soy consciente de que los problemas que enfrentamos en la planificación de la producción, como el JSP y el FJSP, 
+son conocidos por su alta complejidad y la falta de soluciones eficientes, lo cual representa 
+un mayor desafío.\medskip
 
-Es crucial encontrar soluciones innovadoras y eficientes que puedan abordar 
-los desafíos complejos asociados con la planificación de la producción en entornos que enfrentan 
-problemas NP-Hard. Además, la aplicación de enfoques de inteligencia artificial y aprendizaje 
-automático en la planificación de la producción ha ganado cada vez más atención en la industria 
-debido a su potencial para encontrar soluciones aproximadas en tiempo real y adaptarse a 
-entornos dinámicos.\medskip
+Para superar estos desafíos, creo firmemente en la importancia de encontrar soluciones innovadoras y eficientes. 
+Me entusiasma la aplicación de enfoques de inteligencia artificial, ya que he presenciado cómo han ganado 
+cada vez más importancia en los últimos años. Estas técnicas tienen un potencial asombroso para encontrar 
+soluciones aproximadas en tiempo real y adaptarse a entornos dinámicos, lo cual es realmente emocionante 
+para alguien como yo, que disfruta de los retos y de encontrar soluciones creativas.\medskip
 
-La motivación de este proyecto radica en la necesidad de desarrollar enfoques de Imitation 
-Learning, una rama del aprendizaje automático que se basa en la imitación de comportamientos 
-de expertos, para abordar los desafíos de la planificación de la producción en la industria. 
-Estos enfoques tienen el potencial de mejorar la eficiencia y la productividad de las operaciones 
-de fabricación al encontrar soluciones eficientes y adaptativas en tiempo real. Además, las 
-soluciones desarrolladas en el contexto del JSP y el FJSP podrían tener aplicaciones amplias 
-en otros problemas NP-Hard que enfrenta la industria, como la logística, la programación de 
-tareas o la asignación de recursos, lo que podría tener un impacto significativo en la 
-optimización de procesos y la competitividad de las empresas en la industria.
+La motivación detrás de mi proyecto actual se basa en la necesidad de desarrollar enfoques de IL,
+una rama del aprendizaje automático que se basa en la imitación de comportamientos de expertos,
+ya que se han demostrado prometedores resultados en otros campos en los que se han aplicado. 
+Además,las soluciones que se desarrollen el contexto del JSP y el FJSP podrían tener aplicaciones 
+más amplias en otros problemas NP-Hard que enfrenta la industria. Desde la logística hasta la 
+programación de tareas o la asignación de recursos, veo un potencial significativo 
+para impactar la optimización de procesos y la competitividad de las empresas en la industria.
 
 \subsection{Explicación del problema}
-El Flexible job shop scheduling problem , es un desafío de optimización combinatoria 
+El Flexible job shop scheduling problem, es un desafío de optimización combinatoria 
 que se encuentra en el campo de la la gestión de la producción. En este problema, se busca determinar 
 la secuencia óptima de operaciones a realizar en una serie de máquinas, con el objetivo de minimizar el 
 tiempo total de producción o maximizar la eficiencia del sistema. A diferencia del Job shop scheduling 
@@ -102,7 +100,8 @@ Para ilustrar el problema, supongamos que tenemos una fabrica que produce tres t
 que se definen como los trabajos: A, B y C. Contamos con tres máquinas: M1, M2, M3 y M4 
 y cada producto requiere hacer ciertas operaciones de procesamiento en estas máquinas en 
 un orden específico. Las operaciones y los tiempos de procesamiento estimados para cada 
-producto en cada máquina son los siguientes: 
+producto en cada máquina son los siguientes, destacar que durante el resto del documento
+se reutilizará este ejemplo para ilustrar los conceptos. 
 
 \begin{table}[ht]
     \caption{Tiempos de procesamiento estimados para cada producto} 
@@ -128,8 +127,6 @@ producto en cada máquina son los siguientes:
     \end{tabular}
 \end{table}
 
-\medskip
-
 Aquí, cada operación se identifica con un número y el tipo de procesamiento se mide en Unidades temporales
 (UD). Las operaciones que no se pueden realizar en una máquina se identifican con un guión (-), lo que 
 significa que en este ejemplo la máquina 1 podría procesar las operaciones 1, 3, 4 y 5 pero 
@@ -139,7 +136,7 @@ y cada línea representa una máquina.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.40]{ejemplo.png}
+    \includegraphics[scale=0.43]{ejemplo.png}
     \caption{Ejemplo de planificación óptima}
     \label{fig:example-solution}
 \end{figure}
