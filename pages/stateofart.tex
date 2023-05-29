@@ -186,14 +186,13 @@ grandes y complejas. Existen pocos estudios que utilizan el aprendizaje por
 refuerzo para resolver el FJSP, pero los resultados obtenidos son prometedores.
 
 \subsubsection{Imitation learning}
-El aprendizaje por imitación es una técnica de aprendizaje por refuerzo en la
-que un modelo aprende a partir de ejemplos proporcionados por un experto. En el
-aprendizaje por imitación, el modelo trata de imitar la forma en que el experto
-realiza una determinada tarea, utilizando los ejemplos como guía. Además, el
-experto no tiene por qué ser una persona física, también es posible utilizar
-algoritmos de optimización para generar soluciones de alta calidad, y luego
-utilizar estas soluciones como ejemplos de entrenamiento para el aprendizaje
-por imitación.\medskip
+El IL\cite{SmartLab_2019} una técnica de aprendizaje en la que un modelo aprende a partir de 
+ejemplos proporcionados por un experto. En el IL, el modelo trata de imitar 
+la forma en que el experto realiza una determinada tarea, utilizando los 
+ejemplos como guía. Además, el experto no tiene por qué ser una persona física, 
+también es posible utilizar algoritmos de optimización para generar soluciones 
+de alta calidad, y luego utilizar estas soluciones como ejemplos de entrenamiento 
+para el aprendizaje.\medskip
 
 Esta técnica puede ser utilizada para aprender a generar soluciones de alta
 calidad a partir de configuraciones previamente resueltas por un experto, esto
@@ -205,7 +204,7 @@ es que los datos que se le ofrece son soluciones de alta calidad, lo que
 agiliza el entrenamiento sin requerir la optimización iterativa del problema.
 
 \subsubsection{Ensemble learning}
-Un Ensemble en machine learning, también conocido como ensemble learning, es
+Un Ensemble\cite{Kundu_2023} en machine learning, también conocido como ensemble learning, es
 una técnica que combina múltiples modelos de aprendizaje automático para
 mejorar la precisión y estabilidad de las predicciones. Cada uno de estos
 algoritmos puede tener fortalezas y debilidades en términos de su capacidad
@@ -216,10 +215,10 @@ ellos y obtener soluciones más robustas y de mejor calidad.\medskip
 Cada modelo produce una predicción diferente y las predicciones de los
 distintos modelos se combinan para obtener una única predicción. Existen
 diferentes tipos de Ensemble como el de por votación, bagging, boosting y
-tacking. Cada uno de estos ensemble representa una estrategia diferente para
-combinar las predicciones de los distintos modelos, por ejemplo en el ensamble
-por votación, cada modelo vota por la acción a la que predice, y la resultante
-con mayor número de votos es la predicción final.
+tacking\cite{Ensemble_Algorithms}. Cada uno de estos ensemble representa una 
+estrategia diferente para combinar las predicciones de los distintos modelos, 
+por ejemplo en el ensamble por votación, cada modelo vota por la acción a la 
+que predice, y la resultante con mayor número de votos es la predicción final.
 
 \subsection{Antecedentes}
 Una vez terminada la investigación sobre el estado actual del problema, se
