@@ -28,9 +28,9 @@ explorar todo el espacio de estado. Podemos definir un environment de RL formalm
     todos los posibles movimientos que un jugador puede hacer en su turno.
 
     \item \textbf{Función de transición de estados (T):} Es una función que define la probabilidad de transición 
-    de un estado a otro estado dado una acción tomada por el agente. Se denota como T(s, a, s'), donde s es el 
+    de un estado a otro estado dado una acción tomada por el agente. Se denota como $T(s, a, s')$, donde s es el 
     estado actual, a es la acción tomada y s' es el siguiente estado alcanzado después de tomar la acción a en 
-    el estado s. Formalmente, la función de transición se puede escribir como: T: S x A x S -> [0, 1], donde 
+    el estado s. Formalmente, la función de transición se puede escribir como: $T: S x A x S -> [0, 1]$, donde 
     [0, 1] representa el rango de probabilidades.
 
     \item \textbf{Función de recompensa (R):} Es una función que asigna una recompensa numérica a una transición 
@@ -135,8 +135,6 @@ para ilustrar las futuras explicaciones.
     \label{fig:final-solution}
 \end{figure}
 
-
-
 \subsubsection{Espacio de acciones}
 El espacio de acciones es el conjunto de acciones que puede realizar el agente en cada estado. 
 En nuestro caso, se pueden definir el conjunto de acciones como la lista de todas las tuplas 
@@ -148,5 +146,30 @@ definir las siguientes acciones: (Maquina 1, Operación 1), (Maquina 1, Operaci�
 de acciones disponibles no pueden ser ejecutadas en el estado actual.
 
 \subsubsection{Transición de estados}
+La transición de estado o step es la función que se encarga de actualizar el estado del environment
+en base a la acción que ha realizado el agente. En nuestro caso, la función de transición de estados
+se encarga de actualizar el grafo con los nuevos tiempos de procesamiento de las operaciones y máquinas, 
+así como los gaps existentes entre las operaciones de cada máquina y el resto de atributos de los nodos.\medskip
+
+Para controlar el orden en el que se ejecutan las operaciones y se asignan las máquinas, se ha
+decidido utilizar una cola a modo de historial de acciones. De esta forma, cuando el agente realiza
+una acción, esta se añade a la cola y se ejecuta la operación que se encuentra en la cabeza del historial
+de acciones. El objetivo de este historial no es solo tener un seguimiento del orden de ejecución de las operaciones, sino
+que también permite llevar un control mas atómico del environment. De esta forma, si el agente realiza
+una acción con lo que no estamos de acuerdo, podemos deshacer la acción y volver al estado anterior
+simplemente eliminando la acción de la cabeza del historial. Además, también nos permite cargar o guardar
+estados del environment en cualquier momento de la ejecución del algoritmo.\medskip
+
+El estado inicial del environment se carga a partir de un fichero de texto que contiene la información
+de la instancia del problema. De esta forma, se genera un primer grafo que contiene toda la información
+de la instancia con el historial de acciones vació. Desde este estado inicial, se ejecutan las
+acciones que el agente va seleccionando y se van añadiendo al historial de acciones. Una vez que todas
+las operaciones han sido ejecutadas se llega a un estado final.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{step.png}
+    \caption{Estado inicial del la instancia presente en el cuadro 1}\label{fig:step}
+\end{figure}
 
 \pagebreak
