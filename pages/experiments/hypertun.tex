@@ -17,7 +17,7 @@ La optimización de hiperparámetros es un aspecto importante del desarrollo de 
 deficiente. Un modelo que esté bien optimizado puede mejorar significativamente su 
 capacidad para hacer predicciones precisas y generalizar a datos nuevos y desconocidos.
 
-\subsubsection{Optimización de Hiperparámetros con Optimización Bayesiana}
+\subsubsection{Optimización bayesiana}
 La optimización bayesiana es un método de optimización de hiperparámetros para modelos 
 de Machine Learning que utiliza un enfoque probabilístico para buscar el conjunto 
 óptimo de hiperparámetros. En lugar de evaluar todas las combinaciones posibles de 
@@ -25,7 +25,7 @@ hiperparámetros, la optimización bayesiana utiliza una estrategia de búsqueda
 inteligente que utiliza la información de iteraciones anteriores para buscar en el 
 espacio de búsqueda de manera más eficiente.\medskip
 
-La optimización bayesiana comienza con una función subrogacion que mide la calidad del modelo 
+La optimización bayesiana comienza con una función subrogación que mide la calidad del modelo 
 en un conjunto de datos de prueba. La estrategia de optimización bayesiana consiste en construir 
 un modelo probabilístico de la función objetivo y utilizarlo para decidir qué hiperparámetros 
 probar a continuación. En cada iteración, el modelo actualizado sugiere un conjunto de 
@@ -35,7 +35,7 @@ su rendimiento en el conjunto de prueba. Esta evaluación se utiliza para actual
 modelo probabilístico, y se repite el proceso de búsqueda de hiperparámetros hasta 
 que se encuentra una combinación que satisfaga el criterio de parada.
 
-\subsubsection{Aplicación de Optimización Bayesiana con Optuna}
+\subsubsection{Proceso de optimización con Optuna}
 Optuna utiliza el método de optimización bayesiana para buscar el conjunto óptimo de
 hiperparámetros. Además, mediante Optuna-Dashboard se puede visualizar el proceso de
 optimización, la importancia de cada hiperparámetro, la relación entre los hiperparámetros
