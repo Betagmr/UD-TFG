@@ -1,5 +1,5 @@
 \subsection{Optimización de Hiperparámetros}
-La optimización de hiperparámetros se refiere al proceso de ajustar los parámetros 
+La optimización de hiperparámetros\cite{hypertune} se refiere al proceso de ajustar los parámetros 
 de entrenamiento y configuración de un modelo de Machine Learning con el objetivo de 
 mejorar su desempeño. Los hiperparámetros son variables que no se aprenden automáticamente 
 a partir de los datos, sino que deben ser configurados por el investigador.\medskip
@@ -10,24 +10,19 @@ cada capa, el tamaño del Batch, entre otros. El proceso de optimización implic
 selección cuidadosa de los valores de los hiperparámetros que maximicen el rendimiento 
 del modelo en un conjunto de datos de prueba. Esto generalmente se realiza mediante 
 la búsqueda de un rango de valores posibles para los hiperparámetros y evaluando el 
-rendimiento del modelo en cada combinación posible.\medskip
-
-La optimización de hiperparámetros es un aspecto importante del desarrollo de modelos 
-, ya que una mala selección de hiperparámetros puede llevar a un modelo con un rendimiento 
+rendimiento del modelo en cada combinación posible. La puesta a punto de los hiperparámetros 
+es un aspecto importante del desarrollo de modelos, ya que una mala selección puede llevar a un rendimiento 
 deficiente. Un modelo que esté bien optimizado puede mejorar significativamente su 
 capacidad para hacer predicciones precisas y generalizar a datos nuevos y desconocidos.
 
 \subsubsection{Optimización bayesiana}
-La optimización bayesiana es un método de optimización de hiperparámetros para modelos 
-de Machine Learning que utiliza un enfoque probabilístico para buscar el conjunto 
+La optimización bayesiana\cite{bayesianoptmization} utiliza un enfoque probabilístico para buscar el conjunto 
 óptimo de hiperparámetros. En lugar de evaluar todas las combinaciones posibles de 
 hiperparámetros, la optimización bayesiana utiliza una estrategia de búsqueda más 
 inteligente que utiliza la información de iteraciones anteriores para buscar en el 
-espacio de búsqueda de manera más eficiente.\medskip
-
-La optimización bayesiana comienza con una función subrogación que mide la calidad del modelo 
-en un conjunto de datos de prueba. La estrategia de optimización bayesiana consiste en construir 
-un modelo probabilístico de la función objetivo y utilizarlo para decidir qué hiperparámetros 
+espacio de búsqueda de manera más eficiente. El algoritmo utiliza una función de subrogación que mide la incertidumbre del modelo 
+en un conjunto de datos de prueba. La estrategia de optimización consiste en construir 
+un modelo probabilístico a partir de la función objetivo y utilizarla para decidir qué hiperparámetros 
 probar a continuación. En cada iteración, el modelo actualizado sugiere un conjunto de 
 hiperparámetros que se espera que tengan una buena probabilidad de mejorar el rendimiento 
 del modelo. El modelo se entrena con los nuevos hiperparámetros y se evalúa 
@@ -35,13 +30,18 @@ su rendimiento en el conjunto de prueba. Esta evaluación se utiliza para actual
 modelo probabilístico, y se repite el proceso de búsqueda de hiperparámetros hasta 
 que se encuentra una combinación que satisfaga el criterio de parada.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.29]{bayesiana.png}
+    \caption{Proceso de optimización bayesiana}\label{fig:bayesiana}
+\end{figure}
+
 \subsubsection{Proceso de optimización con Optuna}
 Optuna utiliza el método de optimización bayesiana para buscar el conjunto óptimo de
 hiperparámetros. Además, mediante Optuna-Dashboard se puede visualizar el proceso de
 optimización, la importancia de cada hiperparámetro, la relación entre los hiperparámetros
-y llevar un registro de las mejores combinaciones de hiperparámetros encontradas.\medskip
-
-A continuación se muestra el listado de hiperparámetros:
+y llevar un registro de las mejores combinaciones de hiperparámetros encontradas. A 
+continuación se muestra el listado de hiperparámetros:
 
 \begin{table}[ht]
     \centering
@@ -83,10 +83,10 @@ Una de las ventajas de utilizar Optuna es que se puede visualizar la importancia
 hiperparámetro, en la figura \ref{fig:importance} se puede observar que los hiperparámetros
 que mayor impacto tienen en el rendimiento del modelo son la tasa de aprendizaje, el número
 de instancias pequeñas y el número de capas ocultas. Este conocimiento ha traído consigo
-una mejora en el rendimiento del modelo, en este caso debido a que se ha visto que el
-número optimo de capas ocultas es 1, ha supuesto una mejora en la velocidad del modelo
-ya que no solo se reduce el tiempo de entrenamiento sino que también se reduce el tiempo
-de procedimiento a la hora de realizar predicciones.
+una mejora en el rendimiento del modelo, se ha visto que el número optimo de capas ocultas 
+es de uno lo que ha supuesto una mejora en la velocidad del modelo ya que no solo se reduce 
+el tiempo de entrenamiento sino que también se reduce el tiempo de procedimiento a la hora 
+de realizar predicciones.
 
 \begin{figure}[ht!]
     \centering
@@ -94,3 +94,11 @@ de procedimiento a la hora de realizar predicciones.
     \caption{Importancia de los hiperparámetros}
     \label{fig:importance}
 \end{figure}
+
+Queda claro que la tasa de aprendizaje es el hiperparámetro más importante, seguido
+del número de instancias pequeñas y el número de capas ocultas. Al parecer, la hipótesis
+inicial que se tenía sobre que las redes de grafos debido a su naturaleza son capaces de
+aprender con instancias pequeñas y generalizar a instancias más grandes es cierta. Ya que
+por mucho que se entrenase con instancias grandes, el rendimiento del modelo no mejoraba
+significativamente y en cambio en el aumento de instancias pequeñas si se veía una mejora
+en el rendimiento del modelo.

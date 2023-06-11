@@ -2,10 +2,10 @@
 En esta sección se analizarán los resultados obtenidos durante las diferentes
 fases del proceso de desarrollo del proyecto. Se compararán los resultados
 obtenidos con los resultados de la literatura existente, y se establecerán
-conclusiones y posibles implicaciones para futuras investigaciones.\medskip
+conclusiones y posibles implicaciones para futuras investigaciones.
 
 \begin{table}[ht]
-    \caption{Tiempos de procesamiento estimados para cada producto} 
+    \caption{Tiempos de procesamiento por cada versión del modelo} 
     \centering 
     \begin{tabular}{cccccccccccc}  
 
@@ -25,7 +25,7 @@ conclusiones y posibles implicaciones para futuras investigaciones.\medskip
     MK03 & 935 & 3.583 && 377 & 0.850 && 253 & 0.240 && \textbf{219} & \textbf{0.073} \\  
     MK04 & 173 & 1.877 && 90 & 0.494 && 87 & 0.450 && \textbf{77} & \textbf{0.283} \\
     MK05 & 1647 & 8.578 && 365 & 1.122 && \textbf{190} & \textbf{0.104} && 195 & 0.133 \\
-    MK06 & 546 & 8.578 && 121 & 1.122 && 100 & 0.754 && \textbf{100} & \textbf{0.754} \\
+    MK06 & 546 & 8.578 && 121 & 1.122 && \textbf{100} & \textbf{0.754} && \textbf{100} & \textbf{0.754} \\
     MK07 & 576 & 3.143 && 318 & 1.288 && 179 & 0.287 && \textbf{177} & \textbf{0.273} \\
     MK08 & 1992 & 2.809 && 652 & 0.246 && 591 & 0.130 && \textbf{540} & \textbf{0.032} \\
     MK09 & 1935 & 5.302 && 481 & 0.567 && \textbf{355} & \textbf{0.156} && 368 & 0.198 \\
@@ -38,7 +38,7 @@ conclusiones y posibles implicaciones para futuras investigaciones.\medskip
     \end{tabular}
 \end{table}
 
-En la siguiente tabla se muestran los resultados obtenidos por las
+En la tabla se muestran los resultados obtenidos por las
 diferentes versiones del modelo, y el tiempo total de procesamiento
 para completar todo el proceso de benchmark. A continuación vamos a
 explicar el desempeño de cada una de las versiones del modelo.
@@ -49,26 +49,57 @@ explicar el desempeño de cada una de las versiones del modelo.
         muy malos, y el tiempo de procesamiento es muy elevado. Esto
         se debe a que el modelo no está bien formulado, y es una base
         para el desarrollo e iteración de las siguientes versiones.
-    \item \textbf{Modelo v1:} Esta versión del modelo es la primera que
-        se desarrolló con el objetivo de obtener resultados. Como se
-        puede observar, los resultados obtenidos son muy buenos, y el
-        tiempo de procesamiento es muy bajo. Esto se debe a que se han
-        realizado mejoras internas en el modelo y se ha aplicado una
+    \item \textbf{Modelo v1:} La primera version del modelo ya se desarrolló 
+        con el objetivo de obtener resultados. Como se
+        puede observar, los resultados obtenidos son mucho mejores, y el
+        tiempo de procesamiento se ha reducido significativamente. Esto se 
+        debe a que se han realizado mejoras internas en el modelo y se ha aplicado una
         normalización más sofisticada a los datos de entrada, lo que
-        ha permitido obtener mejores resultados.
-    \item \textbf{Modelo v2:} Para esta version hubo un cambio en el
-        environment, se cambio el paradigma de predicción y en vez
-        de predecir a nivel de operaciones, se predice a nivel de
-        la relación entre maquinas y operaciones. Esto ha permitido
-        reducir la complejidad del espacio de decisiones y obtener
-        mejores resultados.
+        ha permitido obtener mejorar el promedio de los resultados. Sin 
+        embargo, el modelo sigue teniendo problemas para resolver algunas
+        instancias, y el tiempo de procesamiento sigue siendo elevado. Ya que
+        para prácticamente la mitad de las instancias, el gap es mayor a uno,
+        lo que implica que el modelo se encuentra lejos de la solución óptima.
+    \item \textbf{Modelo v2:} Para esta version hubo un cambio muy significativo 
+        en el environment. Hasta este punto la forma en la que el grafo representaba
+        el estado del problema era la explicada en la ultima subsección de
+        \textit{Otras representaciones del problema}. Sin embargo, se decidió suprimir 
+        el cambio de máquina y cambiar completamente el paradigma de predicción. En vez
+        de predecir a nivel de operación, se predice a nivel de la relación existente 
+        entre máquinas y operaciones. Esto ha permitido reducir la complejidad del 
+        espacio de decisiones, y proveer al modelo de una información más completa de
+        los diferentes posibilidades que igual antes no se tenían en cuenta. En este
+        caso, se ha conseguido reducir el gap promedio a 0.347, la mitad que en la
+        versión anterior y ninguna de las instancias de benchmark tiene un gap mayor
+        a uno. Sin embargo el tiempo de procesamiento se ha incrementado, ya que el
+        environment realiza una serie nueva de cálculos para poder obtener la
+        representación del estado del problema.
     \item \textbf{Modelo v3:}: Por último, en esta versión se ha
-        realizado un proceso de optimización de hiperparámetros para obtener
-        las mejores configuraciones posibles para el modelo. Además,
-        se ha implementado la arquitectura del ensemble, que permite
-        ejecutar diferentes versiones del modelo y combinar las
-        ventajas de cada uno para obtener mejores resultados.
+        realizado un proceso de optimización y refinamiento para
+        mejorar la precisión y el tiempo de procesamiento del modelo. 
+        Con la optimización de hiperparámetros se ha conseguido reducir
+        el tiempo de procesamiento hasta un tercio del tiempo original, esto
+        sumado a la tarea de profiling y el uso de la memoria caché para el
+        cálculo de las características, ha permitido reducir el tiempo de procesamiento
+        hasta un 20\% en tiempo de cálculo del environment. Aprovechando la mejora
+        en el tiempo de procesamiento, se ha implementado una arquitectura de
+        ensemble, que permite ejecutar diferentes versiones del modelo y combinar
+        las ventajas de cada uno para obtener mejores resultados. En este caso, se
+        ha seleccionado aquellos modelos que han tenido un mejor desempeño en el
+        proceso de validación, específicamente uno para cada tipo de tamaño de
+        instancia. Esto ha permitido reducir el gap promedio hasta 0.269, y
+        mejorar la consistencia de los resultados, sin afectar demasiado al
+        tiempo de procesamiento. El único problema que se ha encontrado es que
+        a la hora de comparar el impacto que cada modelo tiene sobre el resultado
+        nos encontramos con que el modelo que tiene una mejor puntuación en 
+        instancias grandes es el que aporta un menor valor al resultado final.
 \end{itemize}
+
+Una vez se ha analizado el desempeño de cada una de las versiones del modelo,
+se procede a realizar una comparación entre los resultados obtenidos por el
+mejor modelo y los resultados obtenidos por las diferentes reglas de decisión
+y algoritmos de optimización que se usan como referencia dentro del 
+paper\cite{pbrandimarte}.
 
 \begin{table}[ht]
     \centering
@@ -76,24 +107,25 @@ explicar el desempeño de cada una de las versiones del modelo.
         \hline
                   & spt & lwkr & mwkr & tabu & Modelo v3\\
         \hline
-        MK01      & 65      & 76    & 54    & 49   & 43  \\
-        MK02      & 44      & 48    & 41    & 41   & 35  \\
-        MK03      & 397     & 506   & 296   & 263  & 219 \\
-        MK04      & 109     & 121   & 89    & 89   & 77  \\
-        MK05      & 231     & 291   & 188   & 188  & 195 \\
-        MK06      & 128     & 143   & 139   & 128  & 100 \\
-        MK07      & 188     & 238   & 262   & 188  & 177 \\
-        MK08      & 670     & 1042  & 558   & 523  & 540 \\
-        MK09      & 573     & 723   & 536   & 444  & 368 \\
-        MK10      & 536     & 627   & 524   & 363  & 301 \\
+        MK01      & 65      & 76    & 54    & 49   & \textbf{43}  \\
+        MK02      & 44      & 48    & 41    & 41   & \textbf{35}  \\
+        MK03      & 397     & 506   & 296   & 263  & \textbf{219} \\
+        MK04      & 109     & 121   & 89    & 89   & \textbf{77}  \\
+        MK05      & 231     & 291   & \textbf{188} & \textbf{188}  & 195 \\
+        MK06      & 128     & 143   & 139   & 128  & \textbf{100} \\
+        MK07      & 188     & 238   & 262   & 188  & \textbf{177} \\
+        MK08      & 670     & 1042  & 558   & \textbf{523}  & 540 \\
+        MK09      & 573     & 723   & 536   & 444  & \textbf{368} \\
+        MK10      & 536     & 627   & 524   & 363  & \textbf{301} \\
         \hline
     \end{tabular}
-    \caption{Resultados de las reglas de ordenación}
+    \caption{Resultados de las reglas de ordenación, búsqueda tabú y el modelo v3}
 \end{table}
 
-Para analizar cuál es el mejor modelo en base a los resultados, 
+Para analizar el modelo en base a los resultados, 
 es necesario entender el significado de las siglas asociadas a cada 
 columna. A continuación, una breve descripción de cada una de ellas:
+
 \begin{itemize}
     \item \textbf{spt:} Shortest Processing Time (Tiempo de procesamiento 
     más corto). Esta regla de ordenación asigna prioridad a las tareas con 
@@ -109,16 +141,12 @@ columna. A continuación, una breve descripción de cada una de ellas:
     el espacio de búsqueda de soluciones. 
 \end{itemize}
 
-Observando los resultados, podemos hacer las siguientes observaciones. En la mayoría de 
+Analizando los resultados, podemos hacer las siguientes observaciones. En la mayoría de 
 las instancias, el Modelo V3 logra tiempos de procesamiento más bajos en comparación con 
-los otros métodos. Por ejemplo, en MK01, MK02, MK04, MK06 y MK07, el Modelo V3 tiene 
-tiempos más bajos que el resto de los demás métodos.\medskip
-
-Sin embargo, en algunas instancias, otros métodos también obtienen tiempos competitivos. 
-Por ejemplo, en MK03, el modelo "mwkr" tiene un tiempo de procesamiento más bajo que el Modelo V3.
-En instancias como MK05 y MK07, el Modelo V3 tiene tiempos de procesamiento más altos en comparación 
-con los otros modelos, lo que sugiere que puede haber áreas de mejora en la optimización para estas 
-instancias específicas.\medskip
-
-En general, el Modelo V3 parece ofrecer un buen rendimiento en términos de minimización de tiempos 
-de procesamiento en comparación con los otros modelos en varias instancias.\medskip
+los otros métodos. Como son los casos de MK01, MK02, MK03, MK04, MK06, MK07, Mk09 y Mk10.
+Sin embargo, en algunas instancias como la Mk05 y la MK08, otros métodos también obtienen 
+tiempos competitivos que superan ligeramente al Modelo V3. Además, en MK08, la búsqueda tabú 
+consigue encontrar la mejor solución, mientras que en MK05, tanto la búsqueda tabú como la
+regla de ordenación mwkr obtienen tiempos de procesamiento más bajos que el Modelo V3.
+Estos resultados sugieren que puede haber áreas de mejora dentro del modelo. Hablaremos
+de esto en la sección de conclusiones y trabajo futuro.
