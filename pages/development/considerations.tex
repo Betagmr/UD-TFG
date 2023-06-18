@@ -3,7 +3,7 @@
 La estructura del código se ha diseñado para que sea lo más modular posible,
 de forma que cada modulo tenga una única responsabilidad y sea fácilmente
 intercambiable. La distribución de ficheros y carpetas se puede ver en la 
-\textbf{Figura \ref{fig:estrcutra-ficheros}}.
+Figura \ref{fig:estrcutra-ficheros}.
 
 \begin{figure}[ht]
 \dirtree{%
@@ -84,21 +84,21 @@ un kit de herramientas para garantizar que el proyecto se pueda ejecutar siempre
 condiciones. Para ello, se va ha fijar la versión de Python a la 3.10.6 y el resto de dependencias. 
 
 \begin{itemize}
-    \item \textbf{Pyenv: } Pyenv\cite{pyenv} es un administrador 
+    \item \textbf{Pyenv: } Pyenv \cite{pyenv} es un administrador 
     de versiones de Python que permite tener múltiples versiones de Python instaladas en un mismo sistema 
     y cambiar fácilmente entre ellas. Con Pyenv, es posible instalar distintas versiones de 
     Python y asegurarse de que el código se está ejecutando en la versión correcta. 
     
-    \item \textbf{Virtualenv: } Virtualenv\cite{Virtualenv} es una herramienta que permite crear entornos virtuales de Python para trabajar 
+    \item \textbf{Virtualenv: } Virtualenv \cite{Virtualenv} es una herramienta que permite crear entornos virtuales de Python para trabajar 
     en proyectos específicos. Cada entorno virtual puede tener su propia versión de Python y bibliotecas instaladas, 
     lo que permite aislar proyectos y evitar conflictos entre versiones y dependencias. Con Virtualenv, 
     es posible instalar y gestionar paquetes de Python específicos para cada proyecto, sin afectar 
     al sistema operativo global.
 
-    \item \textbf{Pip-Tools: } Pip-Tools\cite{Pip-tools} es una herramienta de línea de comandos para la gestión de 
+    \item \textbf{Pip-Tools: } Pip-Tools \cite{Pip-tools} es una herramienta de línea de comandos para la gestión de 
     dependencias de Python. Permite especificar las dependencias de un proyecto en un archivo 
-    "pyproject.toml" y asegurarse de que se instalen y se mantengan actualizadas todas las dependencias 
-    de manera controlada. También permite generar archivos "requirements.txt" en el que se especifican las 
+    \textit{pyproject.toml} y asegurarse de que se instalen y se mantengan actualizadas todas las dependencias 
+    de manera controlada. También permite generar archivos \textit{requirements.txt} en el que se especifican las 
     versiones exactas de todas las dependencias, lo que ayuda a garantizar que la reproducibilidad del 
     proyecto se mantenga consistentes y se instalen correctamente.
 
@@ -113,13 +113,13 @@ Entre estas medidas se incluyen linters de código, formateadores de código, an
 herramientas de pruebas unitarias. A continuación se detallan la lista de herramientas:
 
 \begin{itemize}
-    \item \textbf{Git: } Git\cite{Git} es un sistema de control de versiones distribuido que se utiliza para el 
+    \item \textbf{Git:} Git \cite{Git} es un sistema de control de versiones distribuido que se utiliza para el 
     seguimiento y gestión del código fuente. Permite a los desarrolladores trabajar en el mismo código fuente 
     sin necesidad de coordinar su trabajo constantemente. Ofrece la posibilidad de volver a versiones anteriores en 
     caso de errores o cambios no deseados, paralelismo de trabajo mediante el uso de diferentes ramas y cuenta 
     con multitud de plataformas web como GitHub o GitLab para el almacenamiento de repositorios en remoto.
 
-    \item \textbf{Pre-commit: } Pre-Commit\cite{pre-commit} es una herramienta que se utiliza para garantizar que el código 
+    \item \textbf{Pre-commit:} Pre-Commit \cite{pre-commit} es una herramienta que se utiliza para garantizar que el código 
     fuente de un proyecto cumpla con un conjunto de reglas y estándares de calidad antes de que se realice 
     un commit. Pre-Commit se integra con Git y se ejecuta automáticamente antes de cada commit, lo que ayuda 
     a garantizar que el código se mantenga limpio y organizado. Se configura mediante un archivo llamado 
@@ -128,21 +128,21 @@ herramientas de pruebas unitarias. A continuación se detallan la lista de herra
     de estilo de código, herramientas de seguridad, etc. También es posible agregar herramientas 
     personalizadas si es necesario.
 
-    \item \textbf{Ruff:} Ruff\cite{Ruff} es un linter de Python escrito en Rust, es decir una herramienta de 
+    \item \textbf{Ruff:} Ruff \cite{Ruff} es un linter de Python escrito en Rust, es decir una herramienta de 
     análisis estático de código que ayuda a identificar errores de sintaxis, errores de estilo y posibles 
     problemas de rendimiento en el código fuente de un programa. Además, el hecho de que RUFF esté escrito 
     en Rust le da una ventaja en cuanto a velocidad y eficiencia, el uso de Rust significa que RUFF se 
     ejecutará rápidamente y consumirá pocos recursos del sistema, lo que puede ser especialmente beneficioso 
     para proyectos de gran tamaño.
 
-    \item \textbf{Black: } Black\cite{Black} es un formateador de código para Python que se utiliza para garantizar
+    \item \textbf{Black:} Black \cite{Black} es un formateador de código para Python que se utiliza para garantizar
     que el código cumpla con las directrices de estilo de Python PEP 8, lo que mejora la legibilidad 
     del código y ahorra tiempo de desarrollo. Se integra fácilmente en flujos de trabajo existentes 
     y es altamente configurable para adaptarse a diferentes estilos de formato. Black es compatible 
     con diferentes versiones de Python y es una herramienta valiosa para cualquier equipo de desarrollo 
     de Python que busque mejorar la calidad y consistencia del código.
 
-    \item \textbf{Mypy: } Mypy\cite{mypy} es una herramienta de análisis estático para Python que permite a los 
+    \item \textbf{Mypy:} Mypy \cite{mypy} es una herramienta de análisis estático para Python que permite a los 
     desarrolladores verificar el tipado estático de su código. Al analizar el código para detectar 
     problemas de tipado, Mypy ayuda a prevenir errores comunes, mejorar la comprensión del código 
     y ofrece una mayor capacidad de mantenimiento a largo plazo.

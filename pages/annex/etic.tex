@@ -6,22 +6,25 @@ puede ser procesado en diferentes máquinas. El objetivo es minimizar el tiempo
 total de producción utilizando inteligencia artificial, de tal manera que se 
 aprovechen al máximos los recursos acortando a su vez los tiempos de entrega. A 
 continuación, se van a identificar diferentes cuestiones éticas de esta línea de 
-investigación y las consecuencias que pueden acarrear.
+investigación y las consecuencias que pueden acarrear, realizar un análisis desde
+diferentes corrientes éticas y proponer soluciones para mitigar los posibles
+problemas que puedan surgir. 
 
-\subsection{Impacto medioambiental}
+\subsection{Cuestiones éticas}
+\subsubsection{Impacto medioambiental}
 Uno de los principales perjudicados de la implementación de sistemas de cálculo 
 para resolver problemas de combinatoria es sin duda nuestro planeta. Generalmente 
 se requieren grandes cantidades de energía y equipamiento para funcionar, 
 especialmente si se están ejecutando en servidores a gran escala. El objetivo de 
-mi PFG es utilizar redes neuronales de grafos, las cuales únicamente requieren de 
+mi TFG es utilizar redes neuronales de grafos, las cuales únicamente requieren de 
 un desembolso energético inicial, ya que una vez terminado su entrenamiento se 
-vuelven mucho menos costosas energéticamente hablando que los sistemas más populares 
+vuelven mucho menos costosas energeticamente hablando que los sistemas más populares 
 instalados en las empresas. Gracias a esto, estaríamos reduciendo significativamente 
 la huella de carbono que generan estos sistemas, dado que pasaríamos de consumir 
 grandes cantidades de energía, debido al masivo tiempo de cómputo, a una cantidad 
 prácticamente despreciable.
 
-\subsection{Implicaciones en el empleo}
+\subsubsection{Implicaciones en el empleo}
 Un proyecto de este tipo podría tener fuertes implicaciones en el empleo, especialmente 
 si se automatizan tareas que antes eran realizadas por trabajadores humanos. Es 
 importante tener en cuenta cómo se verán afectados los trabajadores y si se tomarán 
@@ -44,7 +47,7 @@ descansos, etc. Es por ello que es nuestra obligación conocer de primera mano l
 condiciones en las que se piensa implementar para evitar casos de explotación laboral.
 
 
-\subsection{Efecto en la calidad del producto}
+\subsubsection{Efecto en la calidad del producto}
 La optimización de la producción puede ser beneficiosa para la empresa, pero es 
 importante considerar cómo afectará a la calidad del mismo. Por mucho que se 
 agilicen los tiempos de producción, si se descuida el producto final por el mero 
@@ -56,7 +59,7 @@ Esto se vuelve especialmente importante si consideramos las posibles consecuenci
 que puede acarrear una mala calidad en productos relacionados directamente con la 
 salud, seguridad, transporte o alimentación.
 
-\subsection{Privacidad y seguridad de los datos}
+\subsubsection{Privacidad y seguridad de los datos}
 La recopilación, almacenamiento y uso de datos personales para el entrenamiento de 
 modelos de IA pueden representar un riesgo para la privacidad de los individuos y 
 empresas. Por lo tanto, es necesario establecer medidas de seguridad para garantizar 
@@ -77,7 +80,7 @@ credenciales de acceso. Además, es importante que se cumplan las leyes y
 regulaciones aplicables en materia de privacidad y seguridad de los datos, como 
 el reglamento general de protección de datos de la Unión Europea.\medskip
 
-\subsection{Responsabilidad corporativa}
+\subsubsection{Responsabilidad corporativa}
 La responsabilidad corporativa en el uso de sistemas de inteligencia artificial 
 es un tema cada vez más relevante en el ámbito empresarial. Si una empresa utiliza 
 IA para gestionar el orden de fabricación y surge algún problema, la responsabilidad 
@@ -94,7 +97,7 @@ la configuración por alguna no válida, reduciendo así el posible error humano
 realizar pruebas exhaustivas, implementar salvaguardas adecuadas y tomar acciones para 
 mitigar el riesgo de problemas. 
 
-\subsection{Innovación científica}
+\subsubsection{Innovación científica}
 Los problemas como el FJSP pertenecen a una familia de problemas matemáticos llamados NP-hard, 
 estos son considerados los más difíciles de resolver en términos de tiempo y no se conoce un 
 algoritmo eficiente que de un resultado exacto en tiempo polinómico. El proporcionar una nueva 
@@ -106,3 +109,129 @@ que identifica este tipo de problemas dentro de la categoría de “Problemas de
 cuales son premiados con 1 millón de dólares. El progreso dentro de este campo es esencial para 
 el avance de la ciencia y la ingeniería, ya que repercute directamente en multitud de campos tan 
 variados como el transporte, la salud, la física, etc.
+
+\subsection{Análisis desde diferentes corrientes éticas}
+\subsubsection{Atendiendo a criterios utilitaristas}
+La corriente ética del utilitarismo sostiene que las acciones deben evaluarse en 
+términos de su capacidad para producir el mayor bienestar o felicidad posible para 
+la mayor cantidad de personas afectadas por ellas. Podemos identificar bajo este punto 
+tres posibles acciones relacionadas con la aplicación del FJSP y analizarlas independientemente.
+
+\begin{enumerate}
+    \item \textbf{Emplear el modelo sin restricciones:} Esto significa que el algoritmo 
+    se aplicaría sin tener en cuenta el bienestar de los trabajadores. Siguiendo esta premisa, 
+    es posible que el algoritmo optimice la programación de trabajos de manera tal que los 
+    trabajadores deban realizar tareas muy exigentes o en horarios desfavorables, lo que podría 
+    llevar a un mayor estrés, fatiga y riesgo de accidentes laborales. Desde el punto de vista del 
+    utilitarismo, esta opción sería éticamente cuestionable ya que, aunque podría aumentar la 
+    eficiencia y la rentabilidad para los empleadores, disminuiría el bienestar de los trabajadores 
+    y, por lo tanto, no produciría la mayor cantidad de felicidad o bienestar general.
+
+    \item \textbf{Emplear el algoritmo con restricciones:} En este caso, se establecerán restricciones 
+    en el algoritmo para garantizar que se respeten los derechos y el bienestar de los trabajadores, 
+    incluso si esto disminuye la eficiencia o rentabilidad. Por ejemplo, se podría establecer que los 
+    trabajadores no trabajen más allá de un cierto número de horas al día, que se les otorgue tiempo 
+    suficiente para descansar y que se les brinde un entorno de trabajo seguro. Esta opción sería 
+    éticamente preferible, ya que se busca maximizar tanto la eficiencia como el bienestar de los 
+    trabajadores, lo que llevaría a una mayor felicidad general.
+
+    \item \textbf{No emplear el algoritmo:} Esta opción implicaría que la empresa continúe 
+    programando los trabajos de manera manual, sin utilizar el algoritmo. Desde el punto de vista 
+    ético sería una mala decisión ya que una mala distribución de tareas derivada de no utilizar 
+    herramientas como la aquí mencionada podría resultar en una menor eficiencia en el trabajo 
+    y en la productividad de la empresa, lo que a su vez podría afectar negativamente a sus 
+    empleados y clientes. Sin embargo, si la implementación del algoritmo no produce una mejora 
+    significativa en la eficiencia o si esta mejora no es suficiente para justificar los posibles 
+    costos en el bienestar de los trabajadores, entonces esta opción podría ser éticamente preferible.
+\end{enumerate}
+
+\subsubsection{Desde la perspectiva de la ética de la virtud}
+Desde esta perspectiva nos preguntamos cómo la resolución del problema podría afectar la 
+integridad y el carácter de los trabajadores de la empresa. Si la solución del problema 
+implicara la violación de valores importantes entonces podría considerarse una acción inmoral 
+desde la perspectiva de la ética de la virtud. Vamos a estudiar como afectan a las personas 
+diferentes aplicaciones del algoritmo teniendo en cuenta algunos criterios.
+
+\begin{itemize}
+    \item \textbf{Priorizar la maximización del beneficio:} Esta opción puede parecer 
+    atractiva en el corto plazo, pero a largo plazo puede conducir a la explotación de 
+    los trabajadores y a la pérdida de la confianza de los clientes y la comunidad en 
+    general. Desde una perspectiva ética aristotélica, esta opción no es virtuosa, ya 
+    que no tiene en cuenta la felicidad de los trabajadores y no contribuye al bienestar 
+    de la comunidad en general.
+    \item \textbf{Buscar un equilibrio entre el bienestar de los trabajadores y 
+    la rentabilidad de la organización:} Esta opción puede parecer la más equilibrada desde 
+    la perspectiva de la ética aristotélica. Al buscar un equilibrio entre los intereses de 
+    los trabajadores y los de la organización, se fomenta tanto la justicia como la prudencia. 
+    Esta opción también puede conducir a una mayor estabilidad financiera y al desarrollo de 
+    relaciones más confiables con los trabajadores mejorando la comunidad en general.
+    \item \textbf{Mantener el estado actual de los trabajadores:} Esta opción puede parecer 
+    noble y virtuosa, pero también puede llevar a un estado financiero insostenible. Desde 
+    una perspectiva ética aristotélica, es importante tener en cuenta tanto la justicia como 
+    la prudencia en la toma de decisiones que afectan tanto a los trabajadores como a la 
+    organización en general. Si se sabe que el algoritmo puede mejorar las condiciones de 
+    trabajo y mejorar la producción, podría darse el caso de que no el utilizar el algoritmo 
+    supiese un retraso de la empresa frente a sus competidores, tal vez incluso suponiendo el 
+    quiebre de la empresa y la desaparición de multitud de puestos de trabajo.
+\end{itemize}
+
+\subsubsection{Bajo la ética principialista Kantiana} 
+La corriente ética principialista kantiana se basa en la idea de que las acciones deben 
+ser juzgadas por la intención detrás de ellas, y no solo por sus consecuencias. Además, 
+se sostiene que las personas deben ser tratadas siempre como fines en sí mismas, y no 
+como medios para lograr fines externos. Aquí se identifican diferentes principios que 
+podrían ser afectados al intentar aplicar este algoritmo en una situación real. 
+
+\begin{itemize}
+    \item \textbf{Principio de autonomía:} se refiere a la capacidad de 
+    las personas para tomar sus propias decisiones y actuar de acuerdo con sus propias 
+    creencias y valores. En este caso, el algoritmo podría afectar la autonomía de los 
+    trabajadores al asignarles tareas sin su consentimiento y sin tener en cuenta sus
+    preferencias. 
+    \item \textbf{Principio de beneficencia:} se refiere a la obligación 
+    de las personas de ayudar a los demás. En este caso, el algoritmo podría afectar
+    negativamente a los trabajadores al suprimir trabajos que podrían ser realizados
+    por ellos, y que podrían ser beneficiosos para ellos.
+
+    \item \textbf{Principio de justicia:} se refiere a la obligación de las
+    personas de tratar a los demás de manera justa. En este caso, el algoritmo podría afectar
+    la justicia de los trabajadores al asignarles tareas que no son capaces de realizar o que
+    no desean realizar.
+
+    \item \textbf{Principio de privacidad:} La IA debe salvaguardar la privacidad y proteger 
+    la confidencialidad de los datos utilizados en el FJSP, respetando las normativas y 
+    regulaciones de protección de datos.
+
+    \item \textbf{Sostenibilidad social:} el desarrollo de la IA debe considerar su 
+    impacto en la sociedad a largo plazo, fomentando beneficios a largo plazo y evitando 
+    consecuencias negativas en términos de empleo, desigualdad o exclusión social.
+
+\end{itemize}
+
+\subsection{Conclusión ética}
+En este apartado, se darán diferentes opciones derivadas del método de análisis, 
+se discutirá la elección final tomada y se darán las razones detrás de esa elección. 
+Se examinará cómo se llegó a la elección final y se explicará por qué se consideró 
+la mejor opción en ese momento.
+
+\begin{itemize}
+    \item Opción 1, aplicar el algoritmo sin tener en cuenta ningún tipo de consideración ética y ateniéndose únicamente a los beneficios de la producción. Esta opción se enfoca únicamente en los beneficios de la producción, sin considerar el impacto en los trabajadores o la ética involucrada en la implementación del algoritmo. Esto podría llevar a una reducción de costos a corto plazo y un aumento de la eficiencia, pero a largo plazo afecta negativamente la moral y el bienestar de los trabajadores. Esta opción queda completamente descartada.
+    \item Opción 2, no aplicar el algoritmo para mantener el estado actual de la empresa y no aplicar ninguna mejora. La segunda opción implica no hacer ningún cambio en la empresa, lo que puede hacer que la empresa se quede atrás en términos de eficiencia y competitividad. Además, esto puede llevar a la insatisfacción de los empleados, ya que no se están implementando mejoras que podrían hacer que su trabajo sea más fácil y eficiente. Por lo tanto, esta opción puede no ser sostenible a largo plazo y puede llevar a la disminución de la productividad y la rentabilidad de la empresa. Aun así, es posible aplicarla en situaciones donde el aplicar el algoritmo no siga las consideraciones previamente mencionadas.
+    \item Opción 3, aplicar el algoritmo de forma equilibrada, esto es teniendo en cuenta las necesidades y preocupaciones de los trabajadores a su vez con una mejora del proceso productivo: La última opción busca un equilibrio entre la eficiencia y las condiciones de los trabajadores. Si se logra este equilibrio, podría aumentar la productividad mientras se asegura el bienestar de los trabajadores. Esta opción es la escogida finalmente, ya que aporta un beneficio tanto a los trabajadores como a la productividad de la empresa en comparación al estado inicial, la idea del equilibrio es que todos se vean beneficiados de este cambio y no se vulneren la integridad de los trabajadores.
+\end{itemize}
+
+\subsubsection{Test de convergencia / divergencia}
+En términos generales las diferencias corrientes convergen de forma uniforme dentro de la 
+opción 3 y parece ser la elección final más adecuada y justa para todas las partes involucradas, 
+ya que esta opción busca un equilibrio entre la eficiencia y la ética, tomando en cuenta las 
+necesidades y preocupaciones de los trabajadores. Además, se refleja la opción 1 como cuestionable 
+éticamente o incluso descartable debido a que todos los planteamientos nos llevan a que no se puede 
+anteponer la producción a los empleados, mientras que la opción 2 ,aunque sí que puede plantear 
+inquietudes en ciertos aspectos, existe mayor divergencia ya que dependiendo de qué corriente 
+se trate puede tener mayor o menor impacto en la decisión final.\medskip
+
+Se ha considerado como la mejor opción la tercera, pero antes de aplicarla será necesario 
+evaluar la situación de la empresa e identificar claramente en qué lugares y bajo qué 
+condiciones será su puesta en producción. Sólo si todas estas condiciones son satisfechas 
+nos encontraremos ante un caso donde se pueda aplicar la opción 3, en otros casos se derivará 
+a la opción 2 de no aplicar el algoritmo.

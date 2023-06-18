@@ -1,9 +1,36 @@
 \section{Conclusiones y trabajo a futuro}
 \subsection{Conclusiones}
+La aplicación de técnicas de RL al problema del FJSP ha sido una experiencia 
+altamente enriquecedora. Se ha logrado obtener resultados que han superado las 
+expectativas iniciales, lo que ha generado una gran satisfacción personal.
+A través de la implementación y experimentación con diversas técnicas, se ha 
+logrado entrenar y mejorar significativamente el modelo durante las diversas 
+fases del mismo consiguiendo resultados muy competitivos que superan a los
+obtenidos por los algoritmos de referencia en la literatura.\medskip
+
+Estos avances demuestran el potencial y la efectividad de  combinar técnicas de 
+IL con la representación estructurada de datos que ofrecen las redes 
+neuronales de grafos. La capacidad del modelo para aprender y replicar comportamientos 
+complejos de manera semejante, demostrando un aprendizaje efectivo a partir de ejemplos 
+proporcionados, brinda importantes perspectivas para aplicaciones futuras en diversas 
+áreas específicamente en problemas de combinatoria.\medskip
+
 El desarrollo completo de este proyecto me ha brindado un gran conocimiento 
 y experiencia, representando una oportunidad invaluable para aprender y mejorar 
 mis habilidades dentro del sector de la IA. Es el proyecto más grande en el que 
-he trabajado hasta la fecha, lo que ha supuesto un gran desafío para llevarlo a cabo. 
+he trabajado hasta la fecha, lo que ha supuesto un gran desafío para llevarlo 
+a cabo.\medskip
+
+En conclusión, a pesar de no contar con una experiencia inicial limitada, los resultados 
+obtenidos en este trabajo son altamente satisfactorios. Se han logrado alcanzar
+los objetivos propuestos y se ha demostrado que el enfoque propuesto es efectivo
+para resolver este tipo de problemas de optimización combinatoria. Además, se ha
+conseguido superar los resultados obtenidos por los algoritmos de referencia en la
+literatura, lo que demuestra el potencial de las técnicas de RL para resolver el FJSP.
+Eso si, todavía queda mucho trabajo por hacer para mejorar el modelo y explorar
+nuevas direcciones de investigación, ya que las técnicas de RL son muy novedosas y
+están en constante evolución.
+
 
 \subsection{Trabajo a futuro}
 A pesar de los avances significativos logrados mediante el enfoque de 
@@ -17,21 +44,21 @@ investigaciones futuras. A continuación, se exploran algunas de estas
     el contexto del FJSP, el Imitation Learning ha demostrado ser una 
     técnica efectiva para aprender políticas de programación de trabajos 
     flexibles a partir de ejemplos expertos. Sin embargo, una posible mejora 
-    sería combinar el Imitation Learning con técnicas de Offline Learning, 
+    sería combinar el Imitation Learning con técnicas de Offline Reinforcement Learning, 
     donde se podría utilizar información adicional para mejorar aún más la 
-    calidad del entrenamiento. Gracias al offline learning sería posible no 
+    calidad del entrenamiento. Gracias al Offline Reinforcement Learning sería posible no 
     solo aprender cual es la acción óptima a tomar, sino también aprender 
     de las acciones que no son tan buenas durante el periodo de entrenamiento, 
-    lo permitiría capturar patrones más complejos y adaptarse mejor a las 
+    lo que permitiría capturar patrones más complejos y adaptarse mejor a las 
     diferentes configuraciones del problema.
    \item \textbf{Exploración mediante RL:} Otra dirección interesante sería explorar 
-   la posibilidad de aplicar RL al modelo pre-entrenado obtenido mediante 
+   la posibilidad de aplicar algoritmos clásicos de RL al modelo pre-entrenado obtenido mediante 
    el IL. Después de entrenar el modelo inicial con ejemplos expertos, 
    se podría realizar un proceso de fine-tuning utilizando RL para refinar 
    y ajustar la política de asignación de trabajos. Esto permitiría adaptar 
    el modelo a diferentes contextos y considerar aspectos dinámicos del 
    FJSP en tiempo real. Para ello, se podría utilizar un algoritmo de
-   RL como PPO.
+   RL como Proximal Policy Optimization (PPO).
    \item \textbf{Extensión del enfoque a otras variantes del FJSP:} El 
    enfoque propuesto se ha centrado específicamente en el FJSP estándar. 
    Sin embargo, existen otras variantes del problema, como el Green Flexible 
@@ -42,3 +69,10 @@ investigaciones futuras. A continuación, se exploran algunas de estas
    considerar múltiples objetivos simultáneamente, como la minimización del 
    make span y el consumo energético.
 \end{itemize}
+
+Estos son solo algunos ejemplos de posibles extensiones y mejoras del trabajo
+que han surgido durante el desarrollo del proyecto. Sin embargo, existen muchas
+otras direcciones de investigación interesantes que se podrían explorar en el
+futuro. En general, el enfoque propuesto es muy flexible y se puede aplicar a
+multitud de técnicas lo que abre un amplio abanico de posibilidades para
+investigaciones futuras.

@@ -1,6 +1,6 @@
 \subsection{Modelado del problema}
 El modelado del problema es una de los campos con mayor potencial dentro del FJSP, trabajar sobre una 
-propuesta solida puede repercutirá directamente en el resultado final, por lo que es necesario
+propuesta solida puede repercutir directamente en el resultado final, por lo que es necesario
 contemplar diferentes alternativas. En este apartado se desarrollará la propuesta final exclusivamente,
 pero se hará referencia a otras alternativas que se han descartado dentro de la sección de "Posibles
 representaciones del problema".
@@ -8,7 +8,7 @@ representaciones del problema".
 \subsubsection{Procedimiento para definir un environment de RL}
 El RL es un tipo de aprendizaje automático que se basa en la interacción de un agente con el environment. 
 Este agente toma decisiones en función de la información que recibe del estado y es recompensado 
-o penalizado acorde a las decisiones que toma y su objetivo es maximizar la recompensa total o return
+o penalizado acorde a las decisiones que toma y su objetivo es maximizar la recompensa total 
 obtenida a lo largo del tiempo. Este tipo de técnicas se pueden utilizar para resolver problemas de optimización 
 combinatoria en los que el espacio de estados es muy grande y no es posible explorar todas sus combinaciones. 
 En casos en los que el espacio de estado del problema es muy grande o cambia continuamente,
@@ -16,26 +16,27 @@ el aprendizaje por refuerzo puede ser útil para encontrar soluciones óptimas s
 explorar todo el espacio de estado. Podemos definir un environment de RL formalmente de la siguiente manera:
 
 \begin{itemize}
-    \item \textbf{Espacio de estados (S):} Es el conjunto de todos los posibles estados del environment. 
-    Puede ser finito o infinito, y se denota como $S = \{s1, s2, ..., sn\}$, donde si S es finito, n representa 
+    \item \textbf{Espacio de estados ($\boldsymbol{\mathcal{S}}$):} Es el conjunto de todos los posibles estados del environment. 
+    Puede ser finito o infinito, y se denota como $\mathcal{S} = \{s_1, s_2, ..., s_n\}$, donde si $\mathcal{S}$ es finito, $n$ representa 
     el número de estados posibles. Por ejemplo, si estuviéramos modelando un juego de ajedrez, el espacio 
     de estados incluiría todas las posibles configuraciones del tablero.
 
-    \item \textbf{Espacio de acciones (A):} Es el conjunto de todas las posibles acciones que un agente 
+    \item \textbf{Espacio de acciones ($\boldsymbol{\mathcal{A}}$):} Es el conjunto de todas las posibles acciones que un agente 
     puede tomar en el environment. Al igual que el espacio de estados, el espacio de acciones puede ser finito 
-    o infinito, y se denota como $A = \{a1, a2, ..., am\}$, donde si es finito, m representa el número de 
+    o infinito, y se denota como $A = \{a_1, a_2, ..., a_m\}$, donde si es finito, $m$ representa el número de 
     acciones posibles. Siguiendo con el ejemplo del juego de ajedrez, el espacio de acciones podría incluir 
     todos los posibles movimientos que un jugador puede hacer en su turno.
 
-    \item \textbf{Función de transición de estados (T):} Es una función que define la probabilidad de transición 
-    de un estado a otro estado dado una acción tomada por el agente. Se denota como $T(s, a, s')$, donde s es el 
-    estado actual, a es la acción tomada y s' es el siguiente estado alcanzado después de tomar la acción a en 
-    el estado s. Formalmente, la función de transición se puede escribir como: $T: S x A x S -> [0, 1]$, donde 
+    \item \textbf{Función de transición de estados ($\boldsymbol{T}$):} Es una función que define la probabilidad de transición 
+    de un estado a otro estado dado una acción tomada por el agente. Se denota como $T(s, a, s')$, donde $s$ es el 
+    estado actual, $a$ es la acción tomada y $s'$ es el siguiente estado alcanzado después de tomar la acción a en 
+    el estado $s$. Formalmente, la función de transición se puede escribir como: 
+    $T: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \ \rightarrow \ [0,1]$, donde 
     [0, 1] representa el rango de probabilidades.
 
-    \item \textbf{Función de recompensa (R):} Es una función que asigna una recompensa numérica a una transición 
-    de estado y acción específica. Se denota como $R(s, a, s')$, donde s es el estado actual, a es la acción tomada, 
-    s' es el siguiente estado alcanzado después de tomar la acción a en el estado s, y $R(s, a, s')$ es 
+    \item \textbf{Función de recompensa ($\boldsymbol{R}$):} Es una función que asigna una recompensa numérica a una transición 
+    de estado y acción específica. Se denota como $R(s, a, s')$, donde $s$ es el estado actual, a es la acción tomada, 
+    $s'$ es el siguiente estado alcanzado después de tomar la acción $a$ en el estado $s$, y $R(s, a, s')$ es 
     la recompensa asociada a esa transición. Formalmente, la función de recompensa se puede escribir 
     como: $R: S x A x S -> R$, donde R es un valor numérico que representa la recompensa. 
 \end{itemize}
@@ -54,7 +55,7 @@ los nodos podrían representar personas, contenidos o grupos y las aristas amist
 miembros de un grupo, etc.\medskip 
 
 En el caso del FJSP es posible representar las operaciones, máquinas y trabajos como nodos del grafo, 
-y a su vez las aristas se pueden utilizan para asignar las restricciones del problema, como los tiempos de 
+y a su vez las aristas se pueden utilizan para asignar las restricciones y características del problema, como los tiempos de 
 procesamiento, las dependencias entre tareas y la asignación de las mismas. Esto permite una representación 
 compacta de la información relevante del problema, siendo una de sus virtudes que, a medida que se aumenta 
 el número de máquinas y operaciones, simplemente se agregarán más nodos y aristas al grafo, lo que no 
@@ -74,22 +75,22 @@ Como se puede ver en la Figura \ref{fig:grafo-heterogeneo}, hemos representado m
 heterogéneo una instancia del FJSP que cuenta con 3 máquinas, 1 trabajo y 3 operaciones. En este caso, 
 la operación 1 solo puede ser ejecutada en la máquina 1 y es por ello que no está conectada con 
 las otras máquinas mediante la relación `Operación Ejecuta Maquina'. Aclarar que por motivos de 
-simplifición, no se han incluido todos los diferentes tipos de relaciones existentes entre 
+simplificación, no se han incluido todos los diferentes tipos de relaciones existentes entre 
 los nodos y solo están representadas las relaciones más importantes. Se debe tomar como una ayuda 
 visual para entender el potencial que tiene este tipo de representaciones, durante las siguientes 
 secciones detallaremos en profundidad todas las características de los nodos y de sus relaciones.
 
 \paragraph{Tipos de nodos y sus características}
 \begin{itemize}
-    \item \textbf{Operación (O):} La operación es la unidad fundamental de trabajo en el FJSP. Cada 
+    \item \textbf{Operación ($\boldsymbol{\mathcal{O}}$):} La operación es la unidad fundamental de trabajo en el FJSP. Cada 
     operación tiene un identificador único, un flag que indica si ha sido ejecutada,
     un flag que indica si es posible ejecutar la operación y el número de máquinas en las que puede
     ser ejecutada.
-    \item \textbf{Trabajo (J):} Representa un conjunto de operaciones que deben ser ejecutadas 
+    \item \textbf{Trabajo ($\boldsymbol{\mathcal{J}}$):} Representa un conjunto de operaciones que deben ser ejecutadas 
     en una secuencia determinada. Cada trabajo tiene un identificador único, el tiempo de 
-    procesamiento de la ultima operación, el numero de operaciones restantes y el gap total
+    procesamiento de la ultima operación que ha sido procesada, el numero de operaciones restantes y el gap total
     existente entre todas las operaciones del job.
-    \item \textbf{Máquina (M):} Representa una máquina dentro del problema del FJSP. Cada máquina 
+    \item \textbf{Máquina ($\boldsymbol{\mathcal{M}}$):} Representa una máquina dentro del problema del FJSP. Cada máquina 
     cuenta con un identificador único, el tiempo de procesamiento acumulado de todas sus operaciones,
     el gap total existente entre todas las operaciones de la máquina y la diferencia entre el tiempo
     de procesamiento entre ella y la máquina con menor tiempo de procesamiento.  
@@ -108,7 +109,7 @@ secciones detallaremos en profundidad todas las características de los nodos y 
     nodos de trabajo con los nodos y máquina para proveer de información a los nodos de la red.
     \item \textbf{Máquina - escucha - Trabajo:} Similar a la relación anterior, pero en este caso
     las relaciones se establecen en sentido opuesto.
-    \item \textbf{Operación - exec - Máquina:} Relación entre las operaciones y las máquinas que indica
+    \item \textbf{Operación - ejecuta - Máquina:} Relación entre las operaciones y las máquinas que indica
     que la operación 1 puede ser ejecutada en la máquina 1. Esta relación cuenta con un atributo que
     indica el tiempo de procesamiento de la operación 1 en la máquina 1.
     \item \textbf{Máquina - ejecuta - Trabajo}: Relación directa entre la máquina y el trabajo, esta
@@ -162,7 +163,7 @@ estados del environment en cualquier momento de la ejecución del algoritmo.\med
 
 El estado inicial del environment se carga a partir de un fichero de texto que contiene la información
 de la instancia del problema. De esta forma, se genera un primer grafo que contiene toda la información
-de la instancia con el historial de acciones vació. Desde este estado inicial, se ejecutan las
+de la instancia con el historial de acciones vacío. Desde este estado inicial, se ejecutan las
 acciones que el agente va seleccionando y se van añadiendo al historial de acciones. Una vez que todas
 las operaciones han sido ejecutadas se llega a un estado final.
 

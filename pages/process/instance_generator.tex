@@ -29,7 +29,7 @@ las rutas optimas de fabricación de las instancias. Estas conforman nuestro con
 entrenamiento, de los cuales extraeremos una pequeña parte por cada grupo de instancias para formar
 diferentes conjuntos de validación. 
 
-\subsection{Modelos de programación matemático}
+\subsection{Modelos de programación matemática}
 Los modelos de programación matemática son una herramienta muy poderosa para resolver problemas
 de optimización, en este caso se va a utilizar una librería de código abierto llamada OR-Tools 
 \cite{ortools} que esta desarrollada por Google y es utilizada para resolver problemas de optimización 
@@ -95,12 +95,12 @@ implementaciones de algoritmos de aprendizaje profundo sobre grafos.
 
 Esta versión del modelo funciona como un agente de RL que recibe como entrada un grafo que representa
 un estado del problema, y como salida devuelve la acción que debe tomar para avanzar al siguiente estado.
-Para el entrenamiento, utilizaremos para entrenar esta arquitectura básica ya que es la que mejor
+Para el entrenamiento, utilizaremos esta arquitectura básica ya que es la que mejor
 en términos de eficiencia para posteriormente aplicar el ensemble learning.
 
 \subsubsection{Procesado de los datos de entrenamiento}
-En la sección anterior se ha visto como se puede obtener una configuración optima de fabricación
-a partir de una instancia del problema, pero para poder entrenar el modelo de deep learning es necesario
+En la sección anterior se ha visto como se puede obtener una una solución óptima partiendo de una 
+instancia del problema, pero para poder entrenar el modelo de deep learning es necesario
 que los datos de entrenamiento estén en un formato que sea capaz de procesar el modelo. Para ello,
 vamos a conformar un dataset que contenga por un lado un estado del problema y por otro lado la
 acción que el experto ha tomado para resolverlo.\medskip
@@ -122,7 +122,8 @@ se pueda cargar y procesar de forma sencilla.
 
 \subsubsection{Funcion de entrenamiento}
 Una vez que se ha generado el dataset de entrenamiento, se puede proceder a entrenar el modelo.
-Se va a definir una función train que recibe como parámetros el modelo, el optimizador, el dataset
+Se va a definir una función train que recibe como parámetros el modelo, el optimizador del modelo
+de Deep Learning, el dataset
 que hemos generado previamente y el tamaño del batch. Esta función se encarga de entrenar el modelo
 y devolver el calculo del loss que se ha obtenido durante el entrenamiento.\medskip
 

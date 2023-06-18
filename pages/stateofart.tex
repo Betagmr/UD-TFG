@@ -15,19 +15,19 @@ métodos suelen ser computacionalmente costosos y, por lo tanto, se aplican
 principalmente a problemas de tamaño reducido.\medskip
 
 En el caso del FJSP, algunos métodos exactos que se han utilizado incluyen la
-programación lineal de enteros mixta (MILP)\cite{milp}, que modela el problema
+programación lineal de enteros mixta (MILP) \cite{milp}, que modela el problema
 como un conjunto de restricciones lineales y una función objetivo lineal, y la
-programación por restricciones (CP)\cite{wikiCP}, que reduce el problema a un
+programación por restricciones (CP) \cite{wikiCP}, que reduce el problema a un
 conjunto de restricciones lógicas y utiliza técnicas de búsqueda para encontrar
 soluciones que satisfagan todas las restricciones. Existen aplicaciones hechas
-por Google como Ortools\cite{ortools} o por IBM como CPLEX\cite{cplex}, que son
+por Google como Ortools \cite{ortools} o por IBM como CPLEX \cite{cplex}, que son
 ejemplos de software que utilizan estos métodos exactos para resolver problemas
 de optimización. Estas aplicaciones son muy útiles para resolver instancias de
 tamaño reducido, pero no son capaces de resolver instancias de tamaño grande,
 debido a la gigantesca a la complejidad que presentan los problemas NP-Hard.
 
 \subsubsection{Metodos heurísticos}
-Un método heurístico\cite{Novoseltseva_2021} es un algoritmo o técnica de
+Un método heurístico \cite{Novoseltseva_2021} es un algoritmo o técnica de
 búsqueda que está diseñado para encontrar soluciones aproximadas a problemas de
 optimización, cuando las soluciones exactas son difíciles de encontrar. Los
 métodos heurísticos son útiles cuando el tiempo y los recursos son limitados, y
@@ -36,9 +36,9 @@ medios exactos. Los métodos heurísticos pueden ser aplicados a una amplia
 variedad de problemas de optimización, incluyendo el FJSP.\medskip
 
 En el caso del FJSP, existen diferentes métodos heurísticos que se han
-utilizado con éxito para encontrar soluciones aproximadas. Un ejemplo es el
-algoritmo de búsqueda tabú\cite{Howell_2023}, que se basa en la exploración de
-soluciones vecinas para encontrar soluciones cada vez mejores. Otro ejemplo es
+utilizado con éxito para encontrar soluciones aproximadas. Algunos ejemplos son
+las reglas de ordenación que se utilizan para determinar el orden de las
+prioridades en la que se asignan las tareas a las máquinas, o los métodos de
 el algoritmo de búsqueda local, que busca soluciones iterativamente en una
 vecindad de soluciones. También se han utilizado enfoques basados en la
 construcción de soluciones parciales donde se construyen soluciones en etapas,
@@ -62,15 +62,17 @@ en la evolución biológica, y el enjambre de partículas, que se basa en el
 comportamiento de las colonias de organismos sociales. Estos algoritmos
 utilizan técnicas como la generación aleatoria de soluciones iniciales y la
 exploración sistemática del espacio de búsqueda para encontrar soluciones
-óptimas o de alta calidad. La exploración implica buscar soluciones en
+óptimas o de alta calidad. Otro ejemplo es el algoritmo de búsqueda tabú 
+\cite{Howell_2023}, que se basa en la exploración de soluciones vecinas para 
+encontrar soluciones cada vez mejores La exploración implica buscar soluciones en
 diferentes regiones del espacio de soluciones, mientras que la explotación se
 refiere a mejorar las soluciones encontradas para acercarse a la solución
 óptima.
 
-\subsubsection{Algoritmos genéticos}
-Los algoritmos genéticos\cite{GeneticAlgorithm_2023} son una técnica de
-optimización inspirada en la evolución biológica. Estos algoritmos imitan el
-proceso de selección natural, reproducción y mutación en la búsqueda de
+\paragraph{Algoritmos genéticos}
+Los algoritmos genéticos \cite{GeneticAlgorithm_2023} son un tipo de 
+algoritmo metaheurístico de optimización inspirada en la evolución biológica. 
+Estos algoritmos imitan el proceso de selección natural, reproducción y mutación en la búsqueda de
 soluciones para problemas de optimización combinatoria. La idea básica de los
 algoritmos genéticos es utilizar la selección natural para encontrar soluciones
 mejores a través de la generación de nuevas soluciones a partir de las ya
@@ -95,7 +97,7 @@ tendencia a sufrir de prematura convergencia lo que genera dificultades para
 escapar de óptimos locales.
 
 \subsubsection{Redes neuronales}
-Las redes neuronales\cite{McNelis_2005} son una clase de algoritmos de
+Las redes neuronales \cite{McNelis_2005} son una clase de algoritmos de
 aprendizaje automático inspirados en la estructura y el funcionamiento del
 cerebro humano. Estas redes están formadas por múltiples capas de neuronas
 interconectadas que procesan información para resolver problemas de
@@ -118,8 +120,25 @@ inconvenientes son una de las técnicas más prometedoras para el FJSP y pueden
 ser utilizadas en combinación con otras técnicas de optimización para mejorar
 la calidad de las soluciones.
 
-\subsubsection{Redes neuronales de grafos}
-Una GNN (Graph Neural Network)\cite{pytorch-geometric} es un tipo de red
+\paragraph{Ensemble learning}
+Un Ensemble \cite{Kundu_2023} en machine learning, también conocido como ensemble learning, es
+una técnica que combina múltiples modelos de aprendizaje automático para
+mejorar la precisión y estabilidad de las predicciones. Cada uno de estos
+algoritmos puede tener fortalezas y debilidades en términos de su capacidad
+para encontrar soluciones óptimas en diferentes instancias del problema. Al
+combinarlos en un Ensemble, se pueden aprovechar las fortalezas de cada uno de
+ellos y obtener soluciones más robustas y de mejor calidad.\medskip
+
+Cada modelo produce una predicción diferente y las predicciones de los
+distintos modelos se combinan para obtener una única predicción. Existen
+diferentes tipos de Ensemble como el de por votación, bagging, boosting y
+tacking \cite{Ensemble_Algorithms}. Cada uno de estos ensemble representa una 
+estrategia diferente para combinar las predicciones de los distintos modelos, 
+por ejemplo en el ensamble por votación, cada modelo vota por la acción a la 
+que predice, y la resultante con mayor número de votos es la predicción final
+
+\paragraph{Redes neuronales de grafos}
+Una GNN (Graph Neural Network) \cite{pytorch-geometric} es un tipo de red
 neuronal que se utiliza para analizar y procesar datos estructurados en forma
 de grafos. A diferencia de los modelos tradicionales que trabajan
 principalmente con datos tabulares, las GNN están diseñadas específicamente
@@ -136,8 +155,9 @@ información\cite{Message_parrs} a través de los nodos de un grafo. Cada nodo e
 el grafo representa un elemento de datos y está asociado con un vector de
 características. La idea principal de una GNN es que cada nodo actualiza su
 vector de características en función de su propio estado actual y la
-información de los nodos vecinos. El proceso de propagación de la información
-en una GNN generalmente sigue los siguientes pasos:
+información de los nodos vecinos. En la figura \ref{fig:gnn-propagation} se puede observar
+el proceso de propagación de la información en una GNN generalmente sigue los 
+siguientes pasos:
 
 \begin{itemize}
       \item \textbf{Inicialización:} cada nodo en el grafo se inicializa con un vector de características,
@@ -157,20 +177,21 @@ en una GNN generalmente sigue los siguientes pasos:
 \end{itemize}
 
 \begin{figure}[ht]
+      \label{fig:gnn-propagation}
       \centering
-      \includegraphics[scale=0.30]{gnnedge.png}
-      \caption{Proceso general de propagación de información en una GNN\cite{DeepFindr_2021}.}\label{fig:gnn-edge}
+      \includegraphics[scale=0.25]{gnnedge.png}
+      \caption{Proceso general de propagación de información en una GNN \cite{DeepFindr_2021}.}\label{fig:gnn-edge}
 \end{figure}
 
 \subsubsection{Reinforcement learning}
-El Reinforcement learning\cite{Bhatt_2018}\cite{Huggingface_DeepRL} es una
+El Reinforcement learning \cite{Bhatt_2018}\cite{Huggingface_DeepRL} es una
 técnica de aprendizaje que se basa en la idea de que un agente interactúa con
 un entorno para aprender a tomar decisiones óptimas en función de las
 recompensa recibida por sus acciones. En el aprendizaje por refuerzo, el agente
 aprende a través de la experiencia, probando diferentes acciones y observando
 las recompensas asociadas con cada una de ellas, con el objetivo de maximizar
 la recompensa total a largo plazo.\medskip
-k
+
 En el contexto del FJSP, el aprendizaje por refuerzo puede ser utilizado para
 entrenar a un agente que toma decisiones secuenciales sobre la asignación de
 tareas a máquinas y la planificación de la secuencia de tareas, con el objetivo
@@ -186,7 +207,7 @@ grandes y complejas. Existen pocos estudios que utilizan el aprendizaje por
 refuerzo para resolver el FJSP, pero los resultados obtenidos son prometedores.
 
 \subsubsection{Imitation learning}
-El IL\cite{SmartLab_2019} una técnica de aprendizaje en la que un modelo aprende a partir de 
+El IL \cite{SmartLab_2019} una técnica de aprendizaje en la que un modelo aprende a partir de 
 ejemplos proporcionados por un experto. En el IL, el modelo trata de imitar 
 la forma en que el experto realiza una determinada tarea, utilizando los 
 ejemplos como guía. Además, el experto no tiene por qué ser una persona física, 
@@ -202,23 +223,6 @@ utilizado para generar nuevas soluciones que imiten el comportamiento del
 experto humano. Una de las principales ventajas del aprendizaje por imitación
 es que los datos que se le ofrece son soluciones de alta calidad, lo que
 agiliza el entrenamiento sin requerir la optimización iterativa del problema.
-
-\subsubsection{Ensemble learning}
-Un Ensemble\cite{Kundu_2023} en machine learning, también conocido como ensemble learning, es
-una técnica que combina múltiples modelos de aprendizaje automático para
-mejorar la precisión y estabilidad de las predicciones. Cada uno de estos
-algoritmos puede tener fortalezas y debilidades en términos de su capacidad
-para encontrar soluciones óptimas en diferentes instancias del problema. Al
-combinarlos en un Ensemble, se pueden aprovechar las fortalezas de cada uno de
-ellos y obtener soluciones más robustas y de mejor calidad.\medskip
-
-Cada modelo produce una predicción diferente y las predicciones de los
-distintos modelos se combinan para obtener una única predicción. Existen
-diferentes tipos de Ensemble como el de por votación, bagging, boosting y
-tacking\cite{Ensemble_Algorithms}. Cada uno de estos ensemble representa una 
-estrategia diferente para combinar las predicciones de los distintos modelos, 
-por ejemplo en el ensamble por votación, cada modelo vota por la acción a la 
-que predice, y la resultante con mayor número de votos es la predicción final.
 
 \subsection{Antecedentes}
 Una vez terminada la investigación sobre el estado actual del problema, se

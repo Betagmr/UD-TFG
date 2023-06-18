@@ -20,11 +20,12 @@ y una mejor calidad del producto o servicio.\medskip
 Sin embargo, la planificación de la producción es un problema complejo debido a la gran 
 cantidad de variables y restricciones que deben tenerse en cuenta, como los tiempos de 
 procesamiento, las capacidades de los recursos, las restricciones de almacenamiento y 
-transporte y las demandas de los clientes, entre otros. Tradicionalmente, este problema 
-se ha abordado utilizando enfoques heurísticos y metaheurísticos como el Job Shop Scheduling 
-Problem (JSP) y el Flexible Shop Scheduling Problem (FJSP) \cite{FJSP-article}, que son problemas 
-combinatorios y conocidos por ser NP-Hard \cite{Derivando_2017}, lo que implica que no existen algoritmos eficientes 
-para encontrar soluciones óptimas en un tiempo razonable.\medskip
+transporte y las demandas de los clientes, entre otros. Tradicionalmente el Job Shop Scheduling 
+Problem (JSP) y el Flexible Shop Scheduling Problem (FJSP) \cite{FJSP-article} se ha abordado 
+utilizando enfoques heurísticos y metaheurísticos. Estos problemas de optimización combinatorios 
+son muy conocidos dentro del los problemas NP-Hard \cite{Derivando_2017}, que son aquellos para 
+los que no existen algoritmos eficientes para encontrar soluciones óptimas en un 
+tiempo razonable.\medskip
 
 Un problema NP-Hard es un tipo de problema de optimización en el cual no se conocen algoritmos 
 exactos que puedan encontrar una solución óptima en un tiempo polinómico. Esto implica que a 
@@ -43,7 +44,7 @@ prometedora técnica de aprendizaje automático. El IL se basa en el concepto de
 de la experiencia de expertos humanos o de sistemas previamente establecidos, y luego utilizar 
 ese conocimiento para guiar la toma de decisiones en situaciones similares. Esto se puede lograr 
 a través de enfoques supervisados, donde se entrena a un modelo para imitar las acciones de 
-expertos humanos, o a través de enfoques de Reinforcement Learning (RL)\cite{Bhatt_2018}, 
+expertos humanos, o a través de enfoques de Reinforcement Learning (RL) \cite{Bhatt_2018}, 
 donde se permite que un modelo aprenda a partir de la retroalimentación y la interacción 
 con el entorno.\medskip
 
@@ -60,7 +61,7 @@ Como una persona apasionada por los retos, encuentro que la planificación de la
 muy estimulante dentro del marco de la industria. Me fascina la idea de que mis decisiones puedan tener un 
 impacto significativo en la eficiencia, productividad y rentabilidad de los procesos de fabricación. Sin embargo, 
 soy consciente de que los problemas que enfrentamos en la planificación de la producción, como el JSP y el FJSP, 
-son conocidos por su alta complejidad y la falta de soluciones eficientes, lo cual representa 
+son conocidos por su alta complejidad y la falta de métodos de resolución eficientes, lo cual representa 
 un mayor desafío.\medskip
 
 Para superar estos desafíos, creo firmemente en la importancia de encontrar soluciones innovadoras y eficientes. 
@@ -72,20 +73,19 @@ para alguien como yo, que disfruta de los retos y de encontrar soluciones creati
 La motivación detrás de mi proyecto actual se basa en la necesidad de desarrollar enfoques de IL,
 una rama del aprendizaje automático que se basa en la imitación de comportamientos de expertos,
 ya que se han demostrado prometedores resultados en otros campos en los que se han aplicado. 
-Además,las soluciones que se desarrollen el contexto del JSP y el FJSP podrían tener aplicaciones 
+Además, las soluciones que se desarrollen el contexto del JSP y el FJSP podrían tener aplicaciones 
 más amplias en otros problemas NP-Hard que enfrenta la industria. Desde la logística hasta la 
 programación de tareas o la asignación de recursos, veo un potencial significativo 
 para impactar la optimización de procesos y la competitividad de las empresas en la industria.
 
 \subsection{Explicación del problema}
-El Flexible job shop scheduling problem, es un desafío de optimización combinatoria 
-que se encuentra en el campo de la la gestión de la producción. En este problema, se busca determinar 
-la secuencia óptima de operaciones a realizar en una serie de máquinas, con el objetivo de minimizar el 
-tiempo total de producción o maximizar la eficiencia del sistema. A diferencia del Job shop scheduling 
-problem, en el que cada operación tiene una ruta de procesamiento fija, las operaciones pueden ser 
-procesadas en varias máquinas diferentes. Además, adicionalmente las operaciones están agrupadas 
-dentro de un trabajo, que es un conjunto de operaciones que deben ser procesadas en una secuencia
-específica.\medskip
+El FJSP es un desafío de optimización combinatoria que se encuentra en el campo de la la gestión de la 
+producción. En este problema, se busca determinar la secuencia óptima de operaciones a realizar en una 
+serie de máquinas, con el objetivo de minimizar el tiempo total de producción o maximizar la eficiencia 
+del sistema. A diferencia del JSP, en el que cada operación tiene una ruta de procesamiento fija, 
+las operaciones pueden ser procesadas en varias máquinas diferentes. Además, adicionalmente las 
+operaciones están agrupadas dentro de un trabajo, que es un conjunto de operaciones que deben 
+ser procesadas en una secuencia específica.\medskip
 
 Existen dos restricción temporales que especifican cuándo puede comenzar 
 cada operación: una operación no puede comenzar hasta que se hayan completado todas las operaciones
@@ -100,7 +100,7 @@ Para ilustrar el problema, supongamos que tenemos una fabrica que produce tres t
 que se definen como los trabajos: A, B y C. Contamos con tres máquinas: M1, M2, M3 y M4 
 y cada producto requiere hacer ciertas operaciones de procesamiento en estas máquinas en 
 un orden específico. Las operaciones y los tiempos de procesamiento estimados para cada 
-producto en cada máquina son los siguientes, destacar que durante el resto del documento
+producto en cada máquina son los siguientes (Cuadro 1.1), destacar que durante el resto del documento
 se reutilizará este ejemplo para ilustrar los conceptos. 
 
 \begin{table}[ht]
@@ -128,8 +128,8 @@ se reutilizará este ejemplo para ilustrar los conceptos.
 \end{table}
 
 Aquí, cada operación se identifica con un número y el tipo de procesamiento se mide en Unidades temporales
-(UD). Las operaciones que no se pueden realizar en una máquina se identifican con un guión (-), lo que 
-significa que en este ejemplo la máquina 1 podría procesar las operaciones 1, 3, 4 y 5 pero 
+(UT). Las operaciones que no se pueden realizar en una máquina se identifican con un guión (-), lo que 
+significa que en este ejemplo la máquina 1 podría procesar las operaciones 1, 3, 4 y 5, pero 
 no la operación 2. Una vez entendida la distribución de tiempos de procesamiento, podemos visualizar
 el resultado de la planificación en el siguiente diagrama, donde cada caja representa una operación 
 y cada línea representa una máquina.
@@ -137,20 +137,21 @@ y cada línea representa una máquina.
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.43]{ejemplo.png}
-    \caption{Ejemplo de planificación óptima}
+    \caption{Posible solución del ejemplo mostrado.}
     \label{fig:example-solution}
 \end{figure}
 
 La distribución final de tiempos para cada máquina es la siguiente: 
 \begin{itemize}
-    \item \textbf{maquina 1}, OP 3 (3 UT) + 0 GAP = 3 UT 
-    \item \textbf{maquina 2}, OP 4 (2 UT) + 3 GAP = 5 UT 
-    \item \textbf{maquina 3}, OP 1 (2 UT) + OP 2 (1 UT) + 0 GAP = 3 UT 
-    \item \textbf{maquina 4}, OP 5 (4 UT) + 0 GAP = 4 UT. 
+    \item \textbf{Máquina 1}, OP 3 (3 UT) + 0 GAP = 3 UT 
+    \item \textbf{Máquina 2}, OP 4 (2 UT) + 3 GAP = 5 UT 
+    \item \textbf{Máquina 3}, OP 1 (2 UT) + OP 2 (1 UT) + 0 GAP = 3 UT 
+    \item \textbf{Máquina 4}, OP 5 (4 UT) + 0 GAP = 4 UT. 
 \end{itemize}
 
 Ya que el tiempo total de producción es el tiempo de finalización de la máquina más lenta, 
-que es la máquina 2, son 5 UT. Nótese que el gap de la máquina 2 es derivado de la dependencia
+que es la máquina 2, son 5 UT o como se menciona en la literatura un makespan de 5.
+Nótese que el gap de la máquina 2 es derivado de la dependencia
 existente entre la operación 4 y la operación 3 por pertenecer ambos al trabajo B, 
 por lo tanto, antes de que dicha maquina empiece con la operación 4 tiene que esperar 
 a que se procese la máquina 1.
@@ -177,7 +178,7 @@ sección.
     del proyecto, que se describe mediante una lista concisa de elementos que se encuentran 
     dentro y fuera del proyecto.
     \item \textbf{Metodología.} Se describe la metodología de trabajo utilizada durante el
-    desarrollo del proyecto, asi como la metodología creada para la resolución del problema.
+    desarrollo del proyecto, así como la metodología creada para la resolución del problema.
     \item \textbf{Memoria técnica.} Se explican en detalle todos los aspectos técnicos del mismo. 
     Se incluyen la arquitectura del sistema integral, las herramientas utilizadas para el desarrollo, 
     los requisitos del sistema y las incidencias encontradas entre otros.

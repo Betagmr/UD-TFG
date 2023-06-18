@@ -12,12 +12,12 @@ modelo pueda aprender de manera efectiva y generar predicciones precisas. En el 
 específico de los grafos, el estado de un nodo puede almacenar diferentes tipos de datos, 
 como números, referencias a otros nodos, etc, lo que puede generar problemas a la hora 
 de la normalización. Otro lugar done también surgen problemas de normalización es en los 
-datos de las aristas, que representan las conexiones entre nodos. Al respresentar un 
-nodo como una lista de características, estas diferentes caracteristicas de pueden 
+datos de las aristas, que representan las conexiones entre nodos. Al representar un 
+nodo como una lista de características, estas diferentes características de pueden 
 requerir de diferentes técnicas de normalización.\medskip
 
-La soluación que se ha adoptado en este proyecto es la de normalizar los datos de
-cada entrada de manera independiente. De esta manera, se evitan problemas de colision 
+La solución que se ha adoptado en este proyecto es la de normalizar los datos de
+cada entrada de manera independiente. De esta manera, se evitan problemas de colisión 
 entre los diferentes nodos y aristas de un mismo grafo. Esta solución, sin embargo,
 trae problemas de escalabilidad ya que cada vez que se implementa y/o añade una nueva
 característica al modelo, es necesario modificar el código de normalización de los datos.\medskip
@@ -71,6 +71,7 @@ consumen y optimizarlas.\medskip
         \centering
         \includegraphics[width=0.85\textwidth]{before-fix.png} 
         \caption{Environment no optimizado}
+        \label{fig:before-fix}
     \end{minipage}\hfill
     \begin{minipage}{0.47\textwidth}
         \centering
@@ -81,7 +82,8 @@ consumen y optimizarlas.\medskip
 \end{figure}
 
 En este caso en concreto en el que se puede ver la diferencia de rendimiento
-entre el código no optimizado y el código optimizado, debido a que la función
+entre el código no optimizado (Figura \ref{fig:before-fix}) y el código 
+optimizado (Figura \ref{fig:after-fix}), debido a que la función
 \textit{job\_to\_op} del environments que se encarga de transformar un trabajo
 en una operación para poder actualizar el estado del grafo, se ejecuta un gran
 número de veces durante el entrenamiento. Por ello, se ha optimizado el código
