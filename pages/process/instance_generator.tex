@@ -15,8 +15,8 @@ representados en la siguiente tabla.
         Max. num Trabajos    & 5    & 10    & 20    \\
         Min. num Operaciones & 2    & 5     & 5     \\
         Max. num Operaciones & 5    & 10    & 10    \\
-        Min. num Maquinas    & 2    & 4     & 8     \\
-        Max. num Maquinas    & 4    & 8     & 16    \\
+        Min. num Máquinas    & 2    & 4     & 8     \\
+        Max. num Máquinas    & 4    & 8     & 16    \\
         \hline
     \end{tabular}
     \caption{Conjuntos de tamaños de instancias}
@@ -168,8 +168,8 @@ batch de entrenamiento los grafos que habíamos generado previamente y se le pas
 realice la predicción. Una vez que se tiene la predicción, se calcula el loss y se compara
 con la solución que ha tomado el experto para ese estado. Una de las particularidades que
 tiene el modelo es que la predicción que devuelve se realiza sobre el tensor que representa
-la relación entre las operaciones y las maquinas, por lo que aunque aumente o disminuya 
-el numero de operaciones o maquinas no sera necesario modificar el modelo, ya que este 
+la relación entre las operaciones y las máquinas, por lo que aunque aumente o disminuya 
+el numero de operaciones o máquinas no sera necesario modificar el modelo, ya que este 
 se adapta a diferentes dimensionalidades.
 
 \subsubsection{Arquitectura del ensemble}

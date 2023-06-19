@@ -31,7 +31,7 @@ explorar todo el espacio de estado. Podemos definir un environment de RL formalm
     de un estado a otro estado dado una acción tomada por el agente. Se denota como $T(s, a, s')$, donde $s$ es el 
     estado actual, $a$ es la acción tomada y $s'$ es el siguiente estado alcanzado después de tomar la acción a en 
     el estado $s$. Formalmente, la función de transición se puede escribir como: 
-    $T: \mathcal{S} \times \mathcal{A} \times \mathcal{S} \ \rightarrow \ [0,1]$, donde 
+    $T: \mathcal{S} \times \mathcal{A} \times \mathcal{S'} \ \rightarrow \ [0,1]$, donde 
     [0, 1] representa el rango de probabilidades.
 
     \item \textbf{Función de recompensa ($\boldsymbol{R}$):} Es una función que asigna una recompensa numérica a una transición 
@@ -74,7 +74,7 @@ Esto permite realizar cálculos y análisis en tiempo razonable, incluso cuando 
 Como se puede ver en la Figura \ref{fig:grafo-heterogeneo}, hemos representado mediante un grafo
 heterogéneo una instancia del FJSP que cuenta con 3 máquinas, 1 trabajo y 3 operaciones. En este caso, 
 la operación 1 solo puede ser ejecutada en la máquina 1 y es por ello que no está conectada con 
-las otras máquinas mediante la relación `Operación Ejecuta Maquina'. Aclarar que por motivos de 
+las otras máquinas mediante la relación `Operación Ejecuta Máquina'. Aclarar que por motivos de 
 simplificación, no se han incluido todos los diferentes tipos de relaciones existentes entre 
 los nodos y solo están representadas las relaciones más importantes. Se debe tomar como una ayuda 
 visual para entender el potencial que tiene este tipo de representaciones, durante las siguientes 
@@ -141,9 +141,9 @@ El espacio de acciones es el conjunto de acciones que puede realizar el agente e
 En nuestro caso, se pueden definir el conjunto de acciones como la lista de todas las tuplas 
 formadas por las operaciones que pueden ser ejecutadas en cada estado y las máquinas en las que
 pueden ser ejecutadas. Por ejemplo, en el estado de la Figura \ref{fig:final-solution} se pueden
-definir las siguientes acciones: (Maquina 1, Operación 1), (Maquina 1, Operación 3), 
-(Maquina 2, Operación 1), (Maquina 2, Operación 3), (Maquina 2, Operación 3), (Maquina 3, Operación 1), 
-(Maquina 4, Operación 5). En este caso, todas aquellas operaciones que no se encuentren en la lista 
+definir las siguientes acciones: (Máquina 1, Operación 1), (Máquina 1, Operación 3), 
+(Máquina 2, Operación 1), (Máquina 2, Operación 3), (Máquina 2, Operación 3), (Máquina 3, Operación 1), 
+(Máquina 4, Operación 5). En este caso, todas aquellas operaciones que no se encuentren en la lista 
 de acciones disponibles no pueden ser ejecutadas en el estado actual.
 
 \subsubsection{Transición de estados}
